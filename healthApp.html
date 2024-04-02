@@ -30,6 +30,7 @@ body {
   transition: 0.5s;
   font-size: 26px;
   font-family: 'Bebas Neue';  
+  
 }
 
 
@@ -43,9 +44,8 @@ body {
 
 .tabcontent {
   display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
   border-top: none;
+  width:100%;
 }
 
 .exercise-btn {
@@ -84,7 +84,7 @@ th {
   color: #444;
   cursor: pointer;
   padding: 18px;
-  width: 560px;
+  width: 100%;
   text-align: left;
   overflow:hidden;
   transition: 0.4s;
@@ -100,7 +100,7 @@ th {
   padding: 0 18px;
   display: none;
   overflow:hidden;
-  height:200px;
+  height:25%;
 }
 
 /* END CODE */
@@ -118,11 +118,7 @@ th {
   /* padding: 10px 20px; */
 }
 
-/* The H2's before each box */
-#summary-header{
-  margin-top: 40px;
-  /* padding-top:30px; */
-}
+
 /* Profile Button */
 #profile{
   float:left;
@@ -143,36 +139,62 @@ th {
   /* padding: 10px; */
 }
 /* Div that has all the progress bars. The dotted things on screen */
-.summary-box{
-  margin-top: 15px;
-  padding: 10px 8px;
-  border-style: solid;
-  border-radius: 25px;
-  display:flex;
-  height: 30%;
-  max-height: 33%;
-  width: 90%;
-}
+
  .summary-box:after{
   content:"";
   display: table;
   clear: both;
 } 
 .main-content{
-  overflow-y:auto;
-  height: 90%;
+  display:grid;
+  grid-template-rows: repeat(3, 1fr);
   width: 100%;
-  margin: 10px;
-  padding:10px;
+  align-content: center;
+}
+.main-content > .summary-content{
+  /* background-color: red; */
+  height:100%;
+  width:100%;
+}
+.summary-box{
+  border-style: solid;
+  border-radius: 25px;
+  width: 90%;
+  height:70%;
 }
 .Meal-Plan{
     overflow-y:auto;
-      height: 640px;
-      width: 580px;
+      height: 100%;
+      width: 100%
 }
-.scrollable{
-    overflow-y:scroll;
-    height: 20%;
+.slide-container{
+  width:100%;
+  position:relative;
+  margin:auto;
+}
+.meals{
+  display:none;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 /* END CODE */
 </style>
@@ -207,69 +229,62 @@ th {
           <button id = "setting" onclick="openTab(event, 'sett')">Settings</button>
         </div>
             <div class ="main-content">
-              <h2 id="summary-header">Calories at a Glance</h2>
-              <div class ="summary-box"> 
-                     <div class = "column left">
+              <div class="summary-content">
+                <h2 id="summary-header">Calories at a Glance</h2>
+                <div class = "summary-box">
+                  <div class ="column left">
                     <h3>Calories Progress Bar</h3>
                     <label for="calories">Calorie Progress:</label>
-                  <progress id="calories" value="1502" max="2000" style="width:130px"> 32kcal </progress>
+                    <progress id="calories" value="1502" max="2000" style="width:130px"> 32kcal </progress>
                   </div>
-                  <div class="column right">
+                  <div class ="column right">
                     <h3>Nutrient Progress Bars</h3>
                     <label for="Macro Nutrients">Macro Nutrient Progress:</label>
-                  <progress id="Macro Nutrients" value="32" max="100"> 32% </progress>
-                  <br>
-                  <label for="Micro Nutrients">Micro Nutrient Progress:</label>
-                  <progress id="Micro Nutrients" value="32" max="100"> 32% </progress>
-                  <br>
-                  <label for="Protein">Protein</label>
-                  <progress id="Protein" value="32" max="100"> 32% </progress>
+                    <progress id="Macro Nutrients" value="32" max="100"> 32% </progress>
+                    <br>
+                    <label for="Micro Nutrients">Micro Nutrients:</label>
+                    <progress id="Micro Nutrients" value="32" max="100"> 32% </progress>
+                    <br>
+                    <label for="Protein">Protein</label>
+                    <progress id="Protein" value="32" max="100"> 32% </progress>
                   </div>
+                </div>
               </div>
-            <h2 id = "summary-header">Exercise Summary</h2>
-            <div class ="summary-box"> 
-                <div class="column left">
-                  <h3>Exercise minutes</h3>
-                  <label for="minutes">Minutes Exercised</label>
-                  <progress id="minutes" value="100" max="300" style="width:130px"> 32kcal </progress>
+              <div class="summary-content">
+                <h2 id = "summary-header">Exercise Summary</h2>
+                <div class ="summary-box"> 
+                  <div class = "column left">
+                    <h3>Exercise minutes</h3>
+                    <label for="minutes">Minutes Exercised</label>
+                    <progress id="minutes" value="100" max="300" style="width:130px"> 32kcal </progress>
+                  </div>
+                  <div class = "column right">
+                    <h3>Calendar Showcasing previous exercises</h3>
+                    <br>
+                    <img src = "https://1.bp.blogspot.com/-shZmJtOAdCs/UwBhhoQrqwI/AAAAAAAATCM/BmSRg_TAMrA/s1600/simple_html_calendar_by_justin_woodie.png" style ="width:150px; height:100px; float:none" >
+                  </div>
                 </div>
-                <div class="column right">
-                  <h3>Calendar Showcasing previous exercises</h3>
-                  <br>
-                  <img src = "https://1.bp.blogspot.com/-shZmJtOAdCs/UwBhhoQrqwI/AAAAAAAATCM/BmSRg_TAMrA/s1600/simple_html_calendar_by_justin_woodie.png" style ="width:150px; height:100px; float:none" >
-                </div>
-              </div> 
-          
-            <h2 id="summary-header">Meal Plan Quick Look</h2>
-              <div class="summary-box">
-                  <div class ="column" style = "width:33%">
+              </div>
+              <div class="summary-content">
+                <h2 id = "summary-header">Quick look at Meals</h2>
+                <div class="summary-box">
+                  <div class = "slide-container">
+                    <div class = 'meals'>
                       <h3>Meal 1</h3>
-                      <p class="scrollable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend erat ut nisl placerat maximus. Mauris posuere tortor ex, luctus sodales dolor pulvinar pellentesque. Vivamus dapibus, dolor vel ullamcorper accumsan, risus nibh volutpat turpis, eget efficitur lorem libero in libero. Sed sed ante vitae ligula dapibus volutpat ut vitae eros. Donec auctor, lacus eget lobortis facilisis, leo metus finibus tellus, id congue urna quam eget dui. Sed laoreet nibh sit amet nisi dictum commodo. Nam nec facilisis turpis. Mauris a odio finibus, congue est sit amet, varius ex. Fusce maximus, tortor eu maximus blandit, ligula magna pharetra turpis, id ultricies velit ipsum a nisi. Nullam rhoncus lacus non tristique scelerisque. Praesent ac justo sed odio tristique auctor sed non nisl. Praesent id dui eget augue interdum fringilla. Pellentesque pharetra dapibus erat, sit amet venenatis leo volutpat vitae.
-                      
-                      Quisque non tellus felis. Ut ultrices vulputate lorem ac dignissim. Integer porta sit amet enim ac rutrum. Praesent ac felis velit. Donec ante libero, varius eu eros a, luctus lacinia nisl. Ut quis felis eu odio laoreet volutpat eu id velit. Nam placerat ex nisi, sit amet sollicitudin lacus tempor vel. Morbi molestie quam vitae lacus sagittis laoreet. Donec nec laoreet ligula. Fusce ut mauris eu libero viverra lobortis. Sed mattis id elit at pretium. Pellentesque quis ex quis nunc fringilla finibus. Maecenas pulvinar convallis eros sed congue. Sed tincidunt luctus urna, sit amet auctor nibh porta ultrices. Sed nunc est, congue ac placerat quis, vestibulum sit amet sapien. Suspendisse potenti.
-                      
-                      Ut laoreet pharetra efficitur. Nunc sit amet luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut magna in, vestibulum congue magna. Integer vitae egestas ipsum, in ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec pharetra dolor blandit quis.</p>
-                      <div>
-                          <button onclick="openTab(event, 'MEAL PLAN')">Take a look</button>
-                      </div>
-                  </div>
-                  <div class ="column" style = "width:33%">
-                        <h3>Meal 2</h3>
-                        <p class="scrollable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin semper ac diam at vulputate. Donec volutpat enim metus, sit amet rutrum lacus ornare nec. Curabitur bibendum dui eu elit aliquet ultricies. Pellentesque ut convallis dolor, sit amet luctus dolor. Aenean dictum turpis nec eros consectetur, eget ullamcorper nunc vulputate. Vestibulum a turpis lacus. Proin consequat elit ac lacus malesuada, convallis molestie nulla posuere. Pellentesque arcu tellus, dignissim eu posuere sed, consequat non nisi. Suspendisse in volutpat orci. Ut rutrum lacus ac elit placerat fermentum. Integer dui metus, mollis in hendrerit sit amet, dignissim sed lacus. In fermentum, ante nec fermentum sollicitudin, lacus lacus auctor nulla, id maximus lorem lorem in turpis.
-                        
-                        Morbi tristique quam metus, cursus dignissim purus porta vitae. Duis suscipit erat eu massa elementum, eu sodales magna molestie. Morbi lectus tortor, mollis et iaculis sit amet, fringilla et lorem. Vestibulum vehicula dolor a commodo mattis. Donec mattis tellus lorem, non lacinia ex consequat in. Aliquam faucibus sem in quam bibendum tempor. Morbi sed consectetur ipsum, in varius massa. Ut id faucibus risus, eget molestie purus. Curabitur laoreet pretium nulla vel vestibulum. Suspendisse scelerisque imperdiet imperdiet. Quisque justo purus, malesuada a porta tincidunt, congue lobortis ex.</p>
-                        <button onclick="openTab(event, 'MEAL PLAN')">Take a look</button>
-                </div>
-                <div class ="column" style = "width:33%">
+                      <p>This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits.</p>
+                    </div>
+                    <div class = 'meals'>
+                      <h3>Meal 2</h3>
+                      <p>This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits. Extra text to indicate a different meal!</p>
+                    </div>
+                    <div class = 'meals'>
                       <h3>Meal 3</h3>
-                      <p class="scrollable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend erat ut nisl placerat maximus. Mauris posuere tortor ex, luctus sodales dolor pulvinar pellentesque. Vivamus dapibus, dolor vel ullamcorper accumsan, risus nibh volutpat turpis, eget efficitur lorem libero in libero. Sed sed ante vitae ligula dapibus volutpat ut vitae eros. Donec auctor, lacus eget lobortis facilisis, leo metus finibus tellus, id congue urna quam eget dui. Sed laoreet nibh sit amet nisi dictum commodo. Nam nec facilisis turpis. Mauris a odio finibus, congue est sit amet, varius ex. Fusce maximus, tortor eu maximus blandit, ligula magna pharetra turpis, id ultricies velit ipsum a nisi. Nullam rhoncus lacus non tristique scelerisque. Praesent ac justo sed odio tristique auctor sed non nisl. Praesent id dui eget augue interdum fringilla. Pellentesque pharetra dapibus erat, sit amet venenatis leo volutpat vitae.
-                      
-                      Quisque non tellus felis. Ut ultrices vulputate lorem ac dignissim. Integer porta sit amet enim ac rutrum. Praesent ac felis velit. Donec ante libero, varius eu eros a, luctus lacinia nisl. Ut quis felis eu odio laoreet volutpat eu id velit. Nam placerat ex nisi, sit amet sollicitudin lacus tempor vel. Morbi molestie quam vitae lacus sagittis laoreet. Donec nec laoreet ligula. Fusce ut mauris eu libero viverra lobortis. Sed mattis id elit at pretium. Pellentesque quis ex quis nunc fringilla finibus. Maecenas pulvinar convallis eros sed congue. Sed tincidunt luctus urna, sit amet auctor nibh porta ultrices. Sed nunc est, congue ac placerat quis, vestibulum sit amet sapien. Suspendisse potenti.
-                      
-                      Ut laoreet pharetra efficitur. Nunc sit amet luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut magna in, vestibulum congue magna. Integer vitae egestas ipsum, in ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec pharetra dolor blandit quis.</p>
-                      <button onclick="openTab(event, 'MEAL PLAN')">Take a look</button>
-              </div>
-                                
+                      <p>This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits. Even more text to drive the point home! </p>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  </div>
+                </div>
               </div>
           </div>
         </div>
@@ -535,11 +550,30 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
-// Get element  id="defaultOpen" and click on it
-// document.getElementById("defaultOpen").click();
+let slideIndex = 1;
+showSlides(slideIndex);
 
-// Code from W3SCchools for the buttons
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("meals");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex-1].style.display = "block";
+} 
 </script>
 
 </body>
