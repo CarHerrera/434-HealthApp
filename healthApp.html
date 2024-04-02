@@ -8,20 +8,13 @@ body {
   padding: 0;
 }
 
-.container {
-  width: 610px;
-  height: 750px;
-  margin: auto;
-  border: 1px solid #000;
-  position: relative;
-}
 .tab {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr; /* just for grid of bottom buttons*/
   overflow: hidden;
   border: 1px solid #757575;
   background-color: #01baef;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width:100%;
 }
@@ -114,11 +107,11 @@ th {
 /* Carlos Code for Home page and Meal Plan */
 .left{
   /* padding: 10px; */
-  width: 152px;
+  width: 33%;
 }
 .right{
   /* padding: 10px; */
-  width:456px;
+  width:66%;
 }
 .settings-container{
   display: flex;
@@ -156,8 +149,9 @@ th {
   border-style: solid;
   border-radius: 25px;
   display:flex;
-  height: 250px;
-  width: 500px;
+  height: 30%;
+  max-height: 33%;
+  width: 90%;
 }
  .summary-box:after{
   content:"";
@@ -166,8 +160,8 @@ th {
 } 
 .main-content{
   overflow-y:auto;
-  height: 680px;
-  width: 580px;
+  height: 90%;
+  width: 100%;
   margin: 10px;
   padding:10px;
 }
@@ -178,7 +172,7 @@ th {
 }
 .scrollable{
     overflow-y:scroll;
-    height: calc(100% - 100px);
+    height: 20%;
 }
 /* END CODE */
 </style>
@@ -248,7 +242,7 @@ th {
           
             <h2 id="summary-header">Meal Plan Quick Look</h2>
               <div class="summary-box">
-                  <div class ="column" style = "width:203px">
+                  <div class ="column" style = "width:33%">
                       <h3>Meal 1</h3>
                       <p class="scrollable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend erat ut nisl placerat maximus. Mauris posuere tortor ex, luctus sodales dolor pulvinar pellentesque. Vivamus dapibus, dolor vel ullamcorper accumsan, risus nibh volutpat turpis, eget efficitur lorem libero in libero. Sed sed ante vitae ligula dapibus volutpat ut vitae eros. Donec auctor, lacus eget lobortis facilisis, leo metus finibus tellus, id congue urna quam eget dui. Sed laoreet nibh sit amet nisi dictum commodo. Nam nec facilisis turpis. Mauris a odio finibus, congue est sit amet, varius ex. Fusce maximus, tortor eu maximus blandit, ligula magna pharetra turpis, id ultricies velit ipsum a nisi. Nullam rhoncus lacus non tristique scelerisque. Praesent ac justo sed odio tristique auctor sed non nisl. Praesent id dui eget augue interdum fringilla. Pellentesque pharetra dapibus erat, sit amet venenatis leo volutpat vitae.
                       
@@ -259,14 +253,14 @@ th {
                           <button onclick="openTab(event, 'MEAL PLAN')">Take a look</button>
                       </div>
                   </div>
-                  <div class ="column" style = "width:203px">
+                  <div class ="column" style = "width:33%">
                         <h3>Meal 2</h3>
                         <p class="scrollable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin semper ac diam at vulputate. Donec volutpat enim metus, sit amet rutrum lacus ornare nec. Curabitur bibendum dui eu elit aliquet ultricies. Pellentesque ut convallis dolor, sit amet luctus dolor. Aenean dictum turpis nec eros consectetur, eget ullamcorper nunc vulputate. Vestibulum a turpis lacus. Proin consequat elit ac lacus malesuada, convallis molestie nulla posuere. Pellentesque arcu tellus, dignissim eu posuere sed, consequat non nisi. Suspendisse in volutpat orci. Ut rutrum lacus ac elit placerat fermentum. Integer dui metus, mollis in hendrerit sit amet, dignissim sed lacus. In fermentum, ante nec fermentum sollicitudin, lacus lacus auctor nulla, id maximus lorem lorem in turpis.
                         
                         Morbi tristique quam metus, cursus dignissim purus porta vitae. Duis suscipit erat eu massa elementum, eu sodales magna molestie. Morbi lectus tortor, mollis et iaculis sit amet, fringilla et lorem. Vestibulum vehicula dolor a commodo mattis. Donec mattis tellus lorem, non lacinia ex consequat in. Aliquam faucibus sem in quam bibendum tempor. Morbi sed consectetur ipsum, in varius massa. Ut id faucibus risus, eget molestie purus. Curabitur laoreet pretium nulla vel vestibulum. Suspendisse scelerisque imperdiet imperdiet. Quisque justo purus, malesuada a porta tincidunt, congue lobortis ex.</p>
                         <button onclick="openTab(event, 'MEAL PLAN')">Take a look</button>
                 </div>
-                <div class ="column" style = "width:203px">
+                <div class ="column" style = "width:33%">
                       <h3>Meal 3</h3>
                       <p class="scrollable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend erat ut nisl placerat maximus. Mauris posuere tortor ex, luctus sodales dolor pulvinar pellentesque. Vivamus dapibus, dolor vel ullamcorper accumsan, risus nibh volutpat turpis, eget efficitur lorem libero in libero. Sed sed ante vitae ligula dapibus volutpat ut vitae eros. Donec auctor, lacus eget lobortis facilisis, leo metus finibus tellus, id congue urna quam eget dui. Sed laoreet nibh sit amet nisi dictum commodo. Nam nec facilisis turpis. Mauris a odio finibus, congue est sit amet, varius ex. Fusce maximus, tortor eu maximus blandit, ligula magna pharetra turpis, id ultricies velit ipsum a nisi. Nullam rhoncus lacus non tristique scelerisque. Praesent ac justo sed odio tristique auctor sed non nisl. Praesent id dui eget augue interdum fringilla. Pellentesque pharetra dapibus erat, sit amet venenatis leo volutpat vitae.
                       
