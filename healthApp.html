@@ -133,6 +133,10 @@ th {
   margin: 4px 2px;
   border-radius: 75%;
 }
+#summary-header{
+  margin-left: 2%;
+  margin-right:2%;
+}
 /* The columns */
 .column {
   float: left;
@@ -149,18 +153,23 @@ th {
   display:grid;
   grid-template-rows: repeat(3, 1fr);
   width: 100%;
-  align-content: center;
+  min-width: 100%;
+  align-content: space-between;
 }
 .main-content > .summary-content{
   /* background-color: red; */
   height:100%;
   width:100%;
+  position:static;
 }
 .summary-box{
   border-style: solid;
   border-radius: 25px;
   width: 90%;
   height:70%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right:auto;
 }
 .Meal-Plan{
     overflow-y:auto;
@@ -577,4 +586,5 @@ function showSlides(n) {
 </script>
 
 </body>
+
 </html>
