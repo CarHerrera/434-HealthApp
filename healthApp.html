@@ -280,7 +280,7 @@ th {
         <label for="experience">Experience: (exact number in months)</label><br>
         <input type="text" id="experience" name="experience"><br>
         </div>
-        <button id="setting" onclick="storeProfileInfo()" style="position: fixed; margin-top: 100px; margin-right: 10px;">Save Profile Info</button>
+        <button id="setting" onclick="storeProfileInfo()" style="position: fixed; margin-top: 600px; margin-right: 10px;">Save Profile Info</button>
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);"  id="output"></div>
 
       </div>
@@ -402,6 +402,8 @@ th {
   <div id="EXCERCISE" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Workout Splits</h1>
     <p> Choose the workout split that works best for you</p>
+    <p> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
+    <button id = "settingmid" onclick="openTab(event, 'sett')">Profile</button>
     <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
         <p>Fast</p>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'BroSplit')" style="margin-bottom: 20px;">Bro Split</button>
