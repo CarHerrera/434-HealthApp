@@ -126,17 +126,52 @@ th {
   margin: 4px 2px;
   border-radius: 75%;
 }
-/* Setting Button */
-#setting{
-  float:right;
-  text-align: center;
-  margin: 4px 2px;
-  border-radius: 75%;
+/* profile button Button */
+#setting {
+    font-family: 'Bebas Neue', cursive; 
+    font-size: 26px;
+    background-color: #01baef; 
+    border: none; 
+    padding: 8px 20px; 
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s; 
+    cursor: pointer;
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    border-radius: 25px; 
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  #setting:hover {
+    background-color: #ccc; 
+    color: black; 
+  }
+
+  #profile-info {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #444;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
 }
-#summary-header{
-  margin-left: 2%;
-  margin-right:2%;
+
+#profile-info input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 500px;
 }
+
+
 /* The columns */
 .column {
   float: left;
@@ -153,23 +188,18 @@ th {
   display:grid;
   grid-template-rows: repeat(3, 1fr);
   width: 100%;
-  min-width: 100%;
-  align-content: space-between;
+  align-content: center;
 }
 .main-content > .summary-content{
   /* background-color: red; */
   height:100%;
   width:100%;
-  position:static;
 }
 .summary-box{
   border-style: solid;
   border-radius: 25px;
   width: 90%;
   height:70%;
-  justify-content: center;
-  margin-left: auto;
-  margin-right:auto;
 }
 .Meal-Plan{
     overflow-y:auto;
@@ -220,22 +250,32 @@ th {
     <button class="tablinks" onclick="openTab(event, 'MEAL PLAN')">MEAL PLAN</button>
     <button class="tablinks" onclick="openTab(event, 'CALORIE COUNTER')">CALORIE COUNTER</button>
     <button class="tablinks" onclick="openTab(event, 'EXCERCISE')">EXCERCISE</button>
-  </div>
-
-
-  <div id ='prof' class="tabcontent">
-    <h1>Profile</h1>
-    <p> Change some Profile Settings here!</p>
-  </div>
-
+  </div>  
     <div id ='sett' class="tabcontent">
-        <h1>Settings</h1>
-        <p> Change some App Settings here!</p>
+      <div id="profile-info">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
+          <h1>Profile Information</h1>
+        <label for="height">Height: (exact number in inches) </label><br>
+        <input type="text" id="height" name="height"><br>
+        <label for="weight">Weight: (exact number in pounds) </label><br>
+        <input type="text" id="weight" name="weight"><br>
+        <label for="experience">Experience: (exact number in months)</label><br>
+        <input type="text" id="experience" name="experience"><br>
+        </div>
+        <button id="setting" onclick="storeProfileInfo()" style="position: fixed; margin-top: 100px; margin-right: 10px;">Save Profile Info</button>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);"  id="output"></div>
+
+      </div>
+      
+
+
+
+
+
+
     </div>
     <div id="HOME" class="tabcontent">
         <div id ="settings-container"> 
-          <button id ="profile" onclick="openTab(event, 'prof')">Profile</button>
-          <button id = "setting" onclick="openTab(event, 'sett')">Settings</button>
         </div>
             <div class ="main-content">
               <div class="summary-content">
@@ -583,8 +623,34 @@ function showSlides(n) {
 
   slides[slideIndex-1].style.display = "block";
 } 
+window.onload = function() {
+  document.querySelector('.tablinks[onclick="openTab(event, \'HOME\')"]').click();
+};
+
+// Matts profile storing
+function storeProfileInfo() {
+  var height = document.getElementById('height').value;
+  var weight = document.getElementById('weight').value;
+  var experience = document.getElementById('experience').value;
+
+  // Store the values as numbers
+  localStorage.setItem('height', Number(height));
+  localStorage.setItem('weight', Number(weight));
+  localStorage.setItem('experience', Number(experience));
+
+  // Get the output div
+  var output = document.getElementById('output');
+
+  // Set the content of the output div to the stored values
+  output.innerHTML = 'Height: ' + Number(localStorage.getItem('height'))  + " Centimeters " + 
+                     ', Weight: ' + Number(localStorage.getItem('weight')) + " Pounds" + 
+                     ', Experience: ' + Number(localStorage.getItem('experience')) + " Months ";
+}
+
+
+
 </script>
+<button id = "setting" onclick="openTab(event, 'sett')">Profile</button>
 
 </body>
-
 </html>
