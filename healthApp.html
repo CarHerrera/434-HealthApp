@@ -116,14 +116,6 @@ th {
   /* padding: 10px 20px; */
 }
 
-
-/* Profile Button */
-#profile{
-  float:left;
-  text-align: center;
-  margin: 4px 2px;
-  border-radius: 75%;
-}
 /* profile button Button */
 #setting {
     font-family: 'Bebas Neue', cursive; 
@@ -205,6 +197,91 @@ th {
   display:grid;
   grid-template-rows: 15% 75% 10%;
   width: 100%
+}
+.meal-plan-title{
+  display: flex;
+  justify-content: space-between;
+}
+.meal-plan-grid{
+  display:grid;
+  grid-template-rows: 20% 20% 60%;
+  padding-left:2vh;
+}
+.meal-history{
+  display: flex;
+  justify-content: space-between;
+  bottom:0;
+  position:fixed;
+  padding-bottom: 2vh;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+body{
+  font: 16px / 1.4 sans-serif;
+}
+.links{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  align-content: center;
+  gap: 10px;
+}
+
+
+
+.dialog{
+  padding: 20px;
+  border:0;
+  background:transparent;
+}
+
+.dialog::backdrop{
+  background-color: rgba(0,0,0,.3);
+  backdrop-filter: blur(4px);
+}
+
+.dialog__wrapper{
+  padding:20px;
+  background:#fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
+}
+
+.dialog__close{
+  border:0;
+  padding:0;
+  width: 24px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  background:#000;
+  color:#fff;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 20px;
+  position:absolute;
+  top:5px;
+  right:5px;
+  cursor:pointer;
+  --webkit-appearance:none;
+  appearance:none;
+}
+.history_butt{
+  bottom:0;
+  position:fixed;
+  margin-bottom:10vh;
 }
 .slide-container{
   width:100%;
@@ -370,20 +447,22 @@ more text to drive the point home! </p>
           
     
         <div class="Meal-Plan">
-          <div><h1>Meal Plan</h1></div>
+          <div class = "meal-plan-title">
+            <div style="width: 35%;">
+              <h1 >Meal Plan</h1>
+            </div>
+            <div style="width:50%">
+              <button id="setting" style="margin-right: 12vh;">Refresh</button>
+            </div>
+          </div>
           <div>
             <button class="accordion"> Meal Plan Option 1</button>
             <div class="panel" style="display: none;">
               <div class="meal-plan-grid">
-                <p>Ut laoreet pharetra efficitur. Nunc sit amet 
-luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. 
-Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut
-magna in, vestibulum congue magna. Integer vitae egestas ipsum, in 
-ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie 
-dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante 
-lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec 
-pharetra dolor blandit qui</p>
+                <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
+                <br>
+                <a href="#modal-recipe1" style="text-align: left;">Recipe Quicklink!</a>
+                <a href="#modal-nutrition1" style="text-align: left;">Nutrition Facts</a>
                 <div id="settings-container">
                     <button style="float:right;">Add to Calorie Counter </button>
                     <button style="float:right;">Add to Favorites</button>
@@ -395,15 +474,10 @@ pharetra dolor blandit qui</p>
             <button class="accordion"> Meal Plan Option 2</button>
                 <div class="panel" style="display: none;">
                   <div class="meal-plan-grid">
-                    <p>Ut laoreet pharetra efficitur. Nunc sit amet 
-luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. 
-Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut
-magna in, vestibulum congue magna. Integer vitae egestas ipsum, in 
-ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie 
-dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante 
-lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec 
-pharetra dolor blandit qui</p>
+                    <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
+                    <br>
+                    <a href="#modal-recipe2" style="text-align: left;">Recipe Quicklink!</a>
+                    <a href="#modal-nutrition2" style="text-align: left;">Nutrition Facts</a>
                     <div id="settings-container">
                         <button style="float:right;">Add to Calorie Counter </button>
                         <button style="float:right;">Add to Favorites</button>
@@ -413,28 +487,75 @@ pharetra dolor blandit qui</p>
                 
                 
         <button class="accordion"> Meal Plan Option 3</button>
-            <div class="panel" style="display: none;">
-              <div class="meal-plan-grid">
-                <p>Ut laoreet pharetra efficitur. Nunc sit amet 
-luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. 
-Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut
-magna in, vestibulum congue magna. Integer vitae egestas ipsum, in 
-ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie 
-dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante 
-lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec 
-pharetra dolor blandit qui</p>
-                <div id="settings-container">
-                    <button style="float:right;">Add to Calorie Counter </button>
-                    <button style="float:right;">Add to Favorites</button>
-                </div>
-              </div>
-            </div>    
+        <div class="panel" style="display: none;">
+          <div class="meal-plan-grid">
+            <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
+            <br>
+            <a href="#modal-recipe3" style="text-align: left;">Recipe Quicklink!</a>
+            <a href="#modal-nutrition3" style="text-align: left;">Nutrition Facts</a>
+            <div id="settings-container">
+              <button style="float:right;">Add to Calorie Counter </button>
+              <button style="float:right;">Add to Favorites</button>
           </div>
-            
-          <div>
-            <button>View Favorites</button>
-            <button>View Past Meals!</button>
+            </div>
+          </div>
+        </div>    
+        <div class="modals">
+          <dialog class="dialog" id="modal-recipe1">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 1. This'll be used for the the first recipe!
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-recipe2">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 2. This'll be used for the the second recipe!
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-recipe3">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 3. This'll be used for the the third recipe!
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition1">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 4. Nutritional Facts! Maybe an image?
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition2">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 5. Nutritional Facts! Maybe an image?
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition3">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 6. Nutritional Facts! Maybe an image?
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-favorite">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 7. This'll be used to show the favorites!
+            </div>
+          </dialog>
+
+          <dialog class="dialog" id="modal-history">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 8. This'll be used to show the past meals!
+            </div>
+          </dialog>
+        </div>
+      </div>
+        
+      <div class ="meal_history">
+        <button class = "history_butt" onclick="buttonModal(1)">View Favorites</button>
+        <button class = "history_butt" style="right:0;" onclick="buttonModal(2)">View Past Meals!</button>
           </div>
         </div>
     
@@ -632,6 +753,7 @@ pharetra dolor blandit qui</p>
 
 
 <script>
+// This is the code for the drop down on the meal page
 var acc = document.getElementsByClassName("accordion");
 var i;
 
@@ -650,6 +772,7 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+// This is how the tabs on the bottom work
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -664,6 +787,7 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
+// Slideshow on the Home page JS
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -691,7 +815,77 @@ function showSlides(n) {
 window.onload = function() {
   document.querySelector('.tablinks[onclick="openTab(event, \'HOME\')"]').click();
 };
+// Modal Code
 
+function buttonModal(value){
+  let id = null;
+  if (value == 1) {
+    id = "#modal-favorite";
+  } else {
+    id = "#modal-history";
+  }
+  const histModal = document.querySelector(id);
+  if(histModal){
+    const closeBtn = histModal.querySelector('.dialog__close');
+    event.preventDefault();
+    histModal.showModal(); // Open modal
+    closeBtn.addEventListener('click', function (event) {
+      histModal.close();
+    });
+    document.addEventListener('click', function (event) {
+          
+          const dialogEl = event.target.tagName;
+          const dialogElId = event.target.getAttribute('id');
+          if(dialogEl == 'DIALOG'){
+            // Close modal
+            histModal.close();
+          }
+    }, false);
+  }
+}
+
+    
+// Get all links that start with #modal
+const modalLinks = document.querySelectorAll('a[href^="#modal"]');
+
+modalLinks.forEach(function (modalLink, index) {
+  // Get modal ID to match the modal
+  const modalId = modalLink.getAttribute('href');
+  
+  // Click on link
+  modalLink.addEventListener('click', function (event) {
+    
+    // Get modal element
+    const modal = document.querySelector(modalId);
+    // If modal with an ID exists
+    if(modal){
+      // Get close button
+      const closeBtn = modal.querySelector('.dialog__close');
+      event.preventDefault();
+      modal.showModal(); // Open modal
+      
+      // Close modal on click
+      closeBtn.addEventListener('click', function (event) {
+        modal.close();
+      });
+      
+      // Close modal when clicking outside modal
+      document.addEventListener('click', function (event) {
+        
+        const dialogEl = event.target.tagName;
+        const dialogElId = event.target.getAttribute('id');
+        if(dialogEl == 'DIALOG'){
+          // Close modal
+          modal.close();
+        }
+      }, false);
+      
+    // If modal ID not exists
+    } else {
+      console.log('Modal doesn\'t exist');
+    }
+  });
+});
 // Matts profile storing
 function storeProfileInfo() {
   var height = document.getElementById('height').value;
