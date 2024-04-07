@@ -1,0 +1,340 @@
+body {
+  font-family: Roboto;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* just for grid of bottom buttons*/
+  overflow: hidden;
+  /* border: 1px solid #757575; */
+  background-color: #01baef;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+
+.tab button {
+  flex-grow: 1;
+  background-color: inherit;
+  float: none; 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 8px 10px;
+  transition: 0.5s;
+  font-size: 26px;
+  font-family: 'Bebas Neue';  
+  border-radius: 1px;
+}
+
+
+.tab button:hover {
+  background-color: #01baef;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  border-top: none;
+  width:100%;
+}
+
+.exercise-btn {
+  font-size: 20px;
+  padding: 15px 30px;
+  margin-bottom: 340px;
+  background-color: inherit;
+  font-family: 'Bebas Neue', cursive;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Bebas Neue', cursive;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #f2f2f2;
+}
+/* Code FROM W3S https://www.w3schools.com/howto/howto_js_accordion.asp*/
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #01baef;
+  /* color: #757575; */
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  overflow:hidden;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #01baef;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  /* padding: 0 18px; */
+  display: none;
+  /* height:25%; */
+}
+/* END CODE */
+/* Carlos Code for Home page and Meal Plan */
+.left{
+  /* padding: 10px; */
+  width: 33%;
+}
+.right{
+  /* padding: 10px; */
+  width:66%;
+}
+.settings-container{
+  display: flex;
+  /* padding: 10px 20px; */
+}
+
+/* profile button Button */
+#setting {
+    font-family: 'Bebas Neue', cursive; 
+    font-size: 26px;
+    background-color: #01baef; 
+    border: none; 
+    padding: 8px 20px; 
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s; 
+    cursor: pointer;
+    position: fixed; 
+    top: 0; 
+    right: 0; 
+    border-radius: 25px; 
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  #setting:hover {
+    background-color: #ccc; 
+    color: black; 
+  }
+
+  #profile-info {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #444;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+}
+
+#profile-info input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 500px;
+}
+
+
+/* The columns */
+.column {
+  float: left;
+  /* padding: 10px; */
+}
+/* Div that has all the progress bars. The dotted things on screen */
+
+  .summary-box:after{
+  content:"";
+  display: table;
+  clear: both;
+} 
+.main-content{
+  display:grid;
+  grid-template-rows: repeat(3, 1fr);
+  width: calc(100%-5px);
+  padding-left: 5px;
+  height: 85vh;
+  align-content: center;
+}
+.main-content > .summary-content{
+  /* background-color: red; */
+  height:100%;
+  width:100%;
+}
+.summary-box{
+  border-style: solid;
+  border-radius: 25px;
+  width: 90%;
+  height:70%;
+}
+
+.Meal-Plan{
+  display:grid;
+  grid-template-rows: 15% 75% 10%;
+  width: 100%
+}
+.meal-plan-title{
+  display: flex;
+  justify-content: space-between;
+}
+.meal-plan-grid{
+  display:grid;
+  grid-template-rows: 20% 20% 60%;
+  padding-left:2vh;
+}
+.meal-history{
+  display: flex;
+  justify-content: space-between;
+  bottom:0;
+  position:fixed;
+  padding-bottom: 2vh;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+body{
+  font: 16px / 1.4 sans-serif;
+}
+.links{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  align-content: center;
+  gap: 10px;
+}
+
+
+
+.dialog{
+  padding: 20px;
+  border:0;
+  background:transparent;
+}
+
+.dialog::backdrop{
+  background-color: rgba(0,0,0,.3);
+  backdrop-filter: blur(4px);
+}
+
+.dialog__wrapper{
+  padding:20px;
+  background:#fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
+}
+
+.dialog__close{
+  border:0;
+  padding:0;
+  width: 24px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  background:#000;
+  color:#fff;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 20px;
+  position:absolute;
+  top:5px;
+  right:5px;
+  cursor:pointer;
+  --webkit-appearance:none;
+  appearance:none;
+}
+.history_butt{
+  bottom:0;
+  position:fixed;
+  margin-bottom:10vh;
+}
+.slide-container{
+  width:100%;
+  height:100%;
+  position:relative;
+  margin:auto;
+}
+.meals{
+  display:grid;
+  /* grid-template-columns: 25% 50% 25%; */
+  grid-template-rows: 20% 80%;
+  height:100%;
+}
+
+.meal_desc{
+  grid-row: 2;
+  grid-column: 2/3;
+  /* width: 90%; */
+  padding-top: 2vh;
+  /* justify-content: space-evenly; */
+  text-align: left;
+}
+/* div.p.meal_desc{
+  text-align: center;
+} */
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+button{
+  font-family: 'Bebas Neue', cursive; 
+    background-color: #01baef; 
+    text-align: center; 
+    text-decoration: none;
+    border-radius: 25px;
+}
+/* Position the "next button" to the right */
+
+.button-container {
+  display: flex; 
+  justify-content: center; 
+  gap: 20px;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
