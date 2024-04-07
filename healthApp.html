@@ -30,7 +30,7 @@ body {
   transition: 0.5s;
   font-size: 26px;
   font-family: 'Bebas Neue';  
-  
+  border-radius: 1px;
 }
 
 
@@ -80,8 +80,8 @@ th {
 /* Code FROM W3S https://www.w3schools.com/howto/howto_js_accordion.asp*/
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: #01baef;
+  /* color: #757575; */
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -92,17 +92,15 @@ th {
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: #01baef;
 }
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
-  padding: 0 18px;
+  /* padding: 0 18px; */
   display: none;
-  overflow:hidden;
-  height:25%;
+  /* height:25%; */
 }
-
 /* END CODE */
 /* Carlos Code for Home page and Meal Plan */
 .left{
@@ -189,7 +187,7 @@ th {
   grid-template-rows: repeat(3, 1fr);
   width: calc(100%-5px);
   padding-left: 5px;
-  height: 75vh;
+  height: 85vh;
   align-content: center;
 }
 .main-content > .summary-content{
@@ -204,8 +202,8 @@ th {
   height:70%;
 }
 .Meal-Plan{
-  overflow-y:auto;
-  height: 100%;
+  display:grid;
+  grid-template-rows: 15% 75% 10%;
   width: 100%
 }
 .slide-container{
@@ -247,7 +245,13 @@ th {
   border-radius: 0 3px 3px 0;
   user-select: none;
 }
-
+button{
+  font-family: 'Bebas Neue', cursive; 
+    background-color: #01baef; 
+    text-align: center; 
+    text-decoration: none;
+    border-radius: 25px;
+}
 /* Position the "next button" to the right */
 .next {
   right: 0;
@@ -292,108 +296,149 @@ th {
 
 
     </div>
-    <div id="HOME" class="tabcontent">
-        <div id ="settings-container"> 
+    <div id="HOME" class="tabcontent" style="display: none;">
+      <div id="settings-container"> 
+      </div>
+          <div class="main-content">
+            <div class="summary-content">
+              <h2 id="summary-header">Calories at a Glance</h2>
+              <div class="summary-box">
+                <div class="column left">
+                  <h3>Calories Progress Bar</h3>
+                  <label for="calories">Calorie Progress:</label>
+                  <progress id="calories" value="1502" max="2000" style="width:130px"> 32kcal </progress>
+                </div>
+                <div class="column right">
+                  <h3>Nutrient Progress Bars</h3>
+                  <label for="Macro Nutrients">Macro Nutrient Progress:</label>
+                  <progress id="Macro Nutrients" value="32" max="100"> 32% </progress>
+                  <br>
+                  <label for="Micro Nutrients">Micro Nutrients:</label>
+                  <progress id="Micro Nutrients" value="32" max="100"> 32% </progress>
+                  <br>
+                  <label for="Protein">Protein</label>
+                  <progress id="Protein" value="32" max="100"> 32% </progress>
+                </div>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h2 id="summary-header">Exercise Summary</h2>
+              <div class="summary-box"> 
+                <div class="column left">
+                  <h3>Exercise minutes</h3>
+                  <label for="minutes">Minutes Exercised</label>
+                  <progress id="minutes" value="100" max="300" style="width:130px"> 32kcal </progress>
+                </div>
+                <div class="column right">
+                  <h3>Calendar Showcasing previous exercises</h3>
+                  <br>
+                  <img src="https://1.bp.blogspot.com/-shZmJtOAdCs/UwBhhoQrqwI/AAAAAAAATCM/BmSRg_TAMrA/s1600/simple_html_calendar_by_justin_woodie.png" style="width:150px; height:100px; float:none">
+                </div>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h2 id="summary-header">Quick look at Meals</h2>
+              <div class="summary-box">
+                <div class="slide-container">
+                  <div class="meals" style="display: grid;">
+                    <h3 class="headers">Meal 1</h3>
+                    <p class="meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits.</p>
+                  </div>
+                  <div class="meals" style="display: none;">
+                    <h3 class="headers">Meal 2</h3>
+                    <p class="meal_desc">This is a quick descriptor 
+about the meals, the ingredients, and the nurtitional benefits. Extra 
+text to indicate a different meal!</p>
+                  </div>
+                  <div class="meals" style="display: none;">
+                    <h3 class="headers">Meal 3</h3>
+                    <p class="meal_desc">This is a quick descriptor 
+about the meals, the ingredients, and the nurtitional benefits. Even 
+more text to drive the point home! </p>
+                  </div>
+                  <a class="prev" onclick="plusSlides(-1)">❮</a>
+                  <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+              </div>
+            </div>
         </div>
-            <div class ="main-content">
-              <div class="summary-content">
-                <h2 id="summary-header">Calories at a Glance</h2>
-                <div class = "summary-box">
-                  <div class ="column left">
-                    <h3>Calories Progress Bar</h3>
-                    <label for="calories">Calorie Progress:</label>
-                    <progress id="calories" value="1502" max="2000" style="width:130px"> 32kcal </progress>
-                  </div>
-                  <div class ="column right">
-                    <h3>Nutrient Progress Bars</h3>
-                    <label for="Macro Nutrients">Macro Nutrient Progress:</label>
-                    <progress id="Macro Nutrients" value="32" max="100"> 32% </progress>
-                    <br>
-                    <label for="Micro Nutrients">Micro Nutrients:</label>
-                    <progress id="Micro Nutrients" value="32" max="100"> 32% </progress>
-                    <br>
-                    <label for="Protein">Protein</label>
-                    <progress id="Protein" value="32" max="100"> 32% </progress>
-                  </div>
+      </div>
+    
+    
+    
+      <div id="MEAL PLAN" class="tabcontent" style="display: block;">
+          
+    
+        <div class="Meal-Plan">
+          <div><h1>Meal Plan</h1></div>
+          <div>
+            <button class="accordion"> Meal Plan Option 1</button>
+            <div class="panel" style="display: none;">
+              <div class="meal-plan-grid">
+                <p>Ut laoreet pharetra efficitur. Nunc sit amet 
+luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. 
+Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut
+magna in, vestibulum congue magna. Integer vitae egestas ipsum, in 
+ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie 
+dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante 
+lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec 
+pharetra dolor blandit qui</p>
+                <div id="settings-container">
+                    <button style="float:right;">Add to Calorie Counter </button>
+                    <button style="float:right;">Add to Favorites</button>
                 </div>
               </div>
-              <div class="summary-content">
-                <h2 id = "summary-header">Exercise Summary</h2>
-                <div class ="summary-box"> 
-                  <div class = "column left">
-                    <h3>Exercise minutes</h3>
-                    <label for="minutes">Minutes Exercised</label>
-                    <progress id="minutes" value="100" max="300" style="width:130px"> 32kcal </progress>
-                  </div>
-                  <div class = "column right">
-                    <h3>Calendar Showcasing previous exercises</h3>
-                    <br>
-                    <img src = "https://1.bp.blogspot.com/-shZmJtOAdCs/UwBhhoQrqwI/AAAAAAAATCM/BmSRg_TAMrA/s1600/simple_html_calendar_by_justin_woodie.png" style ="width:150px; height:100px; float:none" >
-                  </div>
-                </div>
-              </div>
-              <div class="summary-content">
-                <h2 id = "summary-header">Quick look at Meals</h2>
-                <div class="summary-box">
-                  <div class = "slide-container">
-                    <div class = 'meals'>
-                      <h3 class ="headers">Meal 1</h3>
-                      <p class = "meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits.</p>
+            </div>
+            
+            
+            <button class="accordion"> Meal Plan Option 2</button>
+                <div class="panel" style="display: none;">
+                  <div class="meal-plan-grid">
+                    <p>Ut laoreet pharetra efficitur. Nunc sit amet 
+luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. 
+Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut
+magna in, vestibulum congue magna. Integer vitae egestas ipsum, in 
+ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie 
+dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante 
+lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec 
+pharetra dolor blandit qui</p>
+                    <div id="settings-container">
+                        <button style="float:right;">Add to Calorie Counter </button>
+                        <button style="float:right;">Add to Favorites</button>
                     </div>
-                    <div class = 'meals'>
-                      <h3 class ="headers">Meal 2</h3>
-                      <p class = "meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits. Extra text to indicate a different meal!</p>
-                    </div>
-                    <div class = 'meals'>
-                      <h3 class ="headers">Meal 3</h3>
-                      <p class = "meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits. Even more text to drive the point home! </p>
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
                   </div>
                 </div>
+                
+                
+        <button class="accordion"> Meal Plan Option 3</button>
+            <div class="panel" style="display: none;">
+              <div class="meal-plan-grid">
+                <p>Ut laoreet pharetra efficitur. Nunc sit amet 
+luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. 
+Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut
+magna in, vestibulum congue magna. Integer vitae egestas ipsum, in 
+ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie 
+dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante 
+lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec 
+pharetra dolor blandit qui</p>
+                <div id="settings-container">
+                    <button style="float:right;">Add to Calorie Counter </button>
+                    <button style="float:right;">Add to Favorites</button>
+                </div>
               </div>
+            </div>    
+          </div>
+            
+          <div>
+            <button>View Favorites</button>
+            <button>View Past Meals!</button>
           </div>
         </div>
     
-    
-    
-      <div id="MEAL PLAN" class="tabcontent">
-          <div><h1>Meal Plan</h1></div>
-    
-            <div class = "Meal-Plan">
-                <button class="accordion"> Meal Plan Option 1</button>
-                    <div class = "panel">
-                        <p>Ut laoreet pharetra efficitur. Nunc sit amet luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut magna in, vestibulum congue magna. Integer vitae egestas ipsum, in ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec pharetra dolor blandit qui</p>
-                        <div id="settings-container" >
-                            <button style="float:right;">Add to Calorie Counter </button>
-                            <button style="float:right;">Add to Favorites</button>
-                        </div>
-                    </div>
-                    
-                    
-                    <button class="accordion"> Meal Plan Option 2</button>
-                        <div class = "panel">
-                            <p>Ut laoreet pharetra efficitur. Nunc sit amet luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut magna in, vestibulum congue magna. Integer vitae egestas ipsum, in ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec pharetra dolor blandit qui</p>
-                            <div id="settings-container" >
-                                <button style="float:right;">Add to Calorie Counter</button>
-                                <button style="float:right;">Add to Favorites</button>
-                            </div>
-                        </div>
-                        
-                        
-                <button class="accordion"> Meal Plan Option 3</button>
-                    <div class = "panel">
-                        <p>Ut laoreet pharetra efficitur. Nunc sit amet luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut magna in, vestibulum congue magna. Integer vitae egestas ipsum, in ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec pharetra dolor blandit qui</p>
-                        <div id="settings-container" >
-                                <button style="float:right;">Add to Calorie Counter</button>
-                                <button style="float:right;">Add to Favorites</button>
-                        </div>
-                    </div>    
-                
-            </div>
-        
-      </div>
+  </div>
 
   <div id="CALORIE COUNTER" class="tabcontent">
     <h1>Calorie Counter</h1>
@@ -403,7 +448,7 @@ th {
     <h1 style="text-align: center; font-size: 70px;" >Workout Splits</h1>
     <p> Choose the workout split that works best for you</p>
     <p> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
-    <button id = "settingmid" onclick="openTab(event, 'sett')">Profile</button>
+    
     <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
         <p>Fast</p>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'BroSplit')" style="margin-bottom: 20px;">Bro Split</button>
