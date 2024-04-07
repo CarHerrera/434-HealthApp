@@ -30,7 +30,7 @@ body {
   transition: 0.5s;
   font-size: 26px;
   font-family: 'Bebas Neue';  
-  
+  border-radius: 1px;
 }
 
 
@@ -80,8 +80,8 @@ th {
 /* Code FROM W3S https://www.w3schools.com/howto/howto_js_accordion.asp*/
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: #01baef;
+  /* color: #757575; */
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -92,17 +92,15 @@ th {
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: #01baef;
 }
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
-  padding: 0 18px;
+  /* padding: 0 18px; */
   display: none;
-  overflow:hidden;
-  height:25%;
+  /* height:25%; */
 }
-
 /* END CODE */
 /* Carlos Code for Home page and Meal Plan */
 .left{
@@ -118,14 +116,6 @@ th {
   /* padding: 10px 20px; */
 }
 
-
-/* Profile Button */
-#profile{
-  float:left;
-  text-align: center;
-  margin: 4px 2px;
-  border-radius: 75%;
-}
 /* profile button Button */
 #setting {
     font-family: 'Bebas Neue', cursive; 
@@ -189,7 +179,7 @@ th {
   grid-template-rows: repeat(3, 1fr);
   width: calc(100%-5px);
   padding-left: 5px;
-  height: 75vh;
+  height: 85vh;
   align-content: center;
 }
 .main-content > .summary-content{
@@ -204,9 +194,94 @@ th {
   height:70%;
 }
 .Meal-Plan{
-  overflow-y:auto;
-  height: 100%;
+  display:grid;
+  grid-template-rows: 15% 75% 10%;
   width: 100%
+}
+.meal-plan-title{
+  display: flex;
+  justify-content: space-between;
+}
+.meal-plan-grid{
+  display:grid;
+  grid-template-rows: 20% 20% 60%;
+  padding-left:2vh;
+}
+.meal-history{
+  display: flex;
+  justify-content: space-between;
+  bottom:0;
+  position:fixed;
+  padding-bottom: 2vh;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+body{
+  font: 16px / 1.4 sans-serif;
+}
+.links{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  align-content: center;
+  gap: 10px;
+}
+
+
+
+.dialog{
+  padding: 20px;
+  border:0;
+  background:transparent;
+}
+
+.dialog::backdrop{
+  background-color: rgba(0,0,0,.3);
+  backdrop-filter: blur(4px);
+}
+
+.dialog__wrapper{
+  padding:20px;
+  background:#fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
+}
+
+.dialog__close{
+  border:0;
+  padding:0;
+  width: 24px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  background:#000;
+  color:#fff;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 20px;
+  position:absolute;
+  top:5px;
+  right:5px;
+  cursor:pointer;
+  --webkit-appearance:none;
+  appearance:none;
+}
+.history_butt{
+  bottom:0;
+  position:fixed;
+  margin-bottom:10vh;
 }
 .slide-container{
   width:100%;
@@ -247,6 +322,18 @@ th {
   border-radius: 0 3px 3px 0;
   user-select: none;
 }
+button{
+  font-family: 'Bebas Neue', cursive; 
+    background-color: #01baef; 
+    text-align: center; 
+    text-decoration: none;
+    border-radius: 25px;
+}
+.button-container {
+  display: flex; /* This makes the container a flex container */
+  justify-content: center; /* This centers the buttons horizontally */
+  gap: 20px; /* This adds space between the buttons */
+}
 
 /* Position the "next button" to the right */
 .next {
@@ -273,6 +360,7 @@ th {
       <div id="profile-info">
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
           <h1>Profile Information</h1>
+          <p>Default Profile INFO is displayed unless you input your own numbers</p>
         <label for="height">Height: (exact number in inches) </label><br>
         <input type="text" id="height" name="height"><br>
         <label for="weight">Weight: (exact number in pounds) </label><br>
@@ -292,108 +380,193 @@ th {
 
 
     </div>
-    <div id="HOME" class="tabcontent">
-        <div id ="settings-container"> 
+    <div id="HOME" class="tabcontent" style="display: none;">
+      <div id="settings-container"> 
+      </div>
+          <div class="main-content">
+            <div class="summary-content">
+              <h2 id="summary-header">Calories at a Glance</h2>
+              <div class="summary-box">
+                <div class="column left">
+                  <h3>Calories Progress Bar</h3>
+                  <label for="calories">Calorie Progress:</label>
+                  <progress id="calories" value="1502" max="2000" style="width:130px"> 32kcal </progress>
+                </div>
+                <div class="column right">
+                  <h3>Nutrient Progress Bars</h3>
+                  <label for="Macro Nutrients">Macro Nutrient Progress:</label>
+                  <progress id="Macro Nutrients" value="32" max="100"> 32% </progress>
+                  <br>
+                  <label for="Micro Nutrients">Micro Nutrients:</label>
+                  <progress id="Micro Nutrients" value="32" max="100"> 32% </progress>
+                  <br>
+                  <label for="Protein">Protein</label>
+                  <progress id="Protein" value="32" max="100"> 32% </progress>
+                </div>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h2 id="summary-header">Exercise Summary</h2>
+              <div class="summary-box"> 
+                <div class="column left">
+                  <h3>Exercise minutes</h3>
+                  <label for="minutes">Minutes Exercised</label>
+                  <progress id="minutes" value="100" max="300" style="width:130px"> 32kcal </progress>
+                </div>
+                <div class="column right">
+                  <h3>Calendar Showcasing previous exercises</h3>
+                  <br>
+                  <img src="https://1.bp.blogspot.com/-shZmJtOAdCs/UwBhhoQrqwI/AAAAAAAATCM/BmSRg_TAMrA/s1600/simple_html_calendar_by_justin_woodie.png" style="width:150px; height:100px; float:none">
+                </div>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h2 id="summary-header">Quick look at Meals</h2>
+              <div class="summary-box">
+                <div class="slide-container">
+                  <div class="meals" style="display: grid;">
+                    <h3 class="headers">Meal 1</h3>
+                    <p class="meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits.</p>
+                  </div>
+                  <div class="meals" style="display: none;">
+                    <h3 class="headers">Meal 2</h3>
+                    <p class="meal_desc">This is a quick descriptor 
+about the meals, the ingredients, and the nurtitional benefits. Extra 
+text to indicate a different meal!</p>
+                  </div>
+                  <div class="meals" style="display: none;">
+                    <h3 class="headers">Meal 3</h3>
+                    <p class="meal_desc">This is a quick descriptor 
+about the meals, the ingredients, and the nurtitional benefits. Even 
+more text to drive the point home! </p>
+                  </div>
+                  <a class="prev" onclick="plusSlides(-1)">❮</a>
+                  <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+              </div>
+            </div>
         </div>
-            <div class ="main-content">
-              <div class="summary-content">
-                <h2 id="summary-header">Calories at a Glance</h2>
-                <div class = "summary-box">
-                  <div class ="column left">
-                    <h3>Calories Progress Bar</h3>
-                    <label for="calories">Calorie Progress:</label>
-                    <progress id="calories" value="1502" max="2000" style="width:130px"> 32kcal </progress>
-                  </div>
-                  <div class ="column right">
-                    <h3>Nutrient Progress Bars</h3>
-                    <label for="Macro Nutrients">Macro Nutrient Progress:</label>
-                    <progress id="Macro Nutrients" value="32" max="100"> 32% </progress>
-                    <br>
-                    <label for="Micro Nutrients">Micro Nutrients:</label>
-                    <progress id="Micro Nutrients" value="32" max="100"> 32% </progress>
-                    <br>
-                    <label for="Protein">Protein</label>
-                    <progress id="Protein" value="32" max="100"> 32% </progress>
-                  </div>
+      </div>
+    
+    
+    
+      <div id="MEAL PLAN" class="tabcontent" style="display: block;">
+          
+    
+        <div class="Meal-Plan">
+          <div class = "meal-plan-title">
+            <div style="width: 35%;">
+              <h1 >Meal Plan</h1>
+            </div>
+            <div style="width:50%">
+              <button id="setting" style="margin-right: 12vh;">Refresh</button>
+            </div>
+          </div>
+          <div>
+            <button class="accordion"> Meal Plan Option 1</button>
+            <div class="panel" style="display: none;">
+              <div class="meal-plan-grid">
+                <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
+                <br>
+                <a href="#modal-recipe1" style="text-align: left;">Recipe Quicklink!</a>
+                <a href="#modal-nutrition1" style="text-align: left;">Nutrition Facts</a>
+                <div id="settings-container">
+                    <button style="float:right;">Add to Calorie Counter </button>
+                    <button style="float:right;">Add to Favorites</button>
                 </div>
               </div>
-              <div class="summary-content">
-                <h2 id = "summary-header">Exercise Summary</h2>
-                <div class ="summary-box"> 
-                  <div class = "column left">
-                    <h3>Exercise minutes</h3>
-                    <label for="minutes">Minutes Exercised</label>
-                    <progress id="minutes" value="100" max="300" style="width:130px"> 32kcal </progress>
-                  </div>
-                  <div class = "column right">
-                    <h3>Calendar Showcasing previous exercises</h3>
+            </div>
+            
+            
+            <button class="accordion"> Meal Plan Option 2</button>
+                <div class="panel" style="display: none;">
+                  <div class="meal-plan-grid">
+                    <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
                     <br>
-                    <img src = "https://1.bp.blogspot.com/-shZmJtOAdCs/UwBhhoQrqwI/AAAAAAAATCM/BmSRg_TAMrA/s1600/simple_html_calendar_by_justin_woodie.png" style ="width:150px; height:100px; float:none" >
+                    <a href="#modal-recipe2" style="text-align: left;">Recipe Quicklink!</a>
+                    <a href="#modal-nutrition2" style="text-align: left;">Nutrition Facts</a>
+                    <div id="settings-container">
+                        <button style="float:right;">Add to Calorie Counter </button>
+                        <button style="float:right;">Add to Favorites</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="summary-content">
-                <h2 id = "summary-header">Quick look at Meals</h2>
-                <div class="summary-box">
-                  <div class = "slide-container">
-                    <div class = 'meals'>
-                      <h3 class ="headers">Meal 1</h3>
-                      <p class = "meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits.</p>
-                    </div>
-                    <div class = 'meals'>
-                      <h3 class ="headers">Meal 2</h3>
-                      <p class = "meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits. Extra text to indicate a different meal!</p>
-                    </div>
-                    <div class = 'meals'>
-                      <h3 class ="headers">Meal 3</h3>
-                      <p class = "meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits. Even more text to drive the point home! </p>
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                  </div>
-                </div>
-              </div>
+                
+                
+        <button class="accordion"> Meal Plan Option 3</button>
+        <div class="panel" style="display: none;">
+          <div class="meal-plan-grid">
+            <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
+            <br>
+            <a href="#modal-recipe3" style="text-align: left;">Recipe Quicklink!</a>
+            <a href="#modal-nutrition3" style="text-align: left;">Nutrition Facts</a>
+            <div id="settings-container">
+              <button style="float:right;">Add to Calorie Counter </button>
+              <button style="float:right;">Add to Favorites</button>
+          </div>
+            </div>
+          </div>
+        </div>    
+        <div class="modals">
+          <dialog class="dialog" id="modal-recipe1">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 1. This'll be used for the the first recipe!
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-recipe2">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 2. This'll be used for the the second recipe!
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-recipe3">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 3. This'll be used for the the third recipe!
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition1">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 4. Nutritional Facts! Maybe an image?
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition2">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 5. Nutritional Facts! Maybe an image?
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition3">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 6. Nutritional Facts! Maybe an image?
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-favorite">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 7. This'll be used to show the favorites!
+            </div>
+          </dialog>
+
+          <dialog class="dialog" id="modal-history">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              Modal 8. This'll be used to show the past meals!
+            </div>
+          </dialog>
+        </div>
+      </div>
+        
+      <div class ="meal_history">
+        <button class = "history_butt" onclick="buttonModal(1)">View Favorites</button>
+        <button class = "history_butt" style="right:0;" onclick="buttonModal(2)">View Past Meals!</button>
           </div>
         </div>
     
-    
-    
-      <div id="MEAL PLAN" class="tabcontent">
-          <div><h1>Meal Plan</h1></div>
-    
-            <div class = "Meal-Plan">
-                <button class="accordion"> Meal Plan Option 1</button>
-                    <div class = "panel">
-                        <p>Ut laoreet pharetra efficitur. Nunc sit amet luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut magna in, vestibulum congue magna. Integer vitae egestas ipsum, in ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec pharetra dolor blandit qui</p>
-                        <div id="settings-container" >
-                            <button style="float:right;">Add to Calorie Counter </button>
-                            <button style="float:right;">Add to Favorites</button>
-                        </div>
-                    </div>
-                    
-                    
-                    <button class="accordion"> Meal Plan Option 2</button>
-                        <div class = "panel">
-                            <p>Ut laoreet pharetra efficitur. Nunc sit amet luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut magna in, vestibulum congue magna. Integer vitae egestas ipsum, in ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec pharetra dolor blandit qui</p>
-                            <div id="settings-container" >
-                                <button style="float:right;">Add to Calorie Counter</button>
-                                <button style="float:right;">Add to Favorites</button>
-                            </div>
-                        </div>
-                        
-                        
-                <button class="accordion"> Meal Plan Option 3</button>
-                    <div class = "panel">
-                        <p>Ut laoreet pharetra efficitur. Nunc sit amet luctus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tortor lacus, porttitor ac lectus at, tempus ultricies arcu. Praesent rutrum tempor risus non tincidunt. Vivamus est elit, viverra ut magna in, vestibulum congue magna. Integer vitae egestas ipsum, in ultricies dui. Vestibulum leo elit, ornare quis lorem nec, molestie dapibus mauris. Nulla vitae scelerisque risus. Donec efficitur ante lorem, ac elementum ligula molestie eu. Nulla congue urna tellus, nec pharetra dolor blandit qui</p>
-                        <div id="settings-container" >
-                                <button style="float:right;">Add to Calorie Counter</button>
-                                <button style="float:right;">Add to Favorites</button>
-                        </div>
-                    </div>    
-                
-            </div>
-        
-      </div>
+  </div>
 
   <div id="CALORIE COUNTER" class="tabcontent">
     <h1>Calorie Counter</h1>
@@ -403,7 +576,7 @@ th {
     <h1 style="text-align: center; font-size: 70px;" >Workout Splits</h1>
     <p> Choose the workout split that works best for you</p>
     <p> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
-    <button id = "settingmid" onclick="openTab(event, 'sett')">Profile</button>
+    
     <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
         <p>Fast</p>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'BroSplit')" style="margin-bottom: 20px;">Bro Split</button>
@@ -419,174 +592,117 @@ th {
     <h1 style="text-align: center; font-size: 70px;" >Push Pull Legs</h1>
      <!--  put todays date -->
     
-    <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
-    <table>
-      <tr>
-          <th>Day</th>
-          <th>Exercise</th>
-          <th>Sets</th>
-          <th>Reps</th>
-      </tr>
-      <tr>
-        <td>Sunday</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-          <td>Monday</td>
-          <td>Push-ups</td>
-          <td>3</td>
-          <td>10</td>
-      </tr>
-      <tr>
-          <td>Tuesday</td>
-          <td>Bodyweight Squats</td>
-          <td>3</td>
-          <td>12</td>
-      </tr>
-      <tr>
-          <td>Wednesday</td>
-          <td>Plank</td>
-          <td>3</td>
-          <td>30 sec</td>
-      </tr>
-      <tr>
-        <td>Thursday</td>
-        <td>Plank</td>
-        <td>3</td>
-        <td>30 sec</td>
-      </tr>
-      <tr>
-        <td>Friday</td>
-        <td>Plank</td>
-        <td>3</td>
-        <td>30 sec</td>
-     </tr>
-     <tr>
-      <td>Saturday</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
+    <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
+    <p> Push Pull Legs describes a three day split where we group body excercises into three main categories, <br>
+      activieties that involve pushing with your upper body, activities that involve pulling <br>
+       with your upper body and activities that involve mainly legs. To fully utilize this split <br>
+      We recommend cycling them in order and in between allow for one to two rest days, then repeat.</p>
+      <div class="button-container">
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'push')">PUSH DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'pull')">PULL DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'legs')">LEG DAY</button>
+      </div>
+      
     <br><br><br>
   </div>
+  <div id="push" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Push Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bench Press</th>
+        <td>4</td>
+        <td> 6 -8 </td>
+        <td id="push-bench-weight"></td>
+      </tr>
+      <tr>
+        <th>Overhead Shoulder Press</th>
+        <td>3</td>
+        <td> 8 - 10</td>
+        <td id="push-overhead-weight"></td>
+      </tr>
+      <tr>
+        <th>Dips</th>
+        <td>2</td>
+        <td> 10 - 12</td>
+        <td> N/A </td>
+      </tr>
+      <tr>
+        <th>Chest Fly</th>
+        <td>3</td>
+        <td> 10 - 12</td>
+        <td id="push-chest-fly"></td>
+      </tr>
+      <tr>
+        <th>Tricep Pushdown </th>
+        <td>3</td>
+        <td> 10 - 12</td>
+        <td id="push-tricep-pushdown"> </td>
+      </tr>
+    </table>
+    
+  </div>
+
+  <div id="pull" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Pull Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bench Press</th>
+        <td>3</td>
+        <td> 6 -8 </td>
+        <td id="push-bench-weight"></td>
+      </tr>
+      <tr>
+        <th>Overhead Press</th>
+        <td>3</td>
+        <td> 8 - 10</td>
+        <td id="push-overhead-weight"></td>
+      </tr>
+      <tr>
+        <th>Dips</th>
+        <td>3</td>
+        <td> 10 - 12</td>
+        <td> N/A </td>
+      </tr>
+    </table>
+  </div>
+  <div id="legs" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Leg Day</h1>
+  </div>
+
+
+
+
+
   <div id="ArnoldSplit" class="tabcontent">
     <!--  Arnold Split -->
     <h1 style="text-align: center; font-size: 70px;" >Arnold Split</h1>
     <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
-    <table>
-      <tr>
-          <th>Day</th>
-          <th>Exercise</th>
-          <th>Sets</th>
-          <th>Reps</th>
-      </tr>
-      <tr>
-        <td>Sunday</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-          <td>Monday</td>
-          <td>Push-ups</td>
-          <td>3</td>
-          <td>10</td>
-      </tr>
-      <tr>
-          <td>Tuesday</td>
-          <td>Bodyweight Squats</td>
-          <td>3</td>
-          <td>12</td>
-      </tr>
-      <tr>
-          <td>Wednesday</td>
-          <td>Plank</td>
-          <td>3</td>
-          <td>30 sec</td>
-      </tr>
-      <tr>
-        <td>Thursday</td>
-        <td>Plank</td>
-        <td>3</td>
-        <td>30 sec</td>
-      </tr>
-      <tr>
-        <td>Friday</td>
-        <td>Plank</td>
-        <td>3</td>
-        <td>30 sec</td>
-     </tr>
-     <tr>
-      <td>Saturday</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
+   
     <br><br><br>
   </div>
   <div id="BroSplit" class="tabcontent">
     <!-- Bro Split -->
     <h1 style="text-align: center; font-size: 70px;" >Bro Split</h1>
     <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
-    <table>
-      <tr>
-          <th>Day</th>
-          <th>Exercise</th>
-          <th>Sets</th>
-          <th>Reps</th>
-      </tr>
-      <tr>
-        <td>Sunday</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-          <td>Monday</td>
-          <td>Push-ups</td>
-          <td>3</td>
-          <td>10</td>
-      </tr>
-      <tr>
-          <td>Tuesday</td>
-          <td>Bodyweight Squats</td>
-          <td>3</td>
-          <td>12</td>
-      </tr>
-      <tr>
-          <td>Wednesday</td>
-          <td>Plank</td>
-          <td>3</td>
-          <td>30 sec</td>
-      </tr>
-      <tr>
-        <td>Thursday</td>
-        <td>Plank</td>
-        <td>3</td>
-        <td>30 sec</td>
-      </tr>
-      <tr>
-        <td>Friday</td>
-        <td>Plank</td>
-        <td>3</td>
-        <td>30 sec</td>
-     </tr>
-     <tr>
-      <td>Saturday</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
+   
     <br><br><br>
   </div>
 
 
 <script>
+// This is the code for the drop down on the meal page
 var acc = document.getElementsByClassName("accordion");
 var i;
 
@@ -605,6 +721,7 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+// This is how the tabs on the bottom work
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -619,6 +736,7 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
+// Slideshow on the Home page JS
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -646,12 +764,82 @@ function showSlides(n) {
 window.onload = function() {
   document.querySelector('.tablinks[onclick="openTab(event, \'HOME\')"]').click();
 };
+// Modal Code
 
+function buttonModal(value){
+  let id = null;
+  if (value == 1) {
+    id = "#modal-favorite";
+  } else {
+    id = "#modal-history";
+  }
+  const histModal = document.querySelector(id);
+  if(histModal){
+    const closeBtn = histModal.querySelector('.dialog__close');
+    event.preventDefault();
+    histModal.showModal(); // Open modal
+    closeBtn.addEventListener('click', function (event) {
+      histModal.close();
+    });
+    document.addEventListener('click', function (event) {
+          
+          const dialogEl = event.target.tagName;
+          const dialogElId = event.target.getAttribute('id');
+          if(dialogEl == 'DIALOG'){
+            // Close modal
+            histModal.close();
+          }
+    }, false);
+  }
+}
+
+    
+// Get all links that start with #modal
+const modalLinks = document.querySelectorAll('a[href^="#modal"]');
+
+modalLinks.forEach(function (modalLink, index) {
+  // Get modal ID to match the modal
+  const modalId = modalLink.getAttribute('href');
+  
+  // Click on link
+  modalLink.addEventListener('click', function (event) {
+    
+    // Get modal element
+    const modal = document.querySelector(modalId);
+    // If modal with an ID exists
+    if(modal){
+      // Get close button
+      const closeBtn = modal.querySelector('.dialog__close');
+      event.preventDefault();
+      modal.showModal(); // Open modal
+      
+      // Close modal on click
+      closeBtn.addEventListener('click', function (event) {
+        modal.close();
+      });
+      
+      // Close modal when clicking outside modal
+      document.addEventListener('click', function (event) {
+        
+        const dialogEl = event.target.tagName;
+        const dialogElId = event.target.getAttribute('id');
+        if(dialogEl == 'DIALOG'){
+          // Close modal
+          modal.close();
+        }
+      }, false);
+      
+    // If modal ID not exists
+    } else {
+      console.log('Modal doesn\'t exist');
+    }
+  });
+});
 // Matts profile storing
 function storeProfileInfo() {
-  var height = document.getElementById('height').value;
-  var weight = document.getElementById('weight').value;
-  var experience = document.getElementById('experience').value;
+  var height = document.getElementById('height').value || 100; ;
+  var weight = document.getElementById('weight').value || 100; ;
+  var experience = document.getElementById('experience').value || 0; ;
 
   // Store the values as numbers
   localStorage.setItem('height', Number(height));
@@ -660,15 +848,21 @@ function storeProfileInfo() {
 
   // Get the output div
   var output = document.getElementById('output');
+  var weight = Number(localStorage.getItem('weight'));
+  var benchWeight = Math.round(weight * 0.8);
+  var overWeight = Math.round(weight * 0.4);
 
+  // Update the bench weight display
+  document.getElementById('push-bench-weight').textContent = benchWeight;
+  document.getElementById('push-overhead-weight').textContent = overWeight;
+  document.getElementById('push-chest-fly').textContent = Math.round(overWeight * 2);
+  document.getElementById('push-tricep-pushdown').textContent = Math.round(overWeight * 1.5);
   // Set the content of the output div to the stored values
   output.innerHTML = 'Height: ' + Number(localStorage.getItem('height'))  + " Centimeters " + 
                      ', Weight: ' + Number(localStorage.getItem('weight')) + " Pounds" + 
                      ', Experience: ' + Number(localStorage.getItem('experience')) + " Months  ";
 }
-
-
-
+storeProfileInfo();
 </script>
 <button id = "setting" onclick="openTab(event, 'sett')">Profile</button>
 
