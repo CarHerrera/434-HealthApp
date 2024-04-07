@@ -653,27 +653,59 @@ more text to drive the point home! </p>
         <th>Weight</th>
       </tr>
       <tr>
-        <th>Bench Press</th>
-        <td>3</td>
-        <td> 6 -8 </td>
-        <td id="push-bench-weight"></td>
+        <th>Bent Over Row</th>
+        <td>4</td>
+        <td> 8 - 10 </td>
+        <td id="pull-bent-row"></td>
       </tr>
       <tr>
-        <th>Overhead Press</th>
+        <th>Back Pull Downs</th>
         <td>3</td>
         <td> 8 - 10</td>
-        <td id="push-overhead-weight"></td>
+        <td id="pull-pull-down"></td>
       </tr>
       <tr>
-        <th>Dips</th>
+        <th>Mid Seated Row</th>
         <td>3</td>
         <td> 10 - 12</td>
-        <td> N/A </td>
+        <td id="pull-mid-row"></td>
       </tr>
     </table>
   </div>
   <div id="legs" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Leg Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Squat</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="leg-squat"> </td>
+      </tr>
+      <tr>
+        <th>RDL</th>
+        <td>3</td>
+        <td> 10 - 12</td>
+        <td id="leg-rdl"> </td>
+      </tr>
+      <tr>
+        <th>Leg Extension</th>
+        <td>3</td>
+        <td> 10 - 15</td>
+        <td id="leg-ext"> </td>
+      </tr>
+      <tr>
+        <th>Calf Raises</th>
+        <td>3</td>
+        <td> 10 - 15</td>
+        <td id="leg-raise"> </td>
+      </tr>
+    </table>
   </div>
 
 
@@ -852,6 +884,15 @@ function storeProfileInfo() {
   document.getElementById('push-overhead-weight').textContent = overWeight;
   document.getElementById('push-chest-fly').textContent = Math.round(overWeight * 2);
   document.getElementById('push-tricep-pushdown').textContent = Math.round(overWeight * 1.5);
+  //pull day
+  document.getElementById('pull-bent-row').textContent = Math.round(weight * 0.6);
+  document.getElementById('pull-mid-row').textContent = Math.round(weight * 0.9);
+  document.getElementById('pull-pull-down').textContent = Math.round(weight * 0.7);
+  //leg
+  document.getElementById('leg-squat').textContent = Math.round(weight * 1.2);
+  document.getElementById('leg-ext').textContent = Math.round(weight * 0.6);
+  document.getElementById('leg-rdl').textContent = Math.round(weight * 0.9);
+  document.getElementById('leg-raise').textContent = Math.round(weight * 0.6);
   // Set the content of the output div to the stored values
   output.innerHTML = 'Height: ' + Number(localStorage.getItem('height'))  + " Centimeters " + 
                      ', Weight: ' + Number(localStorage.getItem('weight')) + " Pounds" + 
