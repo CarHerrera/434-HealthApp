@@ -271,10 +271,11 @@ more text to drive the point home! </p>
     <p> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
     
     <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
-        <p>Beginner </p>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'ArnoldSplit')" style="margin-bottom: 20px;">Arnold Split</button>
+        <br>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'PushPullLegs')" style="margin-bottom: 20px;">Push Pull Legs</button>
-        <p>Intermediate</p>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'ArnoldSplit')">Arnold Split</button>
+        <br>
+        <button class="tablinks exercise-btn" style="padding: 15px 45px;" onclick="openTab(event, 'Customize')">    Customize    </button>
     </div>
   </div>
   
@@ -518,15 +519,11 @@ more text to drive the point home! </p>
     
   </div>
 
-  <div id="BroSplit" class="tabcontent">
-    <!-- Bro Split -->
-    <h1 style="text-align: center; font-size: 70px;" >Bro Split</h1>
+
+  <div id="Customize" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >CUSTOMIZE</h1>
     <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
-   
-    <br><br><br>
   </div>
-
-
 
 <script>
 // This is the code for the drop down on the meal page
