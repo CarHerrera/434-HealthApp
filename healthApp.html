@@ -390,7 +390,7 @@ more text to drive the point home! </p>
       cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
       <div class="button-container">
         <button class="tablinks exercise-btn" onclick="openTab(event, 'arm')">ARM DAY</button>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'back')">BACK DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'backs')">BACK DAY</button>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'leg')">LEG DAY</button>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'chest')">CHEST DAY</button>
       </div>
@@ -451,8 +451,48 @@ more text to drive the point home! </p>
     </table>
     
   </div>
-
-
+  <div id="backs" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bent Over Rows</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="bent-row"></td>
+      </tr>
+      <tr>
+        <th>Mid Cable Rows</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="mid-row"></td>
+      </tr>
+      <tr>
+        <th>Cable Pulldown</th>
+        <td>3</td>
+        <td> 8- 10 </td>
+        <td id="cable-pulldown"></td>
+      </tr>
+      <tr>
+        <th>Rear Delt Flys</th>
+        <td>2</td>
+        <td> 6 - 10 </td>
+        <td id="rear-delt"></td>
+      </tr>
+      <tr>
+        <th>Shoulder Shurgs</th>
+        <td>3</td>
+        <td> 15 - 20 </td>
+        <td id="shoulder-shrug"></td>
+      </tr>
+    </table>
+    
+  </div>
 
 
 
@@ -641,7 +681,15 @@ function storeProfileInfo() {
   document.getElementById('tricep-pushdown').textContent = Math.round(weight * 0.46);
   document.getElementById('side-delt').textContent = Math.round(weight * 0.1);
   document.getElementById('front-delt').textContent = Math.round(weight * 0.1);
-  // Set the content of the output div to the stored values
+
+  //back
+  //back
+  document.getElementById('bent-row').textContent = Math.round(weight * 0.5);
+  document.getElementById('mid-row').textContent = Math.round(weight * 0.42);
+  document.getElementById('cable-pulldown').textContent = Math.round(weight * 0.3);
+  document.getElementById('rear-delt').textContent = Math.round(weight * 0.12);
+  document.getElementById('shoulder-shrug').textContent = Math.round(weight * 0.6);
+
   output.innerHTML = 'Height: ' + Number(localStorage.getItem('height'))  + " Centimeters " + 
                      ', Weight: ' + Number(localStorage.getItem('weight')) + " Pounds" + 
                      ', Experience: ' + Number(localStorage.getItem('experience')) + " Months  ";
