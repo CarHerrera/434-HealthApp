@@ -125,11 +125,11 @@ more text to drive the point home! </p>
               <h1 >Meal Plan</h1>
             </div>
             <div style="width:50%">
-              <button id="setting" style="margin-right: 12vh;">Refresh</button>
+              <button id="setting" style="margin-right: 12vh;" onclick=populateMeals(randomizeList())>Refresh</button>
             </div>
           </div>
-          <div>
-            <button class="accordion"> Meal Plan Option 1</button>
+          <div class = "meal_box">
+            <button id = "meal1"class="accordion"> Meal Plan Option 1</button>
             <div class="panel" style="display: none;">
               <div class="meal-plan-grid">
                 <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
@@ -144,7 +144,7 @@ more text to drive the point home! </p>
             </div>
             
             
-            <button class="accordion"> Meal Plan Option 2</button>
+            <button id = "meal2" class="accordion"> Meal Plan Option 2</button>
                 <div class="panel" style="display: none;">
                   <div class="meal-plan-grid">
                     <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
@@ -159,7 +159,7 @@ more text to drive the point home! </p>
                 </div>
                 
                 
-        <button class="accordion"> Meal Plan Option 3</button>
+        <button id = "meal3" class="accordion"> Meal Plan Option 3</button>
         <div class="panel" style="display: none;">
           <div class="meal-plan-grid">
             <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
@@ -177,37 +177,43 @@ more text to drive the point home! </p>
           <dialog class="dialog" id="modal-recipe1">
             <div class="dialog__wrapper">
               <button class="dialog__close">✕</button>
-              Modal 1. This'll be used for the the first recipe!
+              <h1>This is the name of the meal</h1>
+              <p>This will be the contents of all the recipe stuff</p>
             </div>
           </dialog>
           <dialog class="dialog" id="modal-recipe2">
             <div class="dialog__wrapper">
               <button class="dialog__close">✕</button>
-              Modal 2. This'll be used for the the second recipe!
+              <h1>This is the name of the meal</h1>
+              <p>This will be the contents of all the recipe stuff</p>
             </div>
           </dialog>
           <dialog class="dialog" id="modal-recipe3">
             <div class="dialog__wrapper">
               <button class="dialog__close">✕</button>
-              Modal 3. This'll be used for the the third recipe!
+              <h1>This is the name of the meal</h1>
+              <p>This will be the contents of all the recipe stuff</p>
             </div>
           </dialog>
           <dialog class="dialog" id="modal-nutrition1">
             <div class="dialog__wrapper">
               <button class="dialog__close">✕</button>
-              Modal 4. Nutritional Facts! Maybe an image?
+              <h1>This is the name of the meal</h1>
+              <img class = 'nut_label' src = "https://i.pinimg.com/originals/31/7b/a7/317ba7ed82c3d3933b1e3d5b1f0683fb.png">
             </div>
           </dialog>
           <dialog class="dialog" id="modal-nutrition2">
             <div class="dialog__wrapper">
               <button class="dialog__close">✕</button>
-              Modal 5. Nutritional Facts! Maybe an image?
+              <h1>This is the name of the meal</h1>
+              <img class = 'nut_label' src = "https://i.pinimg.com/originals/31/7b/a7/317ba7ed82c3d3933b1e3d5b1f0683fb.png">
             </div>
           </dialog>
           <dialog class="dialog" id="modal-nutrition3">
             <div class="dialog__wrapper">
               <button class="dialog__close">✕</button>
-              Modal 6. Nutritional Facts! Maybe an image?
+              <h1>This is the name of the meal</h1>
+              <img class = 'nut_label' src = "https://i.pinimg.com/originals/31/7b/a7/317ba7ed82c3d3933b1e3d5b1f0683fb.png">
             </div>
           </dialog>
           <dialog class="dialog" id="modal-favorite">
@@ -261,9 +267,9 @@ more text to drive the point home! </p>
     
     <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
     <p> Push Pull Legs describes a three day split where we group body excercises into three main categories, <br>
-      activites that involve pushing with your upper body, activities that involve pulling <br>
+      activieties that involve pushing with your upper body, activities that involve pulling <br>
        with your upper body and activities that involve mainly legs. To fully utilize this split <br>
-      we recommend cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
+      We recommend cycling them in order and in between allow for one to two rest days, then repeat.</p>
       <div class="button-container">
         <button class="tablinks exercise-btn" onclick="openTab(event, 'push')">PUSH DAY</button>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'pull')">PULL DAY</button>
@@ -384,118 +390,10 @@ more text to drive the point home! </p>
   <div id="ArnoldSplit" class="tabcontent">
     <!--  Arnold Split -->
     <h1 style="text-align: center; font-size: 70px;" >Arnold Split</h1>
-    <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
-    <p> The Arnold Split describes a three day split where we group body excercises into four main categories, <br>
-      activites that involve your arms, back, leg, and chest To fully utilize this split we recommend  <br>
-      cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
-      <div class="button-container">
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'arm')">ARM DAY</button>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'backs')">BACK DAY</button>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'leg')">LEG DAY</button>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'chest')">CHEST DAY</button>
-      </div>
+    <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
    
     <br><br><br>
   </div>
-  <div id="arm" class="tabcontent">
-    <h1 style="text-align: center; font-size: 70px;" >Arm Day</h1>
-    <table>
-      <tr>
-        <th>Exercise</th>
-        <th>Sets</th>
-        <th>Rep Range</th>
-        <th>Weight</th>
-      </tr>
-      <tr>
-        <th>Single Arm Bicep Curl</th>
-        <td>4</td>
-        <td> 10 - 12 </td>
-        <td id="bicep-curl"></td>
-      </tr>
-      <tr>
-        <th> Bicep Crossover Curl</th>
-        <td>2</td>
-        <td> 10 - 12 </td>
-        <td id="cross-curl"></td>
-      </tr>
-      <tr>
-        <th>Cable Curl</th>
-        <td>2</td>
-        <td> 6 - 10</td>
-        <td id="cable-curl"></td>
-      </tr>
-      <tr>
-        <th>Tricep Pushdown</th>
-        <td>3</td>
-        <td> 12 - 15 </td>
-        <td id="tricep-pushdown"></td>
-      </tr>
-      <tr>
-        <th>SkullCrushers</th>
-        <td>4</td>
-        <td> 6 -8 </td>
-        <td id="skullcrusher"></td>
-      </tr>
-      <tr>
-        <th>Side Delt Raise</th>
-        <td>2</td>
-        <td> 6 -8 </td>
-        <td id="side-delt"></td>
-      </tr>
-      <tr>
-        <th>Front Delt Raise</th>
-        <td>2</td>
-        <td> 6 -8 </td>
-        <td id="front-delt"></td>
-      </tr>
-    </table>
-    
-  </div>
-  <div id="backs" class="tabcontent">
-    <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
-    <table>
-      <tr>
-        <th>Exercise</th>
-        <th>Sets</th>
-        <th>Rep Range</th>
-        <th>Weight</th>
-      </tr>
-      <tr>
-        <th>Bent Over Rows</th>
-        <td>4</td>
-        <td> 10 - 12 </td>
-        <td id="bent-row"></td>
-      </tr>
-      <tr>
-        <th>Mid Cable Rows</th>
-        <td>3</td>
-        <td> 6 - 8 </td>
-        <td id="mid-row"></td>
-      </tr>
-      <tr>
-        <th>Cable Pulldown</th>
-        <td>3</td>
-        <td> 8- 10 </td>
-        <td id="cable-pulldown"></td>
-      </tr>
-      <tr>
-        <th>Rear Delt Flys</th>
-        <td>2</td>
-        <td> 6 - 10 </td>
-        <td id="rear-delt"></td>
-      </tr>
-      <tr>
-        <th>Shoulder Shurgs</th>
-        <td>3</td>
-        <td> 15 - 20 </td>
-        <td id="shoulder-shrug"></td>
-      </tr>
-    </table>
-    
-  </div>
-
-
-
   <div id="BroSplit" class="tabcontent">
     <!-- Bro Split -->
     <h1 style="text-align: center; font-size: 70px;" >Bro Split</h1>
@@ -505,12 +403,59 @@ more text to drive the point home! </p>
   </div>
 
 
-
-
 <script>
 // This is the code for the drop down on the meal page
-var acc = document.getElementsByClassName("accordion");
-var i;
+const mealList = [
+  { title: "Meal Plan Option 1", desc:"This is a meal rich in protein.", recipe:"chicken", nut:null},
+  { title: "Meal Plan Option 2", desc:"You'll love this meal high in Vitamins for muscles.", recipe:"Food for meal 2", nut:null},
+  { title: "Meal Plan Option 3", desc:"This meal is packed with nutrients, and has low calories.", recipe:"Food for meal 3", nut:null},
+  { title: "Meal Plan Option 4", desc:"This meal is a great recovery meal.", recipe:"Food for meal 4", nut:null},
+  { title: "Meal Plan Option 5", desc:"This meal can help fill in the vitamins your missing!", recipe:"Food for meal 5", nut:null},
+  { title: "Meal Plan Option 6", desc:"This meal will help you feel focused and full.", recipe:"Food for meal 6", nut:null},
+  { title: "Meal Plan Option 7", desc:"This meal is purely greens.", recipe:"Food for meal 7", nut:null},
+  { title: "Meal Plan Option 8", desc:"This meal is nutrient dense. Great if you're mising a couple of nutrients.", recipe:"Food for meal 8", nut:null},
+  { title: "Meal Plan Option 9", desc:"This meal is different from the other meal rich in protein! Tastier too!", recipe:"Food for meal 9", nut:null},
+  { title: "Meal Plan Option 10", desc:"This light breakfast is a great way to start your morning.", recipe:"Food for meal 10", nut:null},
+];
+let activeList = [];
+function randomizeList(ogList=mealList, oldList =activeList){
+  const rand = [];
+  const length = ogList.length;
+
+  while (rand.length < 3){
+    const i = Math.floor(Math.random()* length);
+    const temp = ogList[i];
+
+    if (oldList.length == 0){
+      if (!rand.includes(temp)){
+        rand.push(temp);
+      }
+    } else {
+      if (!oldList.includes(temp) && !rand.includes(temp)){
+        rand.push(temp);
+      }
+    }
+  }
+  activeList = rand;
+}
+
+function populateMeals(list = activeList){
+    let b1 = document.getElementById("meal1");
+    let b2 = document.getElementById("meal2");
+    let b3 = document.getElementById("meal3");
+
+    b1.innerHTML = list[0].title;
+    b2.innerHTML = list[1].title;
+    b3.innerHTML = list[2].title;
+
+    let mealContent = document.getElementsByClassName("meal-plan-grid");
+    for (let i = 0; i <mealContent.length; i++){
+        mealContent[i].children[0].innerHTML = list[i].desc;
+    }
+}
+
+let acc = document.getElementsByClassName("accordion");
+let i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
@@ -567,10 +512,6 @@ function showSlides(n) {
 
   slides[slideIndex-1].style.display = "grid";
 } 
-window.onload = function() {
-  document.querySelector('.tablinks[onclick="openTab(event, \'HOME\')"]').click();
-};
-// Modal Code
 
 function buttonModal(value){
   let id = null;
@@ -606,41 +547,56 @@ const modalLinks = document.querySelectorAll('a[href^="#modal"]');
 modalLinks.forEach(function (modalLink, index) {
   // Get modal ID to match the modal
   const modalId = modalLink.getAttribute('href');
-  
+  // console.log(modalId);
+  let val = parseInt(modalId.charAt(modalId.length-1)) -1;
+  let type = modalId.charAt(7) == 'r' ? "recipe" : "nut";
   // Click on link
-  modalLink.addEventListener('click', function (event) {
-    
-    // Get modal element
-    const modal = document.querySelector(modalId);
-    // If modal with an ID exists
-    if(modal){
-      // Get close button
-      const closeBtn = modal.querySelector('.dialog__close');
-      event.preventDefault();
-      modal.showModal(); // Open modal
-      
-      // Close modal on click
-      closeBtn.addEventListener('click', function (event) {
-        modal.close();
-      });
-      
-      // Close modal when clicking outside modal
-      document.addEventListener('click', function (event) {
-        
-        const dialogEl = event.target.tagName;
-        const dialogElId = event.target.getAttribute('id');
-        if(dialogEl == 'DIALOG'){
-          // Close modal
-          modal.close();
-        }
-      }, false);
-      
-    // If modal ID not exists
+  modalLink.addEventListener('click', function (event) {    
+  // Get modal element
+  const modal = document.querySelector(modalId);
+  // If modal with an ID exists
+  if(modal){
+    // Get close button
+    const elements = modal.children[0].children;
+    if (type == "recipe"){
+      elements[1].innerHTML = activeList[val].title + " Recipe";
+      elements[2].innerHTML = activeList[val].recipe;
     } else {
-      console.log('Modal doesn\'t exist');
+      elements[1].innerHTML = activeList[val].title + " Nutrition Facts!";
     }
+    const closeBtn = modal.querySelector('.dialog__close');
+    event.preventDefault();
+    modal.showModal(); // Open modal
+    
+    // Close modal on click
+    closeBtn.addEventListener('click', function (event) {
+      modal.close();
+    });
+    
+    // Close modal when clicking outside modal
+    document.addEventListener('click', function (event) {
+      
+      const dialogEl = event.target.tagName;
+      const dialogElId = event.target.getAttribute('id');
+      if(dialogEl == 'DIALOG'){
+        // Close modal
+        modal.close();
+      }
+    }, false);
+    
+  // If modal ID not exists
+  } else {
+    console.log('Modal doesn\'t exist');
+  }
   });
 });
+window.onload = function() {
+  document.querySelector('.tablinks[onclick="openTab(event, \'HOME\')"]').click();
+  activeList = [mealList[0],mealList[1],mealList[2]];
+  populateMeals(activeList);
+};
+// Modal Code
+
 // Matts profile storing
 function storeProfileInfo() {
   var height = document.getElementById('height').value || 100; ;
@@ -658,7 +614,7 @@ function storeProfileInfo() {
   var benchWeight = Math.round(weight * 0.8);
   var overWeight = Math.round(weight * 0.4);
 
-  // push day
+  // Update the bench weight display
   document.getElementById('push-bench-weight').textContent = benchWeight;
   document.getElementById('push-overhead-weight').textContent = overWeight;
   document.getElementById('push-chest-fly').textContent = Math.round(overWeight * 2);
@@ -672,24 +628,7 @@ function storeProfileInfo() {
   document.getElementById('leg-ext').textContent = Math.round(weight * 0.6);
   document.getElementById('leg-rdl').textContent = Math.round(weight * 0.9);
   document.getElementById('leg-raise').textContent = Math.round(weight * 0.6);
-
-  //arm
-  document.getElementById('bicep-curl').textContent = Math.round(weight * 0.14);
-  document.getElementById('cross-curl').textContent = Math.round(weight * 0.4);
-  document.getElementById('cable-curl').textContent = Math.round(weight * 0.43);
-  document.getElementById('skullcrusher').textContent = Math.round(weight * 0.37);
-  document.getElementById('tricep-pushdown').textContent = Math.round(weight * 0.46);
-  document.getElementById('side-delt').textContent = Math.round(weight * 0.1);
-  document.getElementById('front-delt').textContent = Math.round(weight * 0.1);
-
-  //back
-  //back
-  document.getElementById('bent-row').textContent = Math.round(weight * 0.5);
-  document.getElementById('mid-row').textContent = Math.round(weight * 0.42);
-  document.getElementById('cable-pulldown').textContent = Math.round(weight * 0.3);
-  document.getElementById('rear-delt').textContent = Math.round(weight * 0.12);
-  document.getElementById('shoulder-shrug').textContent = Math.round(weight * 0.6);
-
+  // Set the content of the output div to the stored values
   output.innerHTML = 'Height: ' + Number(localStorage.getItem('height'))  + " Centimeters " + 
                      ', Weight: ' + Number(localStorage.getItem('weight')) + " Pounds" + 
                      ', Experience: ' + Number(localStorage.getItem('experience')) + " Months  ";
