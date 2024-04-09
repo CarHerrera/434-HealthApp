@@ -521,8 +521,32 @@ more text to drive the point home! </p>
 
 
   <div id="Customize" class="tabcontent">
-    <h1 style="text-align: center; font-size: 70px;" >CUSTOMIZE</h1>
-    <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
+    <h1 style="text-align: center; font-size: 70px;">Customize Your Workout</h1>
+    <p>For more experienced lifters, or those who just want to experiment.</p>
+    <p>Enter your own exercises below:</p>
+    <div id="customWorkoutContainer" style="display: flex; justify-content: space-between;">
+      <div id="inputFields">
+        <label for="customExercise">Exercise:</label><br>
+        <input type="text" id="customExercise" name="customExercise"><br>
+        <label for="customSets">Sets:</label><br>
+        <input type="number" id="customSets" name="customSets"><br>
+        <label for="customReps">Reps:</label><br>
+        <input type="number" id="customReps" name="customReps"><br>
+        <label for="customWeight">Weight:</label><br>
+        <input type="number" id="customWeight" name="customWeight"><br>
+        <button onclick="addExercise()">Add Exercise</button>
+      </div>
+  
+      <table id="customWorkoutTable">
+        <tr>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight</th>
+        </tr>
+      </table>
+      
+    </div>
   </div>
 
 <script>
@@ -772,6 +796,28 @@ function storeProfileInfo() {
                      ', Experience: ' + Number(localStorage.getItem('experience')) + " Months  ";
 }
 storeProfileInfo();
+
+// MAtts Custom Excercise
+function addExercise() {
+  var exercise = document.getElementById('customExercise').value;
+  var sets = document.getElementById('customSets').value;
+  var reps = document.getElementById('customReps').value;
+  var weight = document.getElementById('customWeight').value;
+
+  var table = document.getElementById('customWorkoutTable');
+  var row = table.insertRow(-1);
+  row.insertCell(0).innerHTML = exercise;
+  row.insertCell(1).innerHTML = sets;
+  row.insertCell(2).innerHTML = reps;
+  row.insertCell(3).innerHTML = weight;
+  var removeCell = row.insertCell(4);
+  removeCell.innerHTML = '<button onclick="removeExercise(this)">Remove</button>';
+}
+
+function removeExercise(button) {
+  var row = button.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
 
 
 </script>

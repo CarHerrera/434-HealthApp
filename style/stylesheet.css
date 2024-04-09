@@ -366,3 +366,13 @@ button{
 #item-calories {
   width: 50px;
 }
+
+#inputFields {
+  flex: 0.25; 
+  margin-left: 50px;
+}
+
+#customWorkoutTable {
+  flex: 1;  
+  margin-right: 50px;
+}
