@@ -341,7 +341,7 @@ button{
 
 /* Calorie Counter */
 #CALORIE-COUNTER {
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
