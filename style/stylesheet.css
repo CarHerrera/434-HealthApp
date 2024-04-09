@@ -338,3 +338,30 @@ button{
   right: 0;
   border-radius: 3px 0 0 3px;
 }
+
+/* Calorie Counter */
+#CALORIE-COUNTER {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calorie-inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.calorie-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#item-calories {
+  width: 50px;
+}

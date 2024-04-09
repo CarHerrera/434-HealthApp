@@ -25,7 +25,7 @@
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'HOME')"><i class='bx bx-home'></i>HOME</button>
     <button class="tablinks" onclick="openTab(event, 'MEAL PLAN')"><i class='bx bx-fork'></i>MEAL PLAN</button>
-    <button class="tablinks" onclick="openTab(event, 'CALORIE COUNTER')"><i class='bx bx-rocket'></i>CALORIE COUNTER</button>
+    <button class="tablinks" onclick="openTab(event, 'CALORIE-COUNTER')"><i class='bx bx-rocket'></i>CALORIE COUNTER</button>
     <button class="tablinks" onclick="openTab(event, 'EXCERCISE')"><i class='bx bx-dumbbell'></i>EXCERCISE</button>
   </div>  
   <div id ='sett' class="tabcontent">
@@ -240,8 +240,28 @@ more text to drive the point home! </p>
     
   </div>
 
-  <div id="CALORIE COUNTER" class="tabcontent">
-    <h1>Calorie Counter</h1>
+  <div id="CALORIE-COUNTER" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;">Calorie Counter</h1>
+    <form class="calorie-form">
+      <div class="calorie-inputs">
+        <div class="input-field">
+          <label for="item-name">Meal</label>
+          <input type="text" placeholder="Add Item" id="item-name">
+        </div>
+        <div class="input-field">
+          <label for="item-calories">Calories</label>
+          <input type="number" id="item-calories">
+        </div>
+        <button class="add-btn btn blue darken-3" type="button"><i class="fa fa-plus"></i> Add Meal</button>         
+        </div>
+      <div class="calorie-buttons">
+        <!-- <button class="update-btn btn orange" type="button"><i class="fa fa-pencil-square-o"></i> Update Meal</button> -->
+        <!-- <button class="delete-btn btn red" type="button"><i class="fa fa-remove"></i> Delete Meal</button> -->
+        <button class="clear-btn btn grey pull-right" type="button"><i class="fa fa-chevron-circle-left"></i> Clear Meals</button>
+      </div>
+    </form>
+    <h2>Total Calories: <span id="total-calories"></span></h2>
+    <div id="meal-list"></div>
   </div>
 
  
@@ -638,6 +658,7 @@ storeProfileInfo();
 
 
 </script>
+<script src="js/caloriecounter.js"></script>
 <button id = "setting" onclick="openTab(event, 'sett')">Profile</button>
 
 </body>
