@@ -261,9 +261,9 @@ more text to drive the point home! </p>
     
     <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
     <p> Push Pull Legs describes a three day split where we group body excercises into three main categories, <br>
-      activieties that involve pushing with your upper body, activities that involve pulling <br>
+      activites that involve pushing with your upper body, activities that involve pulling <br>
        with your upper body and activities that involve mainly legs. To fully utilize this split <br>
-      We recommend cycling them in order and in between allow for one to two rest days, then repeat.</p>
+      we recommend cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
       <div class="button-container">
         <button class="tablinks exercise-btn" onclick="openTab(event, 'push')">PUSH DAY</button>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'pull')">PULL DAY</button>
@@ -381,16 +381,81 @@ more text to drive the point home! </p>
   </div>
 
 
-
-
-
   <div id="ArnoldSplit" class="tabcontent">
     <!--  Arnold Split -->
     <h1 style="text-align: center; font-size: 70px;" >Arnold Split</h1>
-    <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
+    <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
+    <p> The Arnold Split describes a three day split where we group body excercises into four main categories, <br>
+      activites that involve your arms, back, leg, and chest To fully utilize this split we recommend  <br>
+      cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
+      <div class="button-container">
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'arm')">ARM DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'back')">BACK DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'leg')">LEG DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'chest')">CHEST DAY</button>
+      </div>
    
     <br><br><br>
   </div>
+  <div id="arm" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Arm Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Single Arm Bicep Curl</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="bicep-curl"></td>
+      </tr>
+      <tr>
+        <th> Bicep Crossover Curl</th>
+        <td>2</td>
+        <td> 10 - 12 </td>
+        <td id="cross-curl"></td>
+      </tr>
+      <tr>
+        <th>Cable Curl</th>
+        <td>2</td>
+        <td> 6 - 10</td>
+        <td id="cable-curl"></td>
+      </tr>
+      <tr>
+        <th>Tricep Pushdown</th>
+        <td>3</td>
+        <td> 12 - 15 </td>
+        <td id="tricep-pushdown"></td>
+      </tr>
+      <tr>
+        <th>SkullCrushers</th>
+        <td>4</td>
+        <td> 6 -8 </td>
+        <td id="skullcrusher"></td>
+      </tr>
+      <tr>
+        <th>Side Delt Raise</th>
+        <td>2</td>
+        <td> 6 -8 </td>
+        <td id="side-delt"></td>
+      </tr>
+      <tr>
+        <th>Front Delt Raise</th>
+        <td>2</td>
+        <td> 6 -8 </td>
+        <td id="front-delt"></td>
+      </tr>
+    </table>
+    
+  </div>
+
+
+
+
+
   <div id="BroSplit" class="tabcontent">
     <!-- Bro Split -->
     <h1 style="text-align: center; font-size: 70px;" >Bro Split</h1>
@@ -398,6 +463,8 @@ more text to drive the point home! </p>
    
     <br><br><br>
   </div>
+
+
 
 
 <script>
@@ -551,7 +618,7 @@ function storeProfileInfo() {
   var benchWeight = Math.round(weight * 0.8);
   var overWeight = Math.round(weight * 0.4);
 
-  // Update the bench weight display
+  // push day
   document.getElementById('push-bench-weight').textContent = benchWeight;
   document.getElementById('push-overhead-weight').textContent = overWeight;
   document.getElementById('push-chest-fly').textContent = Math.round(overWeight * 2);
@@ -565,6 +632,15 @@ function storeProfileInfo() {
   document.getElementById('leg-ext').textContent = Math.round(weight * 0.6);
   document.getElementById('leg-rdl').textContent = Math.round(weight * 0.9);
   document.getElementById('leg-raise').textContent = Math.round(weight * 0.6);
+
+  //arm
+  document.getElementById('bicep-curl').textContent = Math.round(weight * 0.14);
+  document.getElementById('cross-curl').textContent = Math.round(weight * 0.4);
+  document.getElementById('cable-curl').textContent = Math.round(weight * 0.43);
+  document.getElementById('skullcrusher').textContent = Math.round(weight * 0.37);
+  document.getElementById('tricep-pushdown').textContent = Math.round(weight * 0.46);
+  document.getElementById('side-delt').textContent = Math.round(weight * 0.1);
+  document.getElementById('front-delt').textContent = Math.round(weight * 0.1);
   // Set the content of the output div to the stored values
   output.innerHTML = 'Height: ' + Number(localStorage.getItem('height'))  + " Centimeters " + 
                      ', Weight: ' + Number(localStorage.getItem('weight')) + " Pounds" + 
