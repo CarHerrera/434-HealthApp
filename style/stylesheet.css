@@ -197,7 +197,7 @@ th {
 
 .Meal-Plan{
   display:grid;
-  grid-template-rows: 15% 75% 10%;
+  grid-template-rows: auto auto auto 5%;
   width: 100%
 }
 .meal-plan-title{
@@ -206,7 +206,7 @@ th {
 }
 .meal-plan-grid{
   display:grid;
-  grid-template-rows: 20% 20% 60%;
+  grid-template-rows: 10% auto auto auto;
   padding-left:2vh;
 }
 .meal-history{
@@ -215,6 +215,10 @@ th {
   bottom:0;
   position:fixed;
   padding-bottom: 2vh;
+}
+.nut_label{
+  width:60vw;
+  height:69vh;
 }
 .modal {
   display: none; /* Hidden by default */
@@ -259,6 +263,8 @@ body{
   background:#fff;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0,0,0,.3);
+  height:80vh;
+  width:70vw;
 }
 
 .dialog__close{
