@@ -138,7 +138,7 @@ more text to drive the point home! </p>
                 <a href="#modal-nutrition1" style="text-align: left;">Nutrition Facts</a>
                 <div id="settings-container">
                     <button style="float:right;">Add to Calorie Counter </button>
-                    <button style="float:right;">Add to Favorites</button>
+                    <button id = "favorite1" style="float:right;" onclick="addFavorites(0)">Add to Favorites</button>
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@ more text to drive the point home! </p>
                     <a href="#modal-nutrition2" style="text-align: left;">Nutrition Facts</a>
                     <div id="settings-container">
                         <button style="float:right;">Add to Calorie Counter </button>
-                        <button style="float:right;">Add to Favorites</button>
+                        <button id = "favorite2" onclick="addFavorites(1)" style="float:right;">Add to Favorites</button>
                     </div>
                   </div>
                 </div>
@@ -168,7 +168,7 @@ more text to drive the point home! </p>
             <a href="#modal-nutrition3" style="text-align: left;">Nutrition Facts</a>
             <div id="settings-container">
               <button style="float:right;">Add to Calorie Counter </button>
-              <button style="float:right;">Add to Favorites</button>
+              <button id = "favorite3" style="float:right;" onclick="addFavorites(2)">Add to Favorites</button>
           </div>
             </div>
           </div>
@@ -219,14 +219,20 @@ more text to drive the point home! </p>
           <dialog class="dialog" id="modal-favorite">
             <div class="dialog__wrapper">
               <button class="dialog__close">✕</button>
-              Modal 7. This'll be used to show the favorites!
+              <h1> Favorites</h1>
+              <ul id ="favorite-list">
+
+              </ul>
             </div>
           </dialog>
 
           <dialog class="dialog" id="modal-history">
             <div class="dialog__wrapper">
               <button class="dialog__close">✕</button>
-              Modal 8. This'll be used to show the past meals!
+              <h1>Past Meals</h1>
+              <ul id ="Past-list">
+                <li>Meal 1</li>
+              </ul>
             </div>
           </dialog>
         </div>
@@ -940,7 +946,19 @@ function buttonModal(value){
   }
 }
 
-    
+function addFavorites(item){
+  let butt;
+  if (item == 0){
+    butt = document.getElementById("favorite1");
+  } else if(item == 1){
+    butt = document.getElementById("favorite2");
+  } else {
+    butt = document.getElementById("favorite3");
+  }
+  let list = document.createElement("li");
+  list.textContent = activeList[item].title;
+  document.getElementById("favorite-list").appendChild(list);
+} 
 // Get all links that start with #modal
 const modalLinks = document.querySelectorAll('a[href^="#modal"]');
 
