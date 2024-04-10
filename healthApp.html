@@ -47,6 +47,7 @@
 
 
     <div id="HOME" class="tabcontent" style="display: none;">
+      <h1 style="text-align: center; font-size: 46px;">HOME</h1>
       <div id="settings-container"> 
       </div>
           <div class="main-content">
@@ -620,15 +621,15 @@ more text to drive the point home! </p>
     <p>Enter your own exercises below:</p>
     <div id="customWorkoutContainer" style="display: flex; justify-content: space-between;">
       <div id="inputFields">
-        <label for="customExercise">Exercise:</label><br>
+        <label for="customExercise" style ="font-size: 20px;">Exercise:</label><br>
         <input type="text" id="customExercise" name="customExercise"><br>
-        <label for="customSets">Sets:</label><br>
+        <label for="customSets" style ="font-size: 20px;">Sets:</label><br>
         <input type="number" id="customSets" name="customSets"><br>
-        <label for="customReps">Reps:</label><br>
+        <label for="customReps" style ="font-size: 20px;">Reps:</label><br>
         <input type="number" id="customReps" name="customReps"><br>
-        <label for="customWeight">Weight:</label><br>
+        <label for="customWeight" style ="font-size: 20px;">Weight:</label><br>
         <input type="number" id="customWeight" name="customWeight"><br>
-        <button onclick="addExercise()">Add Exercise</button>
+        <button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button>
       </div>
   
       <table id="customWorkoutTable">
@@ -913,7 +914,7 @@ function addExercise() {
   row.insertCell(2).innerHTML = reps;
   row.insertCell(3).innerHTML = weight;
   var removeCell = row.insertCell(4);
-  removeCell.innerHTML = '<button onclick="removeExercise(this)">Remove</button>';
+  removeCell.innerHTML = '<button onclick="removeExercise(this)" style ="font-size: 20px;">Remove</button>';
 }
 
 function removeExercise(button) {

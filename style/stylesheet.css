@@ -25,7 +25,7 @@ body {
   cursor: pointer;
   padding: 8px 10px;
   transition: 0.5s;
-  font-size: 26px;
+  font-size: 40px;
   font-family: 'Bebas Neue';  
   border-radius: 1px;
 }
@@ -46,7 +46,7 @@ body {
 }
 
 .exercise-btn {
-  font-size: 20px;
+  font-size: 40px;
   padding: 15px 30px;
   margin-bottom: 30px;
   background-color: inherit;
@@ -55,11 +55,13 @@ body {
 
 p {
   font-family: 'Roboto', sans-serif;
+  font-size: 26px;
   text-align: center;
 }
 
 h1 {
   font-family: 'Bebas Neue', cursive;
+  font-size: 45px;
 }
 
 table {
@@ -113,10 +115,10 @@ th {
   /* padding: 10px 20px; */
 }
 
-/* profile button Button */
+/* profile button Butt6on */
 #setting {
     font-family: 'Bebas Neue', cursive; 
-    font-size: 26px;
+    font-size: 36px;
     background-color: #01baef; 
     border: none; 
     padding: 8px 20px; 
