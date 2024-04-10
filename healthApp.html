@@ -247,19 +247,19 @@ more text to drive the point home! </p>
       <form class="calorie-form">
         <div class="calorie-inputs">
           <div class="input-field">
-            <label for="item-name">Meal</label>
-            <input type="text" placeholder="Add Item" id="item-name">
+            <label for="item-name" style="font-size: 26px;">Meal</label>
+            <input type="text" placeholder="Add Item" id="item-name" style="font-size: 26px;">
           </div>
           <div class="input-field">
-            <label for="item-calories">Calories</label>
-            <input type="number" id="item-calories">
+            <label for="item-calories" style="font-size: 26px;">Calories</label>
+            <input type="number" id="item-calories" style="font-size: 26px;">
           </div>
-          <button class="add-btn btn blue darken-3" type="button"><i class="fa fa-plus"></i> Add Meal</button>         
+          <button class="add-btn btn blue darken-3" type="button" style="font-size: 30px;"><i class="fa fa-plus" ></i> Add Meal</button>         
           </div>
         <div class="calorie-buttons">
           <!-- <button class="update-btn btn orange" type="button"><i class="fa fa-pencil-square-o"></i> Update Meal</button> -->
           <!-- <button class="delete-btn btn red" type="button"><i class="fa fa-remove"></i> Delete Meal</button> -->
-          <button class="clear-btn btn grey pull-right" type="button"><i class="fa fa-chevron-circle-left"></i> Clear Meals</button>
+          <button class="clear-btn btn grey pull-right" type="button" style="font-size: 30px;"><i class="fa fa-chevron-circle-left"></i> Clear Meals</button>
         </div>
       </form>
       <h2>Total Calories: <span id="total-calories"></span></h2>
@@ -271,7 +271,7 @@ more text to drive the point home! </p>
   <div id="EXCERCISE" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Workout Splits</h1>
     <p> Choose the workout split that works best for you</p>
-    <p> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
+    <p style="margin:90px"> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
     
     <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
       <p>1.5 - 2hrs</p>
@@ -289,10 +289,11 @@ more text to drive the point home! </p>
      <!--  put todays date -->
     
     <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
-    <p> Push Pull Legs describes a three day split where we group body excercises into three main categories, <br>
-      activieties that involve pushing with your upper body, activities that involve pulling <br>
-       with your upper body and activities that involve mainly legs. To fully utilize this split <br>
+    <p style="margin: 90px;"> Push Pull Legs describes a three day split where we group body excercises into three main categories, 
+      activieties that involve pushing with your upper body, activities that involve pulling 
+       with your upper body and activities that involve mainly legs. To fully utilize this split 
       We recommend cycling them in order and in between allow for one to two rest days, then repeat.</p>
+      <br><br>
       <div class="button-container">
         <button class="tablinks exercise-btn" onclick="openTab(event, 'push')">PUSH DAY</button>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'pull')">PULL DAY</button>
@@ -303,7 +304,7 @@ more text to drive the point home! </p>
   </div>
   <div id="push" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Push Day</h1>
-    <table>
+    <table style="font-size: 35px;">
       <tr>
         <th>Exercise</th>
         <th>Sets</th>
@@ -346,7 +347,7 @@ more text to drive the point home! </p>
 
   <div id="pull" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Pull Day</h1>
-    <table>
+    <table style="font-size: 35px;">
       <tr>
         <th>Exercise</th>
         <th>Sets</th>
@@ -387,7 +388,7 @@ more text to drive the point home! </p>
   </div>
   <div id="legs" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Leg Day</h1>
-    <table>
+    <table style="font-size: 35px;">
       <tr>
         <th>Exercise</th>
         <th>Sets</th>
@@ -426,9 +427,10 @@ more text to drive the point home! </p>
     <!--  Arnold Split -->
     <h1 style="text-align: center; font-size: 70px;" >Arnold Split</h1>
     <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
-    <p> The Arnold Split describes a three day split where we group body excercises into four main categories, <br>
-      activites that involve your arms, back, leg, and chest To fully utilize this split we recommend  <br>
+    <p style="margin: 90px"> The Arnold Split describes a three day split where we group body excercises into four main categories, 
+      activites that involve your arms, back, leg, and chest To fully utilize this split we recommend  
       cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
+      <br><br>
       <div class="button-container">
         <button class="tablinks exercise-btn" onclick="openTab(event, 'arm')">ARM DAY</button>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'backs')">BACK DAY</button>
@@ -440,7 +442,7 @@ more text to drive the point home! </p>
   </div>
   <div id="arm" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Arm Day</h1>
-    <table>
+    <table style="font-size: 35px;">
       <tr>
         <th>Exercise</th>
         <th>Sets</th>
@@ -494,7 +496,7 @@ more text to drive the point home! </p>
   </div>
   <div id="backs" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
-    <table>
+    <table style="font-size: 35px;">
       <tr>
         <th>Exercise</th>
         <th>Sets</th>
@@ -537,7 +539,7 @@ more text to drive the point home! </p>
 
   <div id="backs" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
-    <table>
+    <table style="font-size: 35px;">
       <tr>
         <th>Exercise</th>
         <th>Sets</th>
@@ -580,7 +582,7 @@ more text to drive the point home! </p>
 
   <div id="chest" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
-    <table>
+    <table style="font-size: 35px;">
       <tr>
         <th>Exercise</th>
         <th>Sets</th>
