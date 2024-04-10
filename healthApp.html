@@ -277,7 +277,7 @@ more text to drive the point home! </p>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'ArnoldSplit')" style="margin-bottom: 20px;">Arnold Split</button>
         <p>Under 1 hr</p>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'PushPullLegs')" style="margin-bottom: 20px;">Push Pull Legs</button>
-        <br>
+        <p>Create your own</p>
         <button class="tablinks exercise-btn" style="padding: 15px 45px;" onclick="openTab(event, 'Customize')">    Customize    </button>
     </div>
   </div>
@@ -643,8 +643,163 @@ more text to drive the point home! </p>
           <th>Weight</th>
         </tr>
       </table>
-      
     </div>
+
+     <!-- Preloaded workouts -->
+     <div id="workouts">
+      <div id="search">
+          <input id="searchbox" placeholder="Search">
+      </div>
+    </div>
+    <table id="presetWorkoutTable">
+      <tr>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight</th>
+          <th>Add</th>
+          <th></th>
+      </tr>
+      <tr>
+          <th>Bench Press</th>
+          <td>3</td>
+          <td> 6 -8 </td>
+          <td id="push-bench-weight"></td>
+        </tr>
+        <tr>
+          <th>Overhead Shoulder Press</th>
+          <td>2</td>
+          <td> 8 - 10</td>
+          <td id="push-overhead-weight"></td>
+        </tr>
+        <tr>
+          <th>Dips</th>
+          <td>2</td>
+          <td> 10 - 12</td>
+        </tr>
+        <tr>
+          <th>Chest Fly</th>
+          <td>3</td>
+          <td> 10 - 12</td>
+          <td id="push-chest-fly"></td>
+        </tr>
+        <tr>
+          <th>Tricep Pushdown </th>
+          <td>2</td>
+          <td> 10 - 12</td>
+          <td id="push-tricep-pushdown"> </td>
+        </tr>
+        <tr>
+          <th>Bent Over Row</th>
+          <td>3</td>
+          <td> 8 - 10 </td>
+          <td id="pull-bent-row"></td>
+        </tr>
+        <tr>
+          <th>Back Pull Downs</th>
+          <td>3</td>
+          <td> 8 - 10</td>
+          <td id="pull-pull-down"></td>
+        </tr>
+        <tr>
+          <th>Mid Seated Row</th>
+          <td>3</td>
+          <td> 10 - 12</td>
+          <td id="pull-mid-row"></td>
+        </tr>
+        <tr>
+          <th>Front Delt Raise</th>
+          <td>2</td>
+          <td> 8 - 10 </td>
+          <td id="pull-front-delt"></td>
+        </tr>
+        <tr>
+          <th>Side Delt Raise</th>
+          <td>2</td>
+          <td> 8 - 10 </td>
+          <td id="pull-side-delt"></td>
+        </tr>
+        <tr>
+          <th>Single Arm Bicep Curl</th>
+          <td>4</td>
+          <td> 10 - 12 </td>
+          <td id="bicep-curl"></td>
+        </tr>
+        <tr>
+          <th> Bicep Crossover Curl</th>
+          <td>2</td>
+          <td> 10 - 12 </td>
+          <td id="cross-curl"></td>
+        </tr>
+        <tr>
+          <th>Cable Curl</th>
+          <td>2</td>
+          <td> 6 - 10</td>
+          <td id="cable-curl"></td>
+        </tr>
+        <tr>
+          <th>Tricep Pushdown</th>
+          <td>3</td>
+          <td> 12 - 15 </td>
+          <td id="tricep-pushdown"></td>
+        </tr>
+        <tr>
+          <th>SkullCrushers</th>
+          <td>4</td>
+          <td> 6 -8 </td>
+          <td id="skullcrusher"></td>
+        </tr>
+        <tr>
+          <th>Mid Cable Rows</th>
+          <td>3</td>
+          <td> 6 - 8 </td>
+          <td id="mid-row"></td>
+        </tr>
+        <tr>
+          <th>Cable Pulldown</th>
+          <td>3</td>
+          <td> 8- 10 </td>
+          <td id="cable-pulldown"></td>
+        </tr>
+        <tr>
+          <th>Rear Delt Flys</th>
+          <td>2</td>
+          <td> 6 - 10 </td>
+          <td id="rear-delt"></td>
+        </tr>
+        <tr>
+          <th>Shoulder Shurgs</th>
+          <td>3</td>
+          <td> 15 - 20 </td>
+          <td id="shoulder-shrug"></td>
+        </tr>
+        <tr>
+          <th>Squat</th>
+          <td>3</td>
+          <td> 6 - 8 </td>
+          <td id="leg-squat"> </td>
+        </tr>
+        <tr>
+          <th>RDL</th>
+          <td>3</td>
+          <td> 10 - 12</td>
+          <td id="leg-rdl"> </td>
+        </tr>
+        <tr>
+          <th>Leg Extension</th>
+          <td>3</td>
+          <td> 10 - 15</td>
+          <td id="leg-ext"> </td>
+        </tr>
+        <tr>
+          <th>Calf Raises</th>
+          <td>3</td>
+          <td> 10 - 15</td>
+          <td id="leg-raise"> </td>
+        </tr>
+      </table>
+    </table>
+
   </div>
 
 <script>
