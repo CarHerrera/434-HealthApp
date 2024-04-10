@@ -47,6 +47,7 @@
 
 
     <div id="HOME" class="tabcontent" style="display: none;">
+      <h1 style="text-align: center; font-size: 46px;">HOME</h1>
       <div id="settings-container"> 
       </div>
           <div class="main-content">
@@ -273,12 +274,12 @@ more text to drive the point home! </p>
     <p> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
     
     <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
-        <p>Fast</p>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'BroSplit')" style="margin-bottom: 20px;">Bro Split</button>
-        <p>Beginner</p>
+      <p>1.5 - 2hrs</p>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'ArnoldSplit')" style="margin-bottom: 20px;">Arnold Split</button>
+        <p>Under 1 hr</p>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'PushPullLegs')" style="margin-bottom: 20px;">Push Pull Legs</button>
-        <p>Intermediate</p>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'ArnoldSplit')">Arnold Split</button>
+        <br>
+        <button class="tablinks exercise-btn" style="padding: 15px 45px;" onclick="openTab(event, 'Customize')">    Customize    </button>
     </div>
   </div>
   
@@ -311,13 +312,13 @@ more text to drive the point home! </p>
       </tr>
       <tr>
         <th>Bench Press</th>
-        <td>4</td>
+        <td>3</td>
         <td> 6 -8 </td>
         <td id="push-bench-weight"></td>
       </tr>
       <tr>
         <th>Overhead Shoulder Press</th>
-        <td>3</td>
+        <td>2</td>
         <td> 8 - 10</td>
         <td id="push-overhead-weight"></td>
       </tr>
@@ -335,7 +336,7 @@ more text to drive the point home! </p>
       </tr>
       <tr>
         <th>Tricep Pushdown </th>
-        <td>3</td>
+        <td>2</td>
         <td> 10 - 12</td>
         <td id="push-tricep-pushdown"> </td>
       </tr>
@@ -354,7 +355,7 @@ more text to drive the point home! </p>
       </tr>
       <tr>
         <th>Bent Over Row</th>
-        <td>4</td>
+        <td>3</td>
         <td> 8 - 10 </td>
         <td id="pull-bent-row"></td>
       </tr>
@@ -369,6 +370,18 @@ more text to drive the point home! </p>
         <td>3</td>
         <td> 10 - 12</td>
         <td id="pull-mid-row"></td>
+      </tr>
+      <tr>
+        <th>Front Delt Raise</th>
+        <td>2</td>
+        <td> 8 - 10 </td>
+        <td id="pull-front-delt"></td>
+      </tr>
+      <tr>
+        <th>Side Delt Raise</th>
+        <td>2</td>
+        <td> 8 - 10 </td>
+        <td id="pull-side-delt"></td>
       </tr>
     </table>
   </div>
@@ -412,18 +425,226 @@ more text to drive the point home! </p>
   <div id="ArnoldSplit" class="tabcontent">
     <!--  Arnold Split -->
     <h1 style="text-align: center; font-size: 70px;" >Arnold Split</h1>
-    <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
+    <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
+    <p> The Arnold Split describes a three day split where we group body excercises into four main categories, <br>
+      activites that involve your arms, back, leg, and chest To fully utilize this split we recommend  <br>
+      cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
+      <div class="button-container">
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'arm')">ARM DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'backs')">BACK DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'legs')">LEG DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'chest')">CHEST DAY</button>
+      </div>
    
     <br><br><br>
   </div>
-  <div id="BroSplit" class="tabcontent">
-    <!-- Bro Split -->
-    <h1 style="text-align: center; font-size: 70px;" >Bro Split</h1>
-    <h2 style="text-align: center; font-size: 40px;" >Week 1</h2>
-   
-    <br><br><br>
+  <div id="arm" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Arm Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Single Arm Bicep Curl</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="bicep-curl"></td>
+      </tr>
+      <tr>
+        <th> Bicep Crossover Curl</th>
+        <td>2</td>
+        <td> 10 - 12 </td>
+        <td id="cross-curl"></td>
+      </tr>
+      <tr>
+        <th>Cable Curl</th>
+        <td>2</td>
+        <td> 6 - 10</td>
+        <td id="cable-curl"></td>
+      </tr>
+      <tr>
+        <th>Tricep Pushdown</th>
+        <td>3</td>
+        <td> 12 - 15 </td>
+        <td id="tricep-pushdown"></td>
+      </tr>
+      <tr>
+        <th>SkullCrushers</th>
+        <td>4</td>
+        <td> 6 -8 </td>
+        <td id="skullcrusher"></td>
+      </tr>
+      <tr>
+        <th>Side Delt Raise</th>
+        <td>2</td>
+        <td> 6 -8 </td>
+        <td id="side-delt"></td>
+      </tr>
+      <tr>
+        <th>Front Delt Raise</th>
+        <td>2</td>
+        <td> 6 -8 </td>
+        <td id="front-delt"></td>
+      </tr>
+    </table>
+    
+  </div>
+  <div id="backs" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bent Over Rows</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="bent-row"></td>
+      </tr>
+      <tr>
+        <th>Mid Cable Rows</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="mid-row"></td>
+      </tr>
+      <tr>
+        <th>Cable Pulldown</th>
+        <td>3</td>
+        <td> 8- 10 </td>
+        <td id="cable-pulldown"></td>
+      </tr>
+      <tr>
+        <th>Rear Delt Flys</th>
+        <td>2</td>
+        <td> 6 - 10 </td>
+        <td id="rear-delt"></td>
+      </tr>
+      <tr>
+        <th>Shoulder Shurgs</th>
+        <td>3</td>
+        <td> 15 - 20 </td>
+        <td id="shoulder-shrug"></td>
+      </tr>
+    </table>
+    
   </div>
 
+  <div id="backs" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bent Over Rows</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="bent-row"></td>
+      </tr>
+      <tr>
+        <th>Mid Cable Rows</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="mid-row"></td>
+      </tr>
+      <tr>
+        <th>Cable Pulldown</th>
+        <td>3</td>
+        <td> 8- 10 </td>
+        <td id="cable-pulldown"></td>
+      </tr>
+      <tr>
+        <th>Rear Delt Flys</th>
+        <td>2</td>
+        <td> 6 - 10 </td>
+        <td id="rear-delt"></td>
+      </tr>
+      <tr>
+        <th>Shoulder Shurgs</th>
+        <td>3</td>
+        <td> 15 - 20 </td>
+        <td id="shoulder-shrug"></td>
+      </tr>
+    </table>
+    
+  </div>
+
+  <div id="chest" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bench Press</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="chest-bench-press"></td>
+      </tr>
+      <tr>
+        <th>Chest Cable Flys</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="chest-cable-flys"></td>
+      </tr>
+      <tr>
+        <th>Incline Bench Press</th>
+        <td>2</td>
+        <td> 6 - 8 </td>
+        <td id="chest-incline-press"></td>
+      </tr>
+      <tr>
+        <th>Decline Bench Press</th>
+        <td>2</td>
+        <td> 6 - 8 </td>
+        <td id="chest-decline-press"></td>
+      </tr>
+    </table>
+    
+  </div>
+
+
+
+  <div id="Customize" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;">Customize Your Workout</h1>
+    <p>For more experienced lifters, or those who just want to experiment.</p>
+    <p>Enter your own exercises below:</p>
+    <div id="customWorkoutContainer" style="display: flex; justify-content: space-between;">
+      <div id="inputFields">
+        <label for="customExercise" style ="font-size: 20px;">Exercise:</label><br>
+        <input type="text" id="customExercise" name="customExercise"><br>
+        <label for="customSets" style ="font-size: 20px;">Sets:</label><br>
+        <input type="number" id="customSets" name="customSets"><br>
+        <label for="customReps" style ="font-size: 20px;">Reps:</label><br>
+        <input type="number" id="customReps" name="customReps"><br>
+        <label for="customWeight" style ="font-size: 20px;">Weight:</label><br>
+        <input type="number" id="customWeight" name="customWeight"><br>
+        <button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button>
+      </div>
+  
+      <table id="customWorkoutTable">
+        <tr>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight</th>
+        </tr>
+      </table>
+      
+    </div>
+  </div>
 
 <script>
 // This is the code for the drop down on the meal page
@@ -619,7 +840,6 @@ window.onload = function() {
 };
 // Modal Code
 
-// Matts profile storing
 function storeProfileInfo() {
   var height = document.getElementById('height').value || 100; ;
   var weight = document.getElementById('weight').value || 100; ;
@@ -636,7 +856,7 @@ function storeProfileInfo() {
   var benchWeight = Math.round(weight * 0.8);
   var overWeight = Math.round(weight * 0.4);
 
-  // Update the bench weight display
+  // push day
   document.getElementById('push-bench-weight').textContent = benchWeight;
   document.getElementById('push-overhead-weight').textContent = overWeight;
   document.getElementById('push-chest-fly').textContent = Math.round(overWeight * 2);
@@ -645,18 +865,64 @@ function storeProfileInfo() {
   document.getElementById('pull-bent-row').textContent = Math.round(weight * 0.6);
   document.getElementById('pull-mid-row').textContent = Math.round(weight * 0.9);
   document.getElementById('pull-pull-down').textContent = Math.round(weight * 0.7);
+  document.getElementById('pull-side-delt').textContent = Math.round(weight * 0.1);
+  document.getElementById('pull-front-delt').textContent = Math.round(weight * 0.1);
   //leg
   document.getElementById('leg-squat').textContent = Math.round(weight * 1.2);
   document.getElementById('leg-ext').textContent = Math.round(weight * 0.6);
   document.getElementById('leg-rdl').textContent = Math.round(weight * 0.9);
   document.getElementById('leg-raise').textContent = Math.round(weight * 0.6);
-  // Set the content of the output div to the stored values
+
+  //arm
+  document.getElementById('bicep-curl').textContent = Math.round(weight * 0.14);
+  document.getElementById('cross-curl').textContent = Math.round(weight * 0.4);
+  document.getElementById('cable-curl').textContent = Math.round(weight * 0.43);
+  document.getElementById('skullcrusher').textContent = Math.round(weight * 0.37);
+  document.getElementById('tricep-pushdown').textContent = Math.round(weight * 0.46);
+  document.getElementById('side-delt').textContent = Math.round(weight * 0.1);
+  document.getElementById('front-delt').textContent = Math.round(weight * 0.1);
+
+  //back
+  //back
+  document.getElementById('bent-row').textContent = Math.round(weight * 0.5);
+  document.getElementById('mid-row').textContent = Math.round(weight * 0.42);
+  document.getElementById('cable-pulldown').textContent = Math.round(weight * 0.3);
+  document.getElementById('rear-delt').textContent = Math.round(weight * 0.12);
+  document.getElementById('shoulder-shrug').textContent = Math.round(weight * 0.6);
+
+  //chest
+  document.getElementById('chest-bench-press').textContent = Math.round(weight * 0.5);
+  document.getElementById('chest-cable-flys').textContent = Math.round(weight * 0.23);
+  document.getElementById('chest-decline-press').textContent = Math.round(weight * 0.6);
+  document.getElementById('chest-incline-press').textContent = Math.round(weight * 0.4);
+
   output.innerHTML = 'Height: ' + Number(localStorage.getItem('height'))  + " Centimeters " + 
                      ', Weight: ' + Number(localStorage.getItem('weight')) + " Pounds" + 
                      ', Experience: ' + Number(localStorage.getItem('experience')) + " Months  ";
 }
 storeProfileInfo();
 
+// MAtts Custom Excercise
+function addExercise() {
+  var exercise = document.getElementById('customExercise').value;
+  var sets = document.getElementById('customSets').value;
+  var reps = document.getElementById('customReps').value;
+  var weight = document.getElementById('customWeight').value;
+
+  var table = document.getElementById('customWorkoutTable');
+  var row = table.insertRow(-1);
+  row.insertCell(0).innerHTML = exercise;
+  row.insertCell(1).innerHTML = sets;
+  row.insertCell(2).innerHTML = reps;
+  row.insertCell(3).innerHTML = weight;
+  var removeCell = row.insertCell(4);
+  removeCell.innerHTML = '<button onclick="removeExercise(this)" style ="font-size: 20px;">Remove</button>';
+}
+
+function removeExercise(button) {
+  var row = button.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
 
 
 </script>
