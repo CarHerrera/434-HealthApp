@@ -271,8 +271,9 @@ more text to drive the point home! </p>
     <p> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
     
     <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
+      <p>Under 1 hour</p>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'ArnoldSplit')" style="margin-bottom: 20px;">Arnold Split</button>
-        <br>
+        <p>1.5 - 2hrs</p>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'PushPullLegs')" style="margin-bottom: 20px;">Push Pull Legs</button>
         <br>
         <button class="tablinks exercise-btn" style="padding: 15px 45px;" onclick="openTab(event, 'Customize')">    Customize    </button>
@@ -308,13 +309,13 @@ more text to drive the point home! </p>
       </tr>
       <tr>
         <th>Bench Press</th>
-        <td>4</td>
+        <td>3</td>
         <td> 6 -8 </td>
         <td id="push-bench-weight"></td>
       </tr>
       <tr>
         <th>Overhead Shoulder Press</th>
-        <td>3</td>
+        <td>2</td>
         <td> 8 - 10</td>
         <td id="push-overhead-weight"></td>
       </tr>
@@ -332,7 +333,7 @@ more text to drive the point home! </p>
       </tr>
       <tr>
         <th>Tricep Pushdown </th>
-        <td>3</td>
+        <td>2</td>
         <td> 10 - 12</td>
         <td id="push-tricep-pushdown"> </td>
       </tr>
@@ -351,7 +352,7 @@ more text to drive the point home! </p>
       </tr>
       <tr>
         <th>Bent Over Row</th>
-        <td>4</td>
+        <td>3</td>
         <td> 8 - 10 </td>
         <td id="pull-bent-row"></td>
       </tr>
@@ -366,6 +367,18 @@ more text to drive the point home! </p>
         <td>3</td>
         <td> 10 - 12</td>
         <td id="pull-mid-row"></td>
+      </tr>
+      <tr>
+        <th>Front Delt Raise</th>
+        <td>2</td>
+        <td> 8 - 10 </td>
+        <td id="pull-front-delt"></td>
+      </tr>
+      <tr>
+        <th>Side Delt Raise</th>
+        <td>2</td>
+        <td> 8 - 10 </td>
+        <td id="pull-side-delt"></td>
       </tr>
     </table>
   </div>
@@ -849,6 +862,8 @@ function storeProfileInfo() {
   document.getElementById('pull-bent-row').textContent = Math.round(weight * 0.6);
   document.getElementById('pull-mid-row').textContent = Math.round(weight * 0.9);
   document.getElementById('pull-pull-down').textContent = Math.round(weight * 0.7);
+  document.getElementById('pull-side-delt').textContent = Math.round(weight * 0.1);
+  document.getElementById('pull-front-delt').textContent = Math.round(weight * 0.1);
   //leg
   document.getElementById('leg-squat').textContent = Math.round(weight * 1.2);
   document.getElementById('leg-ext').textContent = Math.round(weight * 0.6);
