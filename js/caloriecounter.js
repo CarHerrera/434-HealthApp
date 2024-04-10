@@ -85,9 +85,14 @@ const StorageCtrl = (function(){
       itemDiv.classList.add("meal-list-item")
   
       const pTag = document.createElement("p")
+      const trashIcon = document.createElement("i")
+      trashIcon.classList.add("bx","bx-trash")
       pTag.textContent = `${item.meal}: ${item.calories} calories`
-  
-      itemDiv.append(pTag)
+        trashIcon.addEventListener('click', () => {
+            StorageCtrl.deleteItemFromStorage(item.id)
+            renderList()
+        })
+      itemDiv.append(pTag, trashIcon)
       mealListDiv.append(itemDiv)
     })
   }

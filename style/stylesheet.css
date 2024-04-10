@@ -340,21 +340,29 @@ button{
 }
 
 /* Calorie Counter */
-#CALORIE-COUNTER {
+#calorie-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%
 }
 
 .calorie-inputs {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
 .input-field {
   display: flex;
   flex-direction: column;
   margin: 5px;
+  font-size: 20px;
+}
+
+.input-field input {
+  padding: 5px;
+  margin-top: 5px;
 }
 
 .calorie-buttons {
@@ -364,4 +372,29 @@ button{
 
 #item-calories {
   width: 50px;
+  margin-right: 10px;
+}
+
+#calorie-content h2 {
+  font-size: 32px;
+}
+
+#meal-list {
+  font-size: 20px;
+}
+
+.meal-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+.bx-trash {
+  cursor: pointer;
+
+}
+
+.bx-trash:hover {
+  color: red;
 }
