@@ -26,7 +26,7 @@
     <button class="tablinks" onclick="openTab(event, 'HOME')"><i class='bx bx-home'></i>HOME</button>
     <button class="tablinks" onclick="openTab(event, 'MEAL PLAN')"><i class='bx bx-fork'></i>MEAL PLAN</button>
     <button class="tablinks" onclick="openTab(event, 'CALORIE-COUNTER')"><i class='bx bx-rocket'></i>CALORIE COUNTER</button>
-    <button class="tablinks" onclick="openTab(event, 'EXCERCISE')"><i class='bx bx-dumbbell'></i>EXCERCISE</button>
+    <button class="tablinks" onclick="openTab(event, 'exerCISE')"><i class='bx bx-dumbbell'></i>exerCISE</button>
   </div>  
   <div id ='sett' class="tabcontent">
     <div id="profile-info">
@@ -273,7 +273,7 @@ more text to drive the point home! </p>
   </div>
 
  
-  <div id="EXCERCISE" class="tabcontent">
+  <div id="exerCISE" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Workout Splits</h1>
     <p> Choose the workout split that works best for you</p>
     <p style="margin:90px"> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
@@ -294,7 +294,7 @@ more text to drive the point home! </p>
      <!--  put todays date -->
     
     <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
-    <p style="margin: 90px;"> Push Pull Legs describes a three day split where we group body excercises into three main categories, 
+    <p style="margin: 90px;"> Push Pull Legs describes a three day split where we group body exercises into three main categories, 
       activieties that involve pushing with your upper body, activities that involve pulling 
        with your upper body and activities that involve mainly legs. To fully utilize this split 
       We recommend cycling them in order and in between allow for one to two rest days, then repeat.</p>
@@ -432,7 +432,7 @@ more text to drive the point home! </p>
     <!--  Arnold Split -->
     <h1 style="text-align: center; font-size: 70px;" >Arnold Split</h1>
     <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
-    <p style="margin: 90px"> The Arnold Split describes a three day split where we group body excercises into four main categories, 
+    <p style="margin: 90px"> The Arnold Split describes a three day split where we group body exercises into four main categories, 
       activites that involve your arms, back, leg, and chest To fully utilize this split we recommend  
       cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
       <br><br>
@@ -657,6 +657,7 @@ more text to drive the point home! </p>
           <input id="searchbox" placeholder="Search">
       </div>
     </div>
+
     <table id="presetWorkoutTable">
       <tr>
           <th>Exercise</th>
@@ -1076,7 +1077,7 @@ function storeProfileInfo() {
 }
 storeProfileInfo();
 
-// MAtts Custom Excercise
+// MAtts Custom exercise
 function addExercise() {
   var exercise = document.getElementById('customExercise').value;
   var sets = document.getElementById('customSets').value;
