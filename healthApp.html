@@ -648,18 +648,18 @@ more text to drive the point home! </p>
      <!-- Preloaded workouts -->
      <div id="workouts">
       <div id="search">
-          <input id="searchbox" placeholder="Search">
+          
+          <input type="text" id="searchbox" onkeyup="search()" placeholder="Search">
       </div>
     </div>
 
     <table id="presetWorkoutTable">
-      <tr>
-          <th>Exercise</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Weight</th>
+      <tr class = "presetWorkoutTableHeader">
+          <th style=width:20%>Exercise</th>
+          <th style=width:10%>Sets</th>
+          <th style=width:15%>Reps</th>
+          <th style=width:10%>Weight</th>
           <th>Add</th>
-          <th></th>
       </tr>
       <tr>
           <th>Bench Press</th>
@@ -1079,6 +1079,28 @@ function addExercise() {
 function removeExercise(button) {
   var row = button.parentNode.parentNode;
   row.parentNode.removeChild(row);
+}
+
+function search() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchbox");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("presetWorkoutTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("th")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
 }
 
 
