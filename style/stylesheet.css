@@ -183,6 +183,8 @@ th {
 }
 .main-content > .summary-content{
   /* background-color: red; */
+  font-size: 24px;
+  font-family: Roboto;
   height:100%;
   width:100%;
 }
