@@ -9,6 +9,15 @@
 <link href='style/resources/boxicons/css/boxicons.min.css' rel='stylesheet'>
 
 
+<!-- TODO: import fonts loally! -->
+
+
+<!-- import fonts ONLINE (delete when fonts imported locally) -->
+
+
+<!-- import fonts OFFLINE -->
+<!-- code here -->
+
 </head>
 <body>
 
@@ -112,53 +121,54 @@ more text to drive the point home! </p>
         <div class="Meal-Plan">
           <div class = "meal-plan-title">
             <div style="width: 35%;">
-              <h1 >Meal Plan</h1>
+              <h1 style="text-align:Center; font-size: 70px;" >Meal Plan</h1>
             </div>
             <div style="width:50%">
               <button id="setting" style="margin-right: 12vh;" onclick=populateMeals(randomizeList())>Refresh</button>
             </div>
+            <br>
           </div>
           <div class = "meal_box">
-            <button id = "meal1"class="accordion"> Meal Plan Option 1</button>
+            <button id = "meal1"class="accordion" style="font-size: 40px;"> Meal Plan Option 1</button>
             <div class="panel" style="display: none;">
               <div class="meal-plan-grid">
                 <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
                 <br>
-                <a href="#modal-recipe1" style="text-align: left;">Recipe Quicklink!</a>
-                <a href="#modal-nutrition1" style="text-align: left;">Nutrition Facts</a>
+                <a href="#modal-recipe1" style="text-align: left; font-size: 30px;">Recipe Quicklink!</a>
+                <a href="#modal-nutrition1" style="text-align: left; font-size: 30px;">Nutrition Facts</a>
                 <div id="settings-container">
-                    <button style="float:right;">Add to Calorie Counter </button>
-                    <button id = "favorite1" style="float:right;" onclick="addFavorites(0)">Add to Favorites</button>
+                    <button style="float:right; font-size: 30px;">Add to Calorie Counter </button>
+                    <button id = "favorite1" style="float:right; font-size: 30px;" onclick="addFavorites(0)">Add to Favorites</button>
                 </div>
               </div>
             </div>
+            <br><br>
             
-            
-            <button id = "meal2" class="accordion"> Meal Plan Option 2</button>
+            <button id = "meal2" class="accordion" style="font-size: 40px;"> Meal Plan Option 2</button>
                 <div class="panel" style="display: none;">
                   <div class="meal-plan-grid">
                     <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
                     <br>
-                    <a href="#modal-recipe2" style="text-align: left;">Recipe Quicklink!</a>
-                    <a href="#modal-nutrition2" style="text-align: left;">Nutrition Facts</a>
+                    <a href="#modal-recipe2" style="text-align: left; font-size: 30px;">Recipe Quicklink!</a>
+                    <a href="#modal-nutrition2" style="text-align: left; font-size: 30px;">Nutrition Facts</a>
                     <div id="settings-container">
-                        <button style="float:right;">Add to Calorie Counter </button>
-                        <button id = "favorite2" onclick="addFavorites(1)" style="float:right;">Add to Favorites</button>
+                        <button style="float:right; font-size: 30px;">Add to Calorie Counter </button>
+                        <button id = "favorite2" onclick="addFavorites(1)" style="float:right; font-size: 30px;">Add to Favorites</button>
                     </div>
                   </div>
                 </div>
+                <br><br>   
                 
-                
-        <button id = "meal3" class="accordion"> Meal Plan Option 3</button>
+        <button id = "meal3" class="accordion" style="font-size: 40px;"> Meal Plan Option 3</button>
         <div class="panel" style="display: none;">
           <div class="meal-plan-grid">
             <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
             <br>
-            <a href="#modal-recipe3" style="text-align: left;">Recipe Quicklink!</a>
-            <a href="#modal-nutrition3" style="text-align: left;">Nutrition Facts</a>
+            <a href="#modal-recipe3" style="text-align: left; font-size: 30px;">Recipe Quicklink!</a>
+            <a href="#modal-nutrition3" style="text-align: left; font-size: 30px;">Nutrition Facts</a>
             <div id="settings-container">
-              <button style="float:right;">Add to Calorie Counter </button>
-              <button id = "favorite3" style="float:right;" onclick="addFavorites(2)">Add to Favorites</button>
+              <button style="float:right; font-size: 30px;">Add to Calorie Counter </button>
+              <button id = "favorite3" style="float:right; font-size: 30px;" onclick="addFavorites(2)">Add to Favorites</button>
           </div>
             </div>
           </div>
@@ -229,8 +239,8 @@ more text to drive the point home! </p>
       </div>
         
       <div class ="meal_history">
-        <button class = "history_butt" onclick="buttonModal(1)">View Favorites</button>
-        <button class = "history_butt" style="right:0;" onclick="buttonModal(2)">View Past Meals!</button>
+        <button class = "history_butt" onclick="buttonModal(1)" style="font-size: 40px; margin-left: 40px;">View Favorites</button>
+        <button class = "history_butt" style="right:0; font-size: 40px; margin-right: 40px;" onclick="buttonModal(2)" >View Past Meals</button>
           </div>
         </div>
     
