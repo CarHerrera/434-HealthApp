@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- import css styesheet -->
+<link rel="stylesheet" type="text/css" href="style/stylesheet.css">
+
+<!-- import local icons -->
+<link href='style/resources/boxicons/css/boxicons.min.css' rel='stylesheet'>
+
+
+<!-- TODO: import fonts loally! -->
+
+
+<!-- import fonts ONLINE (delete when fonts imported locally) -->
+
+
+<!-- import fonts OFFLINE -->
+<!-- code here -->
+
+</head>
+<body>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'HOME')"><i class='bx bx-home'></i>HOME</button>
+    <button class="tablinks" onclick="openTab(event, 'MEAL PLAN')"><i class='bx bx-fork'></i>MEAL PLAN</button>
+    <button class="tablinks" onclick="openTab(event, 'CALORIE-COUNTER')"><i class='bx bx-rocket'></i>CALORIE COUNTER</button>
+    <button class="tablinks" onclick="openTab(event, 'exerCISE')"><i class='bx bx-dumbbell'></i>exerCISE</button>
+  </div>  
+  <div id ='sett' class="tabcontent">
+    <div id="profile-info">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
+        <h1>Profile Information</h1>
+        <p>Default Profile INFO is displayed unless you input your own numbers</p>
+      <label for="height">Height: (exact number in inches) </label><br>
+      <input type="text" id="height" name="height"><br>
+      <label for="weight">Weight: (exact number in pounds) </label><br>
+      <input type="text" id="weight" name="weight"><br>
+      <label for="experience">Experience: (exact number in months)</label><br>
+      <input type="text" id="experience" name="experience"><br>
+      </div>
+      <button id="setting" onclick="storeProfileInfo()" style="position: fixed; margin-top: 600px; margin-right: 10px;">Save Profile Info</button>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);"  id="output"></div>
+    </div>
+  </div>
+
+
+    <div id="HOME" class="tabcontent" style="display: none;">
+      <div id="settings-container"> 
+      </div>
+          <div class="main-content">
+            <div class="summary-content">
+              <h1 id="summary-header" style="text-align: center; font-size: 50px;">HOME</h1>
+              <div class="summary-box">
+                <div class="column left">
+                  <h3>Calories Progress Bar</h3>
+                  <label for="calories">Calorie Progress:</label>
+                  <progress id="calories" value="1502" max="2000" style="width:130px"> 32kcal </progress>
+                </div>
+                <div class="column right">
+                  <h3>Nutrient Progress Bars</h3>
+                  <label for="Macro Nutrients">Macro Nutrient Progress:</label>
+                  <progress id="Macro Nutrients" value="32" max="100"> 32% </progress>
+                  <br>
+                  <label for="Micro Nutrients">Micro Nutrients:</label>
+                  <progress id="Micro Nutrients" value="32" max="100"> 32% </progress>
+                  <br>
+                  <label for="Protein">Protein</label>
+                  <progress id="Protein" value="32" max="100"> 32% </progress>
+                </div>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h2 id="summary-header">Exercise Summary</h2>
+              <div class="summary-box"> 
+                <div class="column left">
+                  <h3>Exercise minutes</h3>
+                  <label for="minutes">Minutes Exercised</label>
+                  <progress id="minutes" value="100" max="300" style="width:130px"> 32kcal </progress>
+                </div>
+                <div class="column right">
+                  <h3>Calendar Showcasing previous exercises</h3>
+                  <br>
+                  <img src="https://1.bp.blogspot.com/-shZmJtOAdCs/UwBhhoQrqwI/AAAAAAAATCM/BmSRg_TAMrA/s1600/simple_html_calendar_by_justin_woodie.png" style="width:150px; height:100px; float:none">
+                </div>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h2 id="summary-header">Quick look at Meals</h2>
+              <div class="summary-box">
+                <div class="slide-container">
+                  <div class="meals" style="display: grid;">
+                    <h3 class="headers">Meal 1</h3>
+                    <p class="meal_desc">This is a quick descriptor about the meals, the ingredients, and the nurtitional benefits.</p>
+                  </div>
+                  <div class="meals" style="display: none;">
+                    <h3 class="headers">Meal 2</h3>
+                    <p class="meal_desc">This is a quick descriptor 
+about the meals, the ingredients, and the nurtitional benefits. Extra 
+text to indicate a different meal!</p>
+                  </div>
+                  <div class="meals" style="display: none;">
+                    <h3 class="headers">Meal 3</h3>
+                    <p class="meal_desc">This is a quick descriptor 
+about the meals, the ingredients, and the nurtitional benefits. Even 
+more text to drive the point home! </p>
+                  </div>
+                  <a class="prev" onclick="plusSlides(-1)">❮</a>
+                  <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    
+    
+    
+      <div id="MEAL PLAN" class="tabcontent" style="display: block;">
+          
+    
+        <div class="Meal-Plan">
+          <div class = "meal-plan-title">
+            <div style="width: 35%;">
+              <h1 style="text-align:Center; font-size: 70px;" >Meal Plan</h1>
+            </div>
+            <div style="width:50%">
+              <button id="setting" style="margin-right: 12vh;" onclick=populateMeals(randomizeList())>Refresh</button>
+            </div>
+            <br>
+          </div>
+          <div class = "meal_box">
+            <button id = "meal1"class="accordion" style="font-size: 40px;"> Meal Plan Option 1</button>
+            <div class="panel" style="display: none;">
+              <div class="meal-plan-grid">
+                <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
+                <br>
+                <a href="#modal-recipe1" style="text-align: left; font-size: 30px;">Recipe Quicklink!</a>
+                <a href="#modal-nutrition1" style="text-align: left; font-size: 30px;">Nutrition Facts</a>
+                <div id="settings-container">
+                    <button style="float:right; font-size: 30px;">Add to Calorie Counter </button>
+                    <button id = "favorite1" style="float:right; font-size: 30px;" onclick="addFavorites(0)">Add to Favorites</button>
+                </div>
+              </div>
+            </div>
+            <br><br>
+            
+            <button id = "meal2" class="accordion" style="font-size: 40px;"> Meal Plan Option 2</button>
+                <div class="panel" style="display: none;">
+                  <div class="meal-plan-grid">
+                    <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
+                    <br>
+                    <a href="#modal-recipe2" style="text-align: left; font-size: 30px;">Recipe Quicklink!</a>
+                    <a href="#modal-nutrition2" style="text-align: left; font-size: 30px;">Nutrition Facts</a>
+                    <div id="settings-container">
+                        <button style="float:right; font-size: 30px;">Add to Calorie Counter </button>
+                        <button id = "favorite2" onclick="addFavorites(1)" style="float:right; font-size: 30px;">Add to Favorites</button>
+                    </div>
+                  </div>
+                </div>
+                <br><br>   
+                
+        <button id = "meal3" class="accordion" style="font-size: 40px;"> Meal Plan Option 3</button>
+        <div class="panel" style="display: none;">
+          <div class="meal-plan-grid">
+            <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
+            <br>
+            <a href="#modal-recipe3" style="text-align: left; font-size: 30px;">Recipe Quicklink!</a>
+            <a href="#modal-nutrition3" style="text-align: left; font-size: 30px;">Nutrition Facts</a>
+            <div id="settings-container">
+              <button style="float:right; font-size: 30px;">Add to Calorie Counter </button>
+              <button id = "favorite3" style="float:right; font-size: 30px;" onclick="addFavorites(2)">Add to Favorites</button>
+          </div>
+            </div>
+          </div>
+        </div>    
+        <div class="modals">
+          <dialog class="dialog" id="modal-recipe1">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>This is the name of the meal</h1>
+              <p>This will be the contents of all the recipe stuff</p>
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-recipe2">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>This is the name of the meal</h1>
+              <p>This will be the contents of all the recipe stuff</p>
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-recipe3">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>This is the name of the meal</h1>
+              <p>This will be the contents of all the recipe stuff</p>
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition1">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>This is the name of the meal</h1>
+              <img class = 'nut_label' src = "style/resources/img/nutrition.png">
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition2">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>This is the name of the meal</h1>
+              <img class = 'nut_label' src = "style/resources/img/nutrition.png">
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-nutrition3">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>This is the name of the meal</h1>
+              <img class = 'nut_label' src = "style/resources/img/nutrition.png">
+            </div>
+          </dialog>
+          <dialog class="dialog" id="modal-favorite">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1> Favorites</h1>
+              <ul id ="favorite-list">
+
+              </ul>
+            </div>
+          </dialog>
+
+          <dialog class="dialog" id="modal-history">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>Past Meals</h1>
+              <ul id ="Past-list">
+                <li>Meal 1</li>
+              </ul>
+            </div>
+          </dialog>
+        </div>
+      </div>
+        
+      <div class ="meal_history">
+        <button class = "history_butt" onclick="buttonModal(1)" style="font-size: 40px; margin-left: 40px;">View Favorites</button>
+        <button class = "history_butt" style="right:0; font-size: 40px; margin-right: 40px;" onclick="buttonModal(2)" >View Past Meals</button>
+          </div>
+        </div>
+    
+  </div>
+
+  <div id="CALORIE-COUNTER" class="tabcontent">
+    <div id="calorie-content">
+      <h1 style="text-align: center; font-size: 70px;">Calorie Counter</h1>
+      <form class="calorie-form">
+        <div class="calorie-inputs">
+          <div class="input-field">
+            <label for="item-name" style="font-size: 26px;">Meal</label>
+            <input type="text" placeholder="Add Item" id="item-name" style="font-size: 26px;">
+          </div>
+          <div class="input-field">
+            <label for="item-calories" style="font-size: 26px;">Calories</label>
+            <input type="number" id="item-calories" style="font-size: 26px;">
+          </div>
+          <button class="add-btn btn blue darken-3" type="button" style="font-size: 30px;"><i class="fa fa-plus" ></i> Add Meal</button>         
+          </div>
+        <div class="calorie-buttons">
+          <!-- <button class="update-btn btn orange" type="button"><i class="fa fa-pencil-square-o"></i> Update Meal</button> -->
+          <!-- <button class="delete-btn btn red" type="button"><i class="fa fa-remove"></i> Delete Meal</button> -->
+          <button class="clear-btn btn grey pull-right" type="button" style="font-size: 30px;"><i class="fa fa-chevron-circle-left"></i> Clear Meals</button>
+        </div>
+      </form>
+      <h2>Total Calories: <span id="total-calories"></span></h2>
+      <div id="meal-list"></div>
+    </div>
+  </div>
+
+ 
+  <div id="exerCISE" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Workout Splits</h1>
+    <p> Choose the workout split that works best for you</p>
+    <p style="margin:90px"> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
+    
+    <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
+      <p>1.5 - 2hrs</p>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'ArnoldSplit')" style="margin-bottom: 20px;">Arnold Split</button>
+        <p>Under 1 hr</p>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'PushPullLegs')" style="margin-bottom: 20px;">Push Pull Legs</button>
+        <p>Create your own</p>
+        <button class="tablinks exercise-btn" style="padding: 15px 45px;" onclick="openTab(event, 'Customize')">    Customize    </button>
+    </div>
+  </div>
+  
+  <div id="PushPullLegs" class="tabcontent">
+    <!--  Push Pull Legs -->
+    <h1 style="text-align: center; font-size: 70px;" >Push Pull Legs</h1>
+     <!--  put todays date -->
+    
+    <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
+    <p style="margin: 90px;"> Push Pull Legs describes a three day split where we group body exercises into three main categories, 
+      activieties that involve pushing with your upper body, activities that involve pulling 
+       with your upper body and activities that involve mainly legs. To fully utilize this split 
+      We recommend cycling them in order and in between allow for one to two rest days, then repeat.</p>
+      <br><br>
+      <div class="button-container">
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'push')">PUSH DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'pull')">PULL DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'legs')">LEG DAY</button>
+      </div>
+      
+    <br><br><br>
+  </div>
+  <div id="push" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Push Day</h1>
+    <table style="font-size: 35px;">
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bench Press</th>
+        <td>3</td>
+        <td> 6 -8 </td>
+        <td id="push-bench-weight"></td>
+      </tr>
+      <tr>
+        <th>Overhead Shoulder Press</th>
+        <td>2</td>
+        <td> 8 - 10</td>
+        <td id="push-overhead-weight"></td>
+      </tr>
+      <tr>
+        <th>Dips</th>
+        <td>2</td>
+        <td> 10 - 12</td>
+        <td> N/A </td>
+      </tr>
+      <tr>
+        <th>Chest Fly</th>
+        <td>3</td>
+        <td> 10 - 12</td>
+        <td id="push-chest-fly"></td>
+      </tr>
+      <tr>
+        <th>Tricep Pushdown </th>
+        <td>2</td>
+        <td> 10 - 12</td>
+        <td id="push-tricep-pushdown"> </td>
+      </tr>
+    </table>
+    
+  </div>
+
+  <div id="pull" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Pull Day</h1>
+    <table style="font-size: 35px;">
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bent Over Row</th>
+        <td>3</td>
+        <td> 8 - 10 </td>
+        <td id="pull-bent-row"></td>
+      </tr>
+      <tr>
+        <th>Back Pull Downs</th>
+        <td>3</td>
+        <td> 8 - 10</td>
+        <td id="pull-pull-down"></td>
+      </tr>
+      <tr>
+        <th>Mid Seated Row</th>
+        <td>3</td>
+        <td> 10 - 12</td>
+        <td id="pull-mid-row"></td>
+      </tr>
+      <tr>
+        <th>Front Delt Raise</th>
+        <td>2</td>
+        <td> 8 - 10 </td>
+        <td id="pull-front-delt"></td>
+      </tr>
+      <tr>
+        <th>Side Delt Raise</th>
+        <td>2</td>
+        <td> 8 - 10 </td>
+        <td id="pull-side-delt"></td>
+      </tr>
+    </table>
+  </div>
+  <div id="legs" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Leg Day</h1>
+    <table style="font-size: 35px;">
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Squat</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="leg-squat"> </td>
+      </tr>
+      <tr>
+        <th>RDL</th>
+        <td>3</td>
+        <td> 10 - 12</td>
+        <td id="leg-rdl"> </td>
+      </tr>
+      <tr>
+        <th>Leg Extension</th>
+        <td>3</td>
+        <td> 10 - 15</td>
+        <td id="leg-ext"> </td>
+      </tr>
+      <tr>
+        <th>Calf Raises</th>
+        <td>3</td>
+        <td> 10 - 15</td>
+        <td id="leg-raise"> </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div id="ArnoldSplit" class="tabcontent">
+    <!--  Arnold Split -->
+    <h1 style="text-align: center; font-size: 70px;" >Arnold Split</h1>
+    <h2 style="text-align: center; font-size: 40px;" >SUMMARY</h2>
+    <p style="margin: 90px"> The Arnold Split describes a three day split where we group body exercises into four main categories, 
+      activites that involve your arms, back, leg, and chest To fully utilize this split we recommend  
+      cycling them in order and in between allow for one to two rest days as needed, then repeat.</p>
+      <br><br>
+      <div class="button-container">
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'arm')">ARM DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'backs')">BACK DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'legs')">LEG DAY</button>
+        <button class="tablinks exercise-btn" onclick="openTab(event, 'chest')">CHEST DAY</button>
+      </div>
+   
+    <br><br><br>
+  </div>
+  <div id="arm" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Arm Day</h1>
+    <table style="font-size: 35px;">
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Single Arm Bicep Curl</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="bicep-curl"></td>
+      </tr>
+      <tr>
+        <th> Bicep Crossover Curl</th>
+        <td>2</td>
+        <td> 10 - 12 </td>
+        <td id="cross-curl"></td>
+      </tr>
+      <tr>
+        <th>Cable Curl</th>
+        <td>2</td>
+        <td> 6 - 10</td>
+        <td id="cable-curl"></td>
+      </tr>
+      <tr>
+        <th>Tricep Pushdown</th>
+        <td>3</td>
+        <td> 12 - 15 </td>
+        <td id="tricep-pushdown"></td>
+      </tr>
+      <tr>
+        <th>SkullCrushers</th>
+        <td>4</td>
+        <td> 6 -8 </td>
+        <td id="skullcrusher"></td>
+      </tr>
+      <tr>
+        <th>Side Delt Raise</th>
+        <td>2</td>
+        <td> 6 -8 </td>
+        <td id="side-delt"></td>
+      </tr>
+      <tr>
+        <th>Front Delt Raise</th>
+        <td>2</td>
+        <td> 6 -8 </td>
+        <td id="front-delt"></td>
+      </tr>
+    </table>
+    
+  </div>
+  <div id="backs" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
+    <table style="font-size: 35px;">
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bent Over Rows</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="bent-row"></td>
+      </tr>
+      <tr>
+        <th>Mid Cable Rows</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="mid-row"></td>
+      </tr>
+      <tr>
+        <th>Cable Pulldown</th>
+        <td>3</td>
+        <td> 8- 10 </td>
+        <td id="cable-pulldown"></td>
+      </tr>
+      <tr>
+        <th>Rear Delt Flys</th>
+        <td>2</td>
+        <td> 6 - 10 </td>
+        <td id="rear-delt"></td>
+      </tr>
+      <tr>
+        <th>Shoulder Shurgs</th>
+        <td>3</td>
+        <td> 15 - 20 </td>
+        <td id="shoulder-shrug"></td>
+      </tr>
+    </table>
+    
+  </div>
+
+  <div id="backs" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
+    <table style="font-size: 35px;">
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bent Over Rows</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="bent-row"></td>
+      </tr>
+      <tr>
+        <th>Mid Cable Rows</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="mid-row"></td>
+      </tr>
+      <tr>
+        <th>Cable Pulldown</th>
+        <td>3</td>
+        <td> 8- 10 </td>
+        <td id="cable-pulldown"></td>
+      </tr>
+      <tr>
+        <th>Rear Delt Flys</th>
+        <td>2</td>
+        <td> 6 - 10 </td>
+        <td id="rear-delt"></td>
+      </tr>
+      <tr>
+        <th>Shoulder Shurgs</th>
+        <td>3</td>
+        <td> 15 - 20 </td>
+        <td id="shoulder-shrug"></td>
+      </tr>
+    </table>
+    
+  </div>
+
+  <div id="chest" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;" >Back Day</h1>
+    <table style="font-size: 35px;">
+      <tr>
+        <th>Exercise</th>
+        <th>Sets</th>
+        <th>Rep Range</th>
+        <th>Weight</th>
+      </tr>
+      <tr>
+        <th>Bench Press</th>
+        <td>4</td>
+        <td> 10 - 12 </td>
+        <td id="chest-bench-press"></td>
+      </tr>
+      <tr>
+        <th>Chest Cable Flys</th>
+        <td>3</td>
+        <td> 6 - 8 </td>
+        <td id="chest-cable-flys"></td>
+      </tr>
+      <tr>
+        <th>Incline Bench Press</th>
+        <td>2</td>
+        <td> 6 - 8 </td>
+        <td id="chest-incline-press"></td>
+      </tr>
+      <tr>
+        <th>Decline Bench Press</th>
+        <td>2</td>
+        <td> 6 - 8 </td>
+        <td id="chest-decline-press"></td>
+      </tr>
+    </table>
+    
+  </div>
+
+
+
+  <div id="Customize" class="tabcontent">
+    <h1 style="text-align: center; font-size: 70px;">Customize Your Workout</h1>
+    <p>For more experienced lifters, or those who just want to experiment.</p>
+    <p>Enter your own exercises below:</p>
+    <div id="customWorkoutContainer" style="display: flex; justify-content: space-between;">
+      <div id="inputFields">
+        <label for="customExercise" style ="font-size: 20px;">Exercise:</label><br>
+        <input type="text" id="customExercise" name="customExercise"><br>
+        <label for="customSets" style ="font-size: 20px;">Sets:</label><br>
+        <input type="number" id="customSets" name="customSets"><br>
+        <label for="customReps" style ="font-size: 20px;">Reps:</label><br>
+        <input type="number" id="customReps" name="customReps"><br>
+        <label for="customWeight" style ="font-size: 20px;">Weight:</label><br>
+        <input type="number" id="customWeight" name="customWeight"><br>
+        <button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button>
+      </div>
+  
+      <table id="customWorkoutTable">
+        <tr>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight</th>
+        </tr>
+      </table>
+    </div>
+
+     <!-- Preloaded workouts -->
+     <div id="workouts">
+      <div id="search">
+          
+          <input type="text" id="searchbox" onkeyup="search()" placeholder="Search">
+      </div>
+    </div>
+
+    <table id="presetWorkoutTable">
+      <tr class = "presetWorkoutTableHeader">
+          <th style=width:20%>Exercise</th>
+          <th style=width:10%>Sets</th>
+          <th style=width:15%>Reps</th>
+          <th>Add</th>
+      </tr>
+      <tr>
+          <th>Bench Press</th>
+          <td>3</td>
+          <td> 6 -8 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Overhead Shoulder Press</th>
+          <td>2</td>
+          <td> 8 - 10</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Dips</th>
+          <td>2</td>
+          <td> 10 - 12</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Chest Fly</th>
+          <td>3</td>
+          <td> 10 - 12</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Tricep Pushdown </th>
+          <td>2</td>
+          <td> 10 - 12</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Bent Over Row</th>
+          <td>3</td>
+          <td> 8 - 10 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Back Pull Downs</th>
+          <td>3</td>
+          <td> 8 - 10</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Mid Seated Row</th>
+          <td>3</td>
+          <td> 10 - 12</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Front Delt Raise</th>
+          <td>2</td>
+          <td> 8 - 10 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Side Delt Raise</th>
+          <td>2</td>
+          <td> 8 - 10 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Single Arm Bicep Curl</th>
+          <td>4</td>
+          <td> 10 - 12 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th> Bicep Crossover Curl</th>
+          <td>2</td>
+          <td> 10 - 12 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Cable Curl</th>
+          <td>2</td>
+          <td> 6 - 10</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Tricep Pushdown</th>
+          <td>3</td>
+          <td> 12 - 15 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>SkullCrushers</th>
+          <td>4</td>
+          <td> 6 -8 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Mid Cable Rows</th>
+          <td>3</td>
+          <td> 6 - 8 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Cable Pulldown</th>
+          <td>3</td>
+          <td> 8- 10 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Rear Delt Flys</th>
+          <td>2</td>
+          <td> 6 - 10 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Shoulder Shurgs</th>
+          <td>3</td>
+          <td> 15 - 20 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Squat</th>
+          <td>3</td>
+          <td> 6 - 8 </td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>RDL</th>
+          <td>3</td>
+          <td> 10 - 12</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Leg Extension</th>
+          <td>3</td>
+          <td> 10 - 15</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+        <tr>
+          <th>Calf Raises</th>
+          <td>3</td>
+          <td> 10 - 15</td>
+          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+        </tr>
+      </table>
+    </table>
+
+  </div>
+
+<script>
+// This is the code for the drop down on the meal page
+const mealList = [
+  { title: "Meal Plan Option 1", desc:"This is a meal rich in protein.", recipe:"chicken", nut:null},
+  { title: "Meal Plan Option 2", desc:"You'll love this meal high in Vitamins for muscles.", recipe:"Food for meal 2", nut:null},
+  { title: "Meal Plan Option 3", desc:"This meal is packed with nutrients, and has low calories.", recipe:"Food for meal 3", nut:null},
+  { title: "Meal Plan Option 4", desc:"This meal is a great recovery meal.", recipe:"Food for meal 4", nut:null},
+  { title: "Meal Plan Option 5", desc:"This meal can help fill in the vitamins your missing!", recipe:"Food for meal 5", nut:null},
+  { title: "Meal Plan Option 6", desc:"This meal will help you feel focused and full.", recipe:"Food for meal 6", nut:null},
+  { title: "Meal Plan Option 7", desc:"This meal is purely greens.", recipe:"Food for meal 7", nut:null},
+  { title: "Meal Plan Option 8", desc:"This meal is nutrient dense. Great if you're mising a couple of nutrients.", recipe:"Food for meal 8", nut:null},
+  { title: "Meal Plan Option 9", desc:"This meal is different from the other meal rich in protein! Tastier too!", recipe:"Food for meal 9", nut:null},
+  { title: "Meal Plan Option 10", desc:"This light breakfast is a great way to start your morning.", recipe:"Food for meal 10", nut:null},
+];
+let activeList = [];
+function randomizeList(ogList=mealList, oldList =activeList){
+  const rand = [];
+  const length = ogList.length;
+
+  while (rand.length < 3){
+    const i = Math.floor(Math.random()* length);
+    const temp = ogList[i];
+
+    if (oldList.length == 0){
+      if (!rand.includes(temp)){
+        rand.push(temp);
+      }
+    } else {
+      if (!oldList.includes(temp) && !rand.includes(temp)){
+        rand.push(temp);
+      }
+    }
+  }
+  activeList = rand;
+}
+
+function populateMeals(list = activeList){
+    let b1 = document.getElementById("meal1");
+    let b2 = document.getElementById("meal2");
+    let b3 = document.getElementById("meal3");
+
+    b1.innerHTML = list[0].title;
+    b2.innerHTML = list[1].title;
+    b3.innerHTML = list[2].title;
+
+    let mealContent = document.getElementsByClassName("meal-plan-grid");
+    for (let i = 0; i <mealContent.length; i++){
+        mealContent[i].children[0].innerHTML = list[i].desc;
+    }
+}
+
+let acc = document.getElementsByClassName("accordion");
+let i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+// This is how the tabs on the bottom work
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Slideshow on the Home page JS
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("meals");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex-1].style.display = "grid";
+} 
+
+function buttonModal(value){
+  let id = null;
+  if (value == 1) {
+    id = "#modal-favorite";
+  } else {
+    id = "#modal-history";
+  }
+  const histModal = document.querySelector(id);
+  if(histModal){
+    const closeBtn = histModal.querySelector('.dialog__close');
+    event.preventDefault();
+    histModal.showModal(); // Open modal
+    closeBtn.addEventListener('click', function (event) {
+      histModal.close();
+    });
+    document.addEventListener('click', function (event) {
+          
+          const dialogEl = event.target.tagName;
+          const dialogElId = event.target.getAttribute('id');
+          if(dialogEl == 'DIALOG'){
+            // Close modal
+            histModal.close();
+          }
+    }, false);
+  }
+}
+
+function addFavorites(item){
+  let butt;
+  if (item == 0){
+    butt = document.getElementById("favorite1");
+  } else if(item == 1){
+    butt = document.getElementById("favorite2");
+  } else {
+    butt = document.getElementById("favorite3");
+  }
+  let list = document.createElement("li");
+  list.textContent = activeList[item].title;
+  document.getElementById("favorite-list").appendChild(list);
+} 
+// Get all links that start with #modal
+const modalLinks = document.querySelectorAll('a[href^="#modal"]');
+
+modalLinks.forEach(function (modalLink, index) {
+  // Get modal ID to match the modal
+  const modalId = modalLink.getAttribute('href');
+  // console.log(modalId);
+  let val = parseInt(modalId.charAt(modalId.length-1)) -1;
+  let type = modalId.charAt(7) == 'r' ? "recipe" : "nut";
+  // Click on link
+  modalLink.addEventListener('click', function (event) {    
+  // Get modal element
+  const modal = document.querySelector(modalId);
+  // If modal with an ID exists
+  if(modal){
+    // Get close button
+    const elements = modal.children[0].children;
+    if (type == "recipe"){
+      elements[1].innerHTML = activeList[val].title + " Recipe";
+      elements[2].innerHTML = activeList[val].recipe;
+    } else {
+      elements[1].innerHTML = activeList[val].title + " Nutrition Facts!";
+    }
+    const closeBtn = modal.querySelector('.dialog__close');
+    event.preventDefault();
+    modal.showModal(); // Open modal
+    
+    // Close modal on click
+    closeBtn.addEventListener('click', function (event) {
+      modal.close();
+    });
+    
+    // Close modal when clicking outside modal
+    document.addEventListener('click', function (event) {
+      
+      const dialogEl = event.target.tagName;
+      const dialogElId = event.target.getAttribute('id');
+      if(dialogEl == 'DIALOG'){
+        // Close modal
+        modal.close();
+      }
+    }, false);
+    
+  // If modal ID not exists
+  } else {
+    console.log('Modal doesn\'t exist');
+  }
+  });
+});
+window.onload = function() {
+  document.querySelector('.tablinks[onclick="openTab(event, \'HOME\')"]').click();
+  activeList = [mealList[0],mealList[1],mealList[2]];
+  populateMeals(activeList);
+};
+// Modal Code
+
+function storeProfileInfo() {
+  var height = document.getElementById('height').value || 100; ;
+  var weight = document.getElementById('weight').value || 100; ;
+  var experience = document.getElementById('experience').value || 0; ;
+
+  // Store the values as numbers
+  localStorage.setItem('height', Number(height));
+  localStorage.setItem('weight', Number(weight));
+  localStorage.setItem('experience', Number(experience));
+
+  // Get the output div
+  var output = document.getElementById('output');
+  var weight = Number(localStorage.getItem('weight'));
+  var benchWeight = Math.round(weight * 0.8);
+  var overWeight = Math.round(weight * 0.4);
+
+  // push day
+  document.getElementById('push-bench-weight').textContent = benchWeight;
+  document.getElementById('push-overhead-weight').textContent = overWeight;
+  document.getElementById('push-chest-fly').textContent = Math.round(overWeight * 2);
+  document.getElementById('push-tricep-pushdown').textContent = Math.round(overWeight * 1.5);
+  //pull day
+  document.getElementById('pull-bent-row').textContent = Math.round(weight * 0.6);
+  document.getElementById('pull-mid-row').textContent = Math.round(weight * 0.9);
+  document.getElementById('pull-pull-down').textContent = Math.round(weight * 0.7);
+  document.getElementById('pull-side-delt').textContent = Math.round(weight * 0.1);
+  document.getElementById('pull-front-delt').textContent = Math.round(weight * 0.1);
+  //leg
+  document.getElementById('leg-squat').textContent = Math.round(weight * 1.2);
+  document.getElementById('leg-ext').textContent = Math.round(weight * 0.6);
+  document.getElementById('leg-rdl').textContent = Math.round(weight * 0.9);
+  document.getElementById('leg-raise').textContent = Math.round(weight * 0.6);
+
+  //arm
+  document.getElementById('bicep-curl').textContent = Math.round(weight * 0.14);
+  document.getElementById('cross-curl').textContent = Math.round(weight * 0.4);
+  document.getElementById('cable-curl').textContent = Math.round(weight * 0.43);
+  document.getElementById('skullcrusher').textContent = Math.round(weight * 0.37);
+  document.getElementById('tricep-pushdown').textContent = Math.round(weight * 0.46);
+  document.getElementById('side-delt').textContent = Math.round(weight * 0.1);
+  document.getElementById('front-delt').textContent = Math.round(weight * 0.1);
+
+  //back
+  //back
+  document.getElementById('bent-row').textContent = Math.round(weight * 0.5);
+  document.getElementById('mid-row').textContent = Math.round(weight * 0.42);
+  document.getElementById('cable-pulldown').textContent = Math.round(weight * 0.3);
+  document.getElementById('rear-delt').textContent = Math.round(weight * 0.12);
+  document.getElementById('shoulder-shrug').textContent = Math.round(weight * 0.6);
+
+  //chest
+  document.getElementById('chest-bench-press').textContent = Math.round(weight * 0.5);
+  document.getElementById('chest-cable-flys').textContent = Math.round(weight * 0.23);
+  document.getElementById('chest-decline-press').textContent = Math.round(weight * 0.6);
+  document.getElementById('chest-incline-press').textContent = Math.round(weight * 0.4);
+
+  output.innerHTML = 'Height: ' + Number(localStorage.getItem('height'))  + " Centimeters " + 
+                     ', Weight: ' + Number(localStorage.getItem('weight')) + " Pounds" + 
+                     ', Experience: ' + Number(localStorage.getItem('experience')) + " Months  ";
+}
+storeProfileInfo();
+
+// MAtts Custom exercise
+function addExercise() {
+  var exercise = document.getElementById('customExercise').value;
+  var sets = document.getElementById('customSets').value;
+  var reps = document.getElementById('customReps').value;
+  var weight = document.getElementById('customWeight').value;
+
+  var table = document.getElementById('customWorkoutTable');
+  var row = table.insertRow(-1);
+  row.insertCell(0).innerHTML = exercise;
+  row.insertCell(1).innerHTML = sets;
+  row.insertCell(2).innerHTML = reps;
+  row.insertCell(3).innerHTML = weight;
+  var removeCell = row.insertCell(4);
+  removeCell.innerHTML = '<button onclick="removeExercise(this)" style ="font-size: 20px;">Remove</button>';
+}
+
+function removeExercise(button) {
+  var row = button.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+
+function search() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchbox");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("presetWorkoutTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("th")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+
+</script>
+<script src="js/caloriecounter.js"></script>
+<button id = "setting" onclick="openTab(event, 'sett')">Profile</button>
+
+</body>
+</html>
