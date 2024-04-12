@@ -312,8 +312,9 @@ more text to drive the point home! </p>
         <button class="tablinks exercise-btn" style="padding: 15px 45px;" onclick="openTab(event, 'Customize')">    Customize    </button>
     </div>
 
+    <!-- Implement a tracker --> 
     <h1 style="text-align: center; font-size: 45px;">Calories Burned</h1>
-    <h1 style="text-align: center; font-size: 45px;">300</h1>
+    <h1 style="text-align: center; font-size: 45px;">0</h1>
   </div>
 
   
@@ -762,25 +763,25 @@ more text to drive the point home! </p>
           <th>Bench Press</th>
           <td>3</td>
           <td> 6 -8 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Bench Press','3','6-8')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Overhead Shoulder Press</th>
           <td>2</td>
           <td> 8 - 10</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Overhead Shoulder Press','2','8-10')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Dips</th>
           <td>2</td>
           <td> 10 - 12</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Dips','2','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Chest Fly</th>
           <td>3</td>
           <td> 10 - 12</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Tricep Pushdown </th>
@@ -1245,17 +1246,14 @@ function addExercise() {
   removeCell.innerHTML = '<button onclick="removeExercise(this)" style ="font-size: 20px;">Remove</button>';
 }
 
-function addExerciseDB() {
-  var exercise = document.getElementById('customExercise').value;
-  var sets = document.getElementById('customSets').value;
-  var reps = document.getElementById('customReps').value;
+function addExerciseDB(x,y,z) {
   var weight = document.getElementById('customWeight').value;
 
   var table = document.getElementById('customWorkoutTable');
   var row = table.insertRow(-1);
-  row.insertCell(0).innerHTML = exercise;
-  row.insertCell(1).innerHTML = sets;
-  row.insertCell(2).innerHTML = reps;
+  row.insertCell(0).innerHTML = x;
+  row.insertCell(1).innerHTML = y;
+  row.insertCell(2).innerHTML = z;
   row.insertCell(3).innerHTML = weight;
   var removeCell = row.insertCell(4);
   removeCell.innerHTML = '<button onclick="removeExercise(this)" style ="font-size: 20px;">Remove</button>';
