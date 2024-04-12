@@ -8,15 +8,9 @@
 <!-- import local icons -->
 <link href='style/resources/boxicons/css/boxicons.min.css' rel='stylesheet'>
 
-
-<!-- TODO: import fonts loally! -->
-
-
-<!-- import fonts ONLINE (delete when fonts imported locally) -->
-
-
-<!-- import fonts OFFLINE -->
-<!-- code here -->
+<script type="text/javascript">
+  
+</script>
 
 </head>
 <body>
@@ -312,9 +306,9 @@ more text to drive the point home! </p>
         <button class="tablinks exercise-btn" style="padding: 15px 45px;" onclick="openTab(event, 'Customize')">    Customize    </button>
     </div>
 
-    <!-- Implement a tracker --> 
     <h1 style="text-align: center; font-size: 45px;">Calories Burned</h1>
-    <h1 style="text-align: center; font-size: 45px;">0</h1>
+    <h1 style="text-align: center; font-size: 45px;"><span id="caloriesBurned">0</h1>
+
   </div>
 
   
@@ -346,36 +340,42 @@ more text to drive the point home! </p>
         <th>Sets</th>
         <th>Rep Range</th>
         <th>Weight</th>
+        <th>Done</th>
       </tr>
       <tr>
         <th>Bench Press</th>
         <td>3</td>
         <td> 6 -8 </td>
         <td id="push-bench-weight"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Overhead Shoulder Press</th>
         <td>2</td>
         <td> 8 - 10</td>
         <td id="push-overhead-weight"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Dips</th>
         <td>2</td>
         <td> 10 - 12</td>
         <td> N/A </td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Chest Fly</th>
         <td>3</td>
         <td> 10 - 12</td>
         <td id="push-chest-fly"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Tricep Pushdown </th>
         <td>2</td>
         <td> 10 - 12</td>
         <td id="push-tricep-pushdown"> </td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
     </table>
     
@@ -389,36 +389,42 @@ more text to drive the point home! </p>
         <th>Sets</th>
         <th>Rep Range</th>
         <th>Weight</th>
+        <th>Done</th>
       </tr>
       <tr>
         <th>Bent Over Row</th>
         <td>3</td>
         <td> 8 - 10 </td>
         <td id="pull-bent-row"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Back Pull Downs</th>
         <td>3</td>
         <td> 8 - 10</td>
         <td id="pull-pull-down"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Mid Seated Row</th>
         <td>3</td>
         <td> 10 - 12</td>
         <td id="pull-mid-row"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Front Delt Raise</th>
         <td>2</td>
         <td> 8 - 10 </td>
         <td id="pull-front-delt"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Side Delt Raise</th>
         <td>2</td>
         <td> 8 - 10 </td>
         <td id="pull-side-delt"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
     </table>
   </div>
@@ -430,30 +436,35 @@ more text to drive the point home! </p>
         <th>Sets</th>
         <th>Rep Range</th>
         <th>Weight</th>
+        <th>Done</th>
       </tr>
       <tr>
         <th>Squat</th>
         <td>3</td>
         <td> 6 - 8 </td>
         <td id="leg-squat"> </td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>RDL</th>
         <td>3</td>
         <td> 10 - 12</td>
         <td id="leg-rdl"> </td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Leg Extension</th>
         <td>3</td>
         <td> 10 - 15</td>
         <td id="leg-ext"> </td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Calf Raises</th>
         <td>3</td>
         <td> 10 - 15</td>
         <td id="leg-raise"> </td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
     </table>
   </div>
@@ -484,48 +495,56 @@ more text to drive the point home! </p>
         <th>Sets</th>
         <th>Rep Range</th>
         <th>Weight</th>
+        <th>Done</th>
       </tr>
       <tr>
         <th>Single Arm Bicep Curl</th>
         <td>4</td>
         <td> 10 - 12 </td>
         <td id="bicep-curl"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th> Bicep Crossover Curl</th>
         <td>2</td>
         <td> 10 - 12 </td>
         <td id="cross-curl"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Cable Curl</th>
         <td>2</td>
         <td> 6 - 10</td>
         <td id="cable-curl"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Tricep Pushdown</th>
         <td>3</td>
         <td> 12 - 15 </td>
         <td id="tricep-pushdown"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>SkullCrushers</th>
         <td>4</td>
         <td> 6 -8 </td>
         <td id="skullcrusher"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Side Delt Raise</th>
         <td>2</td>
         <td> 6 -8 </td>
         <td id="side-delt"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Front Delt Raise</th>
         <td>2</td>
         <td> 6 -8 </td>
         <td id="front-delt"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
     </table>
     
@@ -538,36 +557,42 @@ more text to drive the point home! </p>
         <th>Sets</th>
         <th>Rep Range</th>
         <th>Weight</th>
+        <th>Done</th>
       </tr>
       <tr>
         <th>Bent Over Rows</th>
         <td>4</td>
         <td> 10 - 12 </td>
         <td id="bent-row"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Mid Cable Rows</th>
         <td>3</td>
         <td> 6 - 8 </td>
         <td id="mid-row"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Cable Pulldown</th>
         <td>3</td>
         <td> 8- 10 </td>
         <td id="cable-pulldown"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Rear Delt Flys</th>
         <td>2</td>
         <td> 6 - 10 </td>
         <td id="rear-delt"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Shoulder Shurgs</th>
         <td>3</td>
         <td> 15 - 20 </td>
         <td id="shoulder-shrug"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
     </table>
     
@@ -581,30 +606,36 @@ more text to drive the point home! </p>
         <th>Sets</th>
         <th>Rep Range</th>
         <th>Weight</th>
+        <th>Done</th>
+        
       </tr>
       <tr>
         <th>Bench Press</th>
         <td>4</td>
         <td> 10 - 12 </td>
         <td id="chest-bench-press"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Chest Cable Flys</th>
         <td>3</td>
         <td> 6 - 8 </td>
         <td id="chest-cable-flys"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Incline Bench Press</th>
         <td>2</td>
         <td> 6 - 8 </td>
         <td id="chest-incline-press"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
       <tr>
         <th>Decline Bench Press</th>
         <td>2</td>
         <td> 6 - 8 </td>
         <td id="chest-decline-press"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
     </table>
     
@@ -616,8 +647,6 @@ more text to drive the point home! </p>
     <p style="margin: 90px">Running information stuff</p>
       <br><br>
       <div class="button-container">
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'jog')">Jog</button>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'distance')">Distance</button>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'stamina')">Stamina</button>
         <button class="tablinks exercise-btn" onclick="openTab(event, 'intervals')">Intervals</button>
       </div>
@@ -625,44 +654,7 @@ more text to drive the point home! </p>
     <br><br><br>
   </div>
 
-  <div id="jog" class="tabcontent">
-    <h1 style="text-align: center; font-size: 70px;" >Jog</h1>
-    <table style="font-size: 35px;">
-      <tr>
-        <th>Exercise</th>
-        <th>Sets</th>
-        <th>Rep Range</th>
-        <th>Weight</th>
-      </tr>
-      
-      <tr>
-        <th>Decline Bench Press</th>
-        <td>2</td>
-        <td> 6 - 8 </td>
-        <td id="chest-decline-press"></td>
-      </tr>
-    </table>
-    
-  </div>
 
-  <div id="distance" class="tabcontent">
-    <h1 style="text-align: center; font-size: 70px;" >Distance Running Training</h1>
-    <table style="font-size: 35px;">
-      <tr>
-        <th>Exercise</th>
-        <th>Sets</th>
-        <th>Rep Range</th>
-        <th>Weight</th>
-      </tr>
-      
-      <tr>
-        <th>Decline Bench Press</th>
-        <td>2</td>
-        <td> 6 - 8 </td>
-        <td id="chest-decline-press"></td>
-      </tr>
-    </table>
-  </div>
 
   <div id="stamina" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Stamina Training</h1>
@@ -672,13 +664,16 @@ more text to drive the point home! </p>
         <th>Sets</th>
         <th>Rep Range</th>
         <th>Weight</th>
+        <th>done</th>
+        
       </tr>
       
       <tr>
-        <th>Decline Bench Press</th>
+        <th>Sprint</th>
         <td>2</td>
         <td> 6 - 8 </td>
         <td id="chest-decline-press"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
     </table>
     
@@ -692,13 +687,15 @@ more text to drive the point home! </p>
         <th>Sets</th>
         <th>Rep Range</th>
         <th>Weight</th>
+        <th>done</th>
       </tr>
       
       <tr>
-        <th>Decline Bench Press</th>
+        <th>Sprint</th>
         <td>2</td>
         <td> 6 - 8 </td>
         <td id="chest-decline-press"></td>
+        <td><button onclick="burn()" style ="font-size: 20px;">Finished</button></td>
       </tr>
     </table>
     
@@ -730,6 +727,8 @@ more text to drive the point home! </p>
           <th>Sets</th>
           <th>Reps</th>
           <th>Weight</th>
+          <th>Remove</th>
+          <th>Done</th>
         </tr>
       </table>
     </div>
@@ -787,115 +786,115 @@ more text to drive the point home! </p>
           <th>Tricep Pushdown </th>
           <td>2</td>
           <td> 10 - 12</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Tripcep Pushdown','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Bent Over Row</th>
           <td>3</td>
           <td> 8 - 10 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Back Pull Downs</th>
           <td>3</td>
           <td> 8 - 10</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Mid Seated Row</th>
           <td>3</td>
           <td> 10 - 12</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Front Delt Raise</th>
           <td>2</td>
           <td> 8 - 10 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Side Delt Raise</th>
           <td>2</td>
           <td> 8 - 10 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Single Arm Bicep Curl</th>
           <td>4</td>
           <td> 10 - 12 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th> Bicep Crossover Curl</th>
           <td>2</td>
           <td> 10 - 12 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Cable Curl</th>
           <td>2</td>
           <td> 6 - 10</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Tricep Pushdown</th>
           <td>3</td>
           <td> 12 - 15 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>SkullCrushers</th>
           <td>4</td>
           <td> 6 -8 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Mid Cable Rows</th>
           <td>3</td>
           <td> 6 - 8 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Cable Pulldown</th>
           <td>3</td>
           <td> 8- 10 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Rear Delt Flys</th>
           <td>2</td>
           <td> 6 - 10 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Shoulder Shurgs</th>
           <td>3</td>
           <td> 15 - 20 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Squat</th>
           <td>3</td>
           <td> 6 - 8 </td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>RDL</th>
           <td>3</td>
           <td> 10 - 12</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Leg Extension</th>
           <td>3</td>
           <td> 10 - 15</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
         <tr>
           <th>Calf Raises</th>
           <td>3</td>
           <td> 10 - 15</td>
-          <td><button onclick="addExercise()" style ="font-size: 20px;">Add Exercise</button></td>
+          <td><button onclick="addExerciseDB('Chest Fly','3','10-12')" style ="font-size: 20px;">Add Exercise</button></td>
         </tr>
       </table>
     </table>
@@ -904,6 +903,10 @@ more text to drive the point home! </p>
   
 <script>
 // This is the code for the drop down on the meal page
+
+var calories= 0;
+
+
 const mealList = [
   { title: "Meal Plan Option 1", desc:"This is a meal rich in protein.", recipe:"chicken", nut:null},
   { title: "Meal Plan Option 2", desc:"You'll love this meal high in Vitamins for muscles.", recipe:"Food for meal 2", nut:null},
@@ -1244,6 +1247,8 @@ function addExercise() {
   row.insertCell(3).innerHTML = weight;
   var removeCell = row.insertCell(4);
   removeCell.innerHTML = '<button onclick="removeExercise(this)" style ="font-size: 20px;">Remove</button>';
+  var burnCell = row.insertCell(5);
+  burnCell.innerHTML = '<button onclick="burn()" style ="font-size: 20px;">Finished</button>';
 }
 
 function addExerciseDB(x,y,z) {
@@ -1257,11 +1262,19 @@ function addExerciseDB(x,y,z) {
   row.insertCell(3).innerHTML = weight;
   var removeCell = row.insertCell(4);
   removeCell.innerHTML = '<button onclick="removeExercise(this)" style ="font-size: 20px;">Remove</button>';
+  var burnCell = row.insertCell(5);
+  burnCell.innerHTML = '<button onclick="burn()" style ="font-size: 20px;">Finished</button>';
 }
 
 function removeExercise(button) {
   var row = button.parentNode.parentNode;
   row.parentNode.removeChild(row);
+}
+
+function burn() {
+  calories += 50;
+  let disp = document.getElementById("caloriesBurned");
+  disp.innerHTML = calories;
 }
 
 function search() {
