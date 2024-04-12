@@ -475,3 +475,19 @@ button{
   /* Add a grey background color to the table header and on hover */
   background-color: #f1f1f1;
 }
+
+.back-btn {
+  font-size: 30px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  background-color: inherit;
+  font-family: 'Bebas Neue', cursive;
+}
+.search-btn {
+  font-size: 30px;
+  padding: 15px 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: inherit;
+  font-family: 'Bebas Neue', cursive;
+}
