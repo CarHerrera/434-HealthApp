@@ -236,6 +236,13 @@ th {
   position:fixed;
   padding-bottom: 2vh;
 }
+#mealInput{
+  font-size:40px;
+  /* padding: 12px 20px 12px 40px; */
+}
+#filter{
+  font-size:40px;
+}
 .nut_label{
   width:60vw;
   height:69vh;
@@ -309,7 +316,7 @@ body{
 .history_butt{
   bottom:0;
   position:fixed;
-  margin-bottom:10vh;
+  margin-bottom:9.5vh;
 }
 .slide-container{
   width:100%;

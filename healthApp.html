@@ -46,8 +46,6 @@
 
 
     <div id="HOME" class="tabcontent" style="display: none;">
-      <div id="settings-container"> 
-      </div>
           <div class="main-content">
             <div class="summary-content">
               <h1 id="summary-header" style="text-align: center; font-size: 50px;">HOME</h1>
@@ -235,13 +233,39 @@ more text to drive the point home! </p>
               </ul>
             </div>
           </dialog>
+
+          <dialog class="dialog" id="modal-search">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>All Meals</h1>
+              <input  style = "width:100%"type="text" id="mealInput" onkeyup="searchFunction()" placeholder="Search for meals..">
+              <!-- <button id = "filter" style = "width:20%">Filter</button> -->
+              <table id = "mealTable">
+                <tr class = "header">
+                  <th>Meal Name</th>
+                  <!-- <th>Recipe</th>
+                  <th>Nutrition Facts</th> -->
+                </tr>
+                <tbody id="mealBody"></tbody>
+              </table>
+            </div>
+          </dialog>
+
+          <dialog class="dialog" id="modal-generalRec">
+            <div class="dialog__wrapper">
+              <button class="dialog__close">✕</button>
+              <h1>This is the name of the meal</h1>
+              
+            </div>
+          </dialog>
         </div>
       </div>
         
       <div class ="meal_history">
         <button class = "history_butt" onclick="buttonModal(1)" style="font-size: 40px; margin-left: 40px;">View Favorites</button>
-        <button class = "history_butt" style="right:0; font-size: 40px; margin-right: 40px;" onclick="buttonModal(2)" >View Past Meals</button>
-          </div>
+        <button class = "history_butt" onclick="buttonModal(2)" style="right:0; font-size: 40px; margin-right: 40px;">View Past Meals</button>
+        <button class = "history_butt" onclick="buttonModal(3)" style = "right:45%; font-size: 40px;">Search</button>
+      </div>
         </div>
     
   </div>
@@ -822,6 +846,7 @@ const mealList = [
   { title: "Meal Plan Option 8", desc:"This meal is nutrient dense. Great if you're mising a couple of nutrients.", recipe:"Food for meal 8", nut:null},
   { title: "Meal Plan Option 9", desc:"This meal is different from the other meal rich in protein! Tastier too!", recipe:"Food for meal 9", nut:null},
   { title: "Meal Plan Option 10", desc:"This light breakfast is a great way to start your morning.", recipe:"Food for meal 10", nut:null},
+  { title: "chikn", desc:"This is a meal rich in protein.", recipe:"chicken", nut:null},
 ];
 let activeList = [];
 function randomizeList(ogList=mealList, oldList =activeList){
@@ -859,6 +884,47 @@ function populateMeals(list = activeList){
         mealContent[i].children[0].innerHTML = list[i].desc;
     }
 }
+
+function populateMealTable(){
+  const table = document.getElementById("mealBody");
+  mealList.forEach(meal => {
+      let row = table.insertRow();
+      let name = row.insertCell(0);
+      name.innerHTML = meal.title;
+      // let recipe = row.insertCell(1);
+      // // recipe.innerHTML = "";
+      // let a = document.createElement('a');
+      // a.href = "#modal-general";
+      // a.textContent = "Recipe"
+      // recipe.appendChild(a);
+      // let facts = row.insertCell(2);
+      // a = document.createElement('a');
+      // a.href = "#modal-nutrition1";
+      // a.textContent = "Nutritional Facts"
+      // facts.appendChild(a);
+  })
+}
+function searchFunction(){
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("mealInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("mealTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }  
+  }
+}
+
 
 let acc = document.getElementsByClassName("accordion");
 let i;
@@ -923,8 +989,10 @@ function buttonModal(value){
   let id = null;
   if (value == 1) {
     id = "#modal-favorite";
-  } else {
+  } else if (value == 2){
     id = "#modal-history";
+  } else if (value == 3){
+    id = "#modal-search";
   }
   const histModal = document.querySelector(id);
   if(histModal){
@@ -966,8 +1034,19 @@ modalLinks.forEach(function (modalLink, index) {
   // Get modal ID to match the modal
   const modalId = modalLink.getAttribute('href');
   // console.log(modalId);
-  let val = parseInt(modalId.charAt(modalId.length-1)) -1;
-  let type = modalId.charAt(7) == 'r' ? "recipe" : "nut";
+  try{
+    let val = parseInt(modalId.charAt(modalId.length-1)) -1;
+  } catch {
+    let val = 3;
+  }
+  let type = modalId.charAt(7);
+  if (type == "r"){
+      type = "recipe";
+  } else if (type == "n"){
+    type = "nut";
+  } else if (type == "g"){
+    type = "gen"
+  }
   // Click on link
   modalLink.addEventListener('click', function (event) {    
   // Get modal element
@@ -979,8 +1058,11 @@ modalLinks.forEach(function (modalLink, index) {
     if (type == "recipe"){
       elements[1].innerHTML = activeList[val].title + " Recipe";
       elements[2].innerHTML = activeList[val].recipe;
-    } else {
+    } else if (type == "nut") {
       elements[1].innerHTML = activeList[val].title + " Nutrition Facts!";
+    } else if (type == "gen"){
+      elements[1].innerHTML = activeList[val].title + " Recipe";
+      elements[2].innerHTML = activeList[val].recipe;
     }
     const closeBtn = modal.querySelector('.dialog__close');
     event.preventDefault();
@@ -1012,6 +1094,7 @@ window.onload = function() {
   document.querySelector('.tablinks[onclick="openTab(event, \'HOME\')"]').click();
   activeList = [mealList[0],mealList[1],mealList[2]];
   populateMeals(activeList);
+  populateMealTable();
 };
 // Modal Code
 
