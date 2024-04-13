@@ -1105,11 +1105,12 @@ const modalLinks = document.querySelectorAll('a[href^="#modal"]');
 modalLinks.forEach(function (modalLink, index) {
   // Get modal ID to match the modal
   const modalId = modalLink.getAttribute('href');
-  // console.log(modalId);
+  // // console.log(modalId);
+  let val = null;
   try{
-    let val = parseInt(modalId.charAt(modalId.length-1)) -1;
+    val = parseInt(modalId.charAt(modalId.length-1)) -1;
   } catch {
-    let val = 3;
+    val = 3;
   }
   let type = modalId.charAt(7);
   if (type == "r"){
