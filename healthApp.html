@@ -111,12 +111,12 @@ more text to drive the point home! </p>
           
     
         <div class="Meal-Plan">
-          <h1 style="text-align:Center; font-size: 70px;" >Meal Plan</h1>
+          <h1 style="text-align:Center; font-size: 70px;margin-bottom:0px;" >Meal Plan</h1>
           <div>
             <input  style = "width:100%"type="text" id="mealInput" onkeyup="searchFunction()" placeholder="Search for meals..">
           </div>
           <div class = "meal_box">
-            <button id = "meal1"class="accordion" style="font-size: 40px;"> Meal Plan Option 1</button>
+            <button id = "meal1"class="accordion" style="font-size: 40px;margin-bottom: 10px;"> Meal Plan Option 1</button>
             <div class="panel" style="display: none;">
               <div class="meal-plan-grid">
                 <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
@@ -129,9 +129,9 @@ more text to drive the point home! </p>
                 </div>
               </div>
             </div>
-            <br><br>
             
-            <button id = "meal2" class="accordion" style="font-size: 40px;"> Meal Plan Option 2</button>
+            
+            <button id = "meal2" class="accordion" style="font-size: 40px;margin-bottom: 10px;"> Meal Plan Option 2</button>
                 <div class="panel" style="display: none;">
                   <div class="meal-plan-grid">
                     <p>This is text that tells you about all the nutrients of the meal. Then how it helps you achieve yours goal!</p>
@@ -144,7 +144,7 @@ more text to drive the point home! </p>
                     </div>
                   </div>
                 </div>
-                <br><br>   
+                
                 
         <button id = "meal3" class="accordion" style="font-size: 40px;"> Meal Plan Option 3</button>
         <div class="panel" style="display: none;">
@@ -159,7 +159,7 @@ more text to drive the point home! </p>
           </div>
             </div>
           </div>
-        </div>    
+        </div>   
         <div class="modals">
           <dialog class="dialog" id="modal-recipe1">
             <div class="dialog__wrapper">
@@ -903,9 +903,9 @@ var calories= 0;
 
 
 const mealList = [
-  { title: "Meal Plan Option 1", desc:"This is a meal rich in protein.", recipe:"chicken", nut:null},
-  { title: "Meal Plan Option 2", desc:"You'll love this meal high in Vitamins for muscles.", recipe:"Food for meal 2", nut:null},
-  { title: "Meal Plan Option 3", desc:"This meal is packed with nutrients, and has low calories.", recipe:"Food for meal 3", nut:null},
+  { title: "Pesto Chicken Bake", desc:"This is a meal that is incredibly easy to make. It only takes six ingredients.", recipe:"chicken", nut:null},
+  { title: "BBQ Chicken Flatbread Pizza", desc:"This is a fast meaal that is fast to make and easy to eat.", recipe:"Food for meal 2", nut:null},
+  { title: "Ground Turkey Fried Rice", desc:"This is a meal that is great on carbs and helps you feel full without slowing you down!", recipe:"Food for meal 3", nut:null},
   { title: "Meal Plan Option 4", desc:"This meal is a great recovery meal.", recipe:"Food for meal 4", nut:null},
   { title: "Meal Plan Option 5", desc:"This meal can help fill in the vitamins your missing!", recipe:"Food for meal 5", nut:null},
   { title: "Meal Plan Option 6", desc:"This meal will help you feel focused and full.", recipe:"Food for meal 6", nut:null},
