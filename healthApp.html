@@ -111,14 +111,9 @@ more text to drive the point home! </p>
           
     
         <div class="Meal-Plan">
-          <div class = "meal-plan-title">
-            <div style="width: 35%;">
-              <h1 style="text-align:Center; font-size: 70px;" >Meal Plan</h1>
-            </div>
-            <div style="width:50%">
-              <button id="setting" style="margin-right: 12vh;" onclick=populateMeals(randomizeList())>Refresh</button>
-            </div>
-            <br>
+          <h1 style="text-align:Center; font-size: 70px;" >Meal Plan</h1>
+          <div>
+            <input  style = "width:100%"type="text" id="mealInput" onkeyup="searchFunction()" placeholder="Search for meals..">
           </div>
           <div class = "meal_box">
             <button id = "meal1"class="accordion" style="font-size: 40px;"> Meal Plan Option 1</button>
@@ -258,7 +253,7 @@ more text to drive the point home! </p>
       <div class ="meal_history">
         <button class = "history_butt" onclick="buttonModal(1)" style="font-size: 40px; margin-left: 40px;">View Favorites</button>
         <button class = "history_butt" onclick="buttonModal(2)" style="right:0; font-size: 40px; margin-right: 40px;">View Past Meals</button>
-        <button class = "history_butt" onclick="buttonModal(3)" style = "right:45%; font-size: 40px;">Search</button>
+        <button class = "history_butt" onclick=populateMeals(randomizeList()) style = "right:45%; font-size: 40px;">Refresh</button>
       </div>
         </div>
     
