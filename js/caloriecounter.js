@@ -60,15 +60,23 @@ const StorageCtrl = (function(){
   
   const mealInput = document.getElementById("item-name")
   const calorieInput = document.getElementById("item-calories")
+  const proteinInput = document.getElementById("item-protein")
+  const carbsInput = document.getElementById("item-carbs")
+  const fatsInput = document.getElementById("item-fats")
   const mealListDiv = document.getElementById("meal-list")
   const clearButton = document.querySelector(".clear-btn")
   const addButton = document.querySelector(".add-btn")
   const totalCaloriesSpan = document.getElementById("total-calories")
+  const macrosCheckBox = document.getElementById("item-macros")
+  const macrosDiv = document.getElementById("macros")
   
   //Helper functions
   
   const addItemToList = () => {
-    const newMeal  = {meal:mealInput.value, calories: parseInt(calorieInput.value), id: new Date().getTime()}
+    const newMeal  = {meal:mealInput.value, calories: parseInt(calorieInput.value), protein: proteinInput.value?parseInt(proteinInput.value):null,
+      carbs: carbsInput.value?parseInt(carbsInput.value):null,
+      fats: fatsInput.value?parseInt(fatsInput.value):null,
+       id: new Date().getTime()}
     console.log(newMeal)
     StorageCtrl.storeItem(newMeal)
     renderList()
@@ -111,6 +119,9 @@ const StorageCtrl = (function(){
   
   addButton.addEventListener("click", addItemToList)
   clearButton.addEventListener("click", clearItems)
+  macrosCheckBox.addEventListener("change", () => {
+    macrosDiv.classList.toggle("hidden");
+  })
   //Get items from storage, display on meal list
   const init = () => {
     renderList()
