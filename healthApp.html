@@ -307,22 +307,33 @@ more text to drive the point home! </p>
  
   <div id="exerCISE" class="tabcontent">
     <h1 style="text-align: center; font-size: 70px;" >Workout Splits</h1>
-    <p> Choose the workout split that works best for you</p>
-    <p> In order to get the most accurate workout split for you fill out your information by pressing profile</p>
-    <br><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: calc(100% - 40px);">
-        <p>1.5 - 2hrs</p>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'ArnoldSplit')" style="margin-bottom: 20px;">Arnold Split</button>
-        <p>Under 1 hr</p>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'PushPullLegs')" style="margin-bottom: 20px;">Push Pull Legs</button>
-        <p>Let's get moving</p>
-        <button class="tablinks exercise-btn" onclick="openTab(event, 'Cardio')" style="margin-bottom: 20px;">Cardio</button>
-        <p>Create your own</p>
-        <button class="tablinks exercise-btn" style="padding: 15px 45px;" onclick="openTab(event, 'Customize')">    Customize    </button>
+    
+    <h2 class="workout-section" >Exercise Plans</h1>
+    <div class = "exercise-container" >
+        
+        <button class="workout" onclick="openTab(event, 'ArnoldSplit')" >
+          <div class="workout-icon"><i class='bx bx-body' ></i></div>
+          <div class="workout-label">Arnold Split</div>
+        </button>
+        <button class="workout" onclick="openTab(event, 'PushPullLegs')" >
+          <div class="workout-icon"><i class='bx bx-dumbbell' ></i></div>
+          <div class="workout-label">Push Pull Legs</div>
+        </button>
+        <button class="workout" onclick="openTab(event, 'Cardio')">
+          <div class="workout-icon"><i class='bx bx-run' ></i></div>
+          <div class="workout-label">Cardio</div>
+        </button>
     </div>
-
-    <h1 style="text-align: center; font-size: 45px;">Calories Burned</h1>
-    <h1 style="text-align: center; font-size: 45px;"><span id="caloriesBurned">0</h1>
-
+    <h2 class="workout-section" > Custom Workouts</h1>
+      <div class = "exercise-container" >
+        
+        <button class="workout" onclick="openTab(event, 'ArnoldSplit')" >
+          <div class="workout-icon"><i class='bx bxs-book'></i></div>
+          <div class="workout-label">My Workout #1</div>
+        </button>
+        <button class="add-button" onclick="openTab(event, 'Customize')"><i class='bx bx-plus' ></i></button>
+    </div>
+    
   </div>
 
   
@@ -1317,7 +1328,7 @@ function search() {
 
 </script>
 <script src="js/caloriecounter.js"></script>
-<button id = "setting" onclick="openTab(event, 'sett')">Profile</button>
+<!--<button id = "setting" onclick="openTab(event, 'sett')">Profile</button> --> 
 
 </body>
 </html>
