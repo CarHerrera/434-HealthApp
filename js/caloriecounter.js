@@ -82,6 +82,9 @@ const StorageCtrl = (function(){
     renderList()
     mealInput.value = ""
     calorieInput.value = ""
+    proteinInput.value = ""
+    carbsInput.value = ""
+    fatsInput.value = ""
   }
   
   const renderList = () => {
@@ -91,16 +94,26 @@ const StorageCtrl = (function(){
     meals.forEach((item) => {
       const itemDiv = document.createElement("div")
       itemDiv.classList.add("meal-list-item")
-  
-      const pTag = document.createElement("p")
+      const trashDiv = document.createElement("div")
+      trashDiv.classList.add("item-trash")
+      const mealName = document.createElement("h2")
+      const caloriePTag = document.createElement("p")
+      const proteinPTag = document.createElement("p")
+      const carbsPTag = document.createElement("p")
+      const fatsPTag = document.createElement("p")
       const trashIcon = document.createElement("i")
+      trashDiv.append(trashIcon)
       trashIcon.classList.add("bx","bx-trash")
-      pTag.textContent = `${item.meal}: ${item.calories} calories`
+      mealName.textContent = item.meal
+      caloriePTag.textContent = `${item.calories} calories`
+      proteinPTag.textContent = `${item.protein}g protein`
+      carbsPTag.textContent = `${item.carbs}g carbohydrates`
+      fatsPTag.textContent = `${item.fats}g fats`
         trashIcon.addEventListener('click', () => {
             StorageCtrl.deleteItemFromStorage(item.id)
             renderList()
         })
-      itemDiv.append(pTag, trashIcon)
+      itemDiv.append(trashDiv,mealName, caloriePTag, proteinPTag, carbsPTag, fatsPTag)
       mealListDiv.append(itemDiv)
     })
   }

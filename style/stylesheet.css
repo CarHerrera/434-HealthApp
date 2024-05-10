@@ -433,7 +433,6 @@ button{
 
 #item-calories, #item-protein, #item-carbs, #item-fats {
   width: 50px;
-  margin-right: 10px;
 }
 
 #calorie-content h2 {
@@ -442,13 +441,40 @@ button{
 
 #meal-list {
   font-size: 20px;
+  max-height: 500px;
+  margin-bottom: 10px;
+ 
+  padding: 20px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: black gray;
 }
 
 .meal-list-item {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 300px;
+  background-color: #01baef;
+  margin: 10px 0;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.item-trash {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.meal-list-item p {
+  margin: 0px;
+}
+
+.meal-list-item h2 {
+  margin: 2px 0 5px 0;
 }
 
 .bx-trash {
@@ -458,6 +484,10 @@ button{
 
 .bx-trash:hover {
   color: red;
+}
+
+#item-name {
+  border: 1px solid black;
 }
 
 #workouts {
